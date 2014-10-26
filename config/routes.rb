@@ -1,4 +1,7 @@
 Team::Application.routes.draw do
+  resources :users
+  match 'signin' => 'users#signin'
+  match 'signinChk' => 'users#signinChk' , :via => 'post'
   root :to => 'index#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

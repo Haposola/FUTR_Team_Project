@@ -1,0 +1,58 @@
+<div class="topBar">
+    Here is our logo
+    <div class="sign">
+        <%= link_to 'signin', signin_path %> |
+        <%= link_to 'signup', new_user_path %>
+    </div>
+</div>
+<div class = "others">
+<p id = "notice"><%= notice %></p>
+<h1>New user</h1>
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<table>
+       	<tr>
+           		<td><%= f.label :"E-mail" %></td>
+            		<td>*</td>
+            		<td><%= f.text_field :email %></td>
+        	</tr>
+        	<tr>
+            		<td><%= f.label :"Nickname" %></td>
+            		<td>*</td>
+            		<td><%= f.text_field :nickname %></td>
+        	</tr>
+        	<tr>
+            		<td><%= f.label :"Password" %></td>
+            		<td>*</td>
+            		<td><%= f.password_field :password %></td>
+       	</tr>
+        	<tr>
+            		<td><%= f.label :"Confirm Password" %></td>
+            		<td>*</td>
+            		<td><%= f.password_field :password_confirmation %></td>
+        	</tr>
+        	<tr>
+            		<td><%= f.label :"Name" %></td>
+            		<td></td>
+            		<td><%= f.text_field :name %></td>
+        	</tr>
+        	<tr>
+            		<td><%= f.label :"Nation" %></td>
+            		<td></td>
+            		<td><%= f.text_field :nation %></tr>
+        	</tr>
+    </table>
+    <%= f.submit 'signup' %>
+<% end %>
+
+<%= link_to 'Back', users_path %>
+</div>

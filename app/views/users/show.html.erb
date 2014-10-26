@@ -1,0 +1,44 @@
+<h1>This is our UserFrontPage</h1>
+
+<div id = "userSideBar">
+    This is a side bar<br />
+    About what a user can do<br />
+    Like ....<br />
+    <a></a>
+    Ask a question<br />
+    Put a activity<br />
+    ....<br />
+</div>
+
+<div id ="userContent">
+<p id="notice"><%= notice %></p>
+<p>Welcome! <%= @user.nickname %></p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user.password %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @user.nickname %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Nation:</b>
+  <%= @user.nation %>
+</p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+</div>
+
+
