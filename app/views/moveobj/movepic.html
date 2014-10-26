@@ -1,0 +1,80 @@
+<html> 
+<head>
+<title>Move_picture</title>
+<style type="text/css"> 
+#window {
+	width:300px;
+	height:300px;
+	border: 300px solid #ccc;
+	background-image: url(11.jpg);
+	background-repeat: no-repeat;
+	cursor: move;
+}
+
+</style>
+<div id="img" src="11.jpg"></div>
+<script type="text/javascript"> 
+<!--
+var p = new Array();
+var speed = 0.03; 
+var picWidth=500;
+var picHeight=650;
+var x,y; 
+var x_new,y_new;
+var haveclick = false;
+ 
+function getmouseposition(event)
+{
+	if(document.all)
+	{
+		x = document.body.scrollLeft+event.clientX;
+		y = document.body.scrollTop+event.clientY;
+	}else
+	{
+		x = event.layerX;
+		y = event.layerY;
+	}	
+	haveclick = true;
+}
+function movestop()
+{
+	haveclick = false;
+}
+ 
+function movestart(event)
+{
+if(haveclick)
+{
+	if(document.getElementById("window").style.backgroundPosition.length==0)
+		{document.getElementById("window").style.backgroundPosition="0px 0px";}
+	p = document.getElementById("window").style.backgroundPosition.split(" ")
+ 
+	if(document.all)
+	{	
+		x_new = document.body.scrollLeft+event.clientX;
+		y_new = document.body.scrollTop+event.clientY;
+	}else
+	{	 
+		x_new = event.layerX;
+		y_new = event.layerY;	
+	}
+	
+	x2 = (speed*(x_new-x)+parseInt(p[0])).toString(10); 
+	y2 = (speed*(y_new-y)+parseInt(p[1])).toString(10);
+	
+	if (x2<300-picWidth) x2=300-picWidth;
+	if (y2>0) y2=0;
+	if (x2>0) x2=0;
+	if (y2<300-picHeight) y2=300-picHeight;
+ 	document.getElementById("window").style.backgroundPosition=x2+"px "+y2+"px";
+}
+}
+-->
+</script>
+</head>
+ 
+<body>
+<div id="window" onmousedown="getmouseposition(event)" onmousemove="movestart(event)" 
+                 onmouseup="movestop()" onmouseout="movestop()" > </div>
+</body>
+</html>

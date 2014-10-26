@@ -1,0 +1,4 @@
+class MoveobjController < ApplicationController
+  def move
+  end
+end
