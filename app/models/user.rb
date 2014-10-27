@@ -18,7 +18,17 @@ class User < ActiveRecord::Base
   end
   def self.get_key(email)
   	transaction do 
-  		User.find(:first, :conditions => ["email = ?", email ]).pwd_key
+  		user = User.find(:first, :conditions => ["email = ?", email ])
+             if user && user != nil 
+                return user.pwd_key
+             else 
+              return ""
+            end
   	end
+  end
+  def self.try_to_signin(email)
+    transaction do
+      User.find(:first, :conditions => ["email = ?", email])
+    end
   end
 end

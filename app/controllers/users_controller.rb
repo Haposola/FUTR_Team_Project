@@ -104,21 +104,26 @@ class UsersController < ApplicationController
 
   def signinChk
       @msg =1
-      a= params[:user]
-      email= a[:email]
-      password = a[:password]
-      @usr_key = User.get_key(email)
-      @tr_pwd = User.enc(password,@usr_key)
-      if(   User.where(  email: email, password: @tr_pwd   ).exists?      )  
-          @res=1 
-          @user =User.where(  email: email, password: @tr_pwd   ).first
-          cookies[:riskfit_token]={:value => @usr_key, :expires => Time.now + 1.days}
-          redirect_to @user
-      else 
-        @res =0
-        @user=User.new
+      signin_usr = User.try_to_signin(params[:user][:email])
+      if signin_usr && signin_usr!= nil
+      	password = params[:user][:password]
+      	@usr_key = signin_usr.pwd_key
+      	@tr_pwd = User.enc(password,@usr_key)
+      	if(   signin_usr.password == @tr_pwd      )  
+          		@res=1 
+          		cookies[:riskfit_token]={:value => User.random_string(30), :expires => Time.now + 1.days}
+          		SignedInLog.create(:email =>signin_usr.email, :token =>cookies[:riskfit_token])
+          		redirect_to signin_usr
+      	else 
+        		@res =0
+        		@user=User.new
+              	render 'signin.html.erb'
+      	end
+      else
+      	@res =-1
+        	@user=User.new
               render 'signin.html.erb'
-      end
+       end
   end
 
   def logout
