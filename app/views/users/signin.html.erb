@@ -9,6 +9,8 @@
 <% if @msg == 0 || @res == 0%>
 	<% if @res == 0 %>
 		<p style= "color: red">Username or password is wrong</p>
+		<%= @usr_key %>
+		<%= @tr_pwd %>
 	<% end %>
 	<%= form_for (@user), url: 'signinChk' do |f|%>
 	<table>

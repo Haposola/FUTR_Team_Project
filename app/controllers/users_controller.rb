@@ -41,7 +41,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     
-    @user = User.new(params[:user])
+    email = params[:user][:email]
+    password = params[:user][:password]
+    pwd_confirm = params[:user][:password_confirmation]
+    nick = params[:user][:nickname]
+    pwd_key = User.random_string(20)
+    enc_pwd = User.enc(password,pwd_key)
+    enc_confirm = User.enc(pwd_confirm,pwd_key)
+    name = params[:user][:name]
+    nation = params[:user][:nation]
+    @user = User.new(:email => email, :password => enc_pwd, :nickname =>nick,
+                                      :password_confirmation => enc_confirm, :pwd_key => pwd_key, :name => name, :nation => nation)
 
     respond_to do |format|
       if  User.where(email: @user.email).first !=nil
@@ -95,16 +105,19 @@ class UsersController < ApplicationController
   def signinChk
       @msg =1
       a= params[:user]
-      @email= a[:email]
-      @password = a[:password]
-      if(   User.where(  email: @email, password: @password   ).exists?      )  
+      email= a[:email]
+      password = a[:password]
+      @usr_key = User.get_key(email)
+      @tr_pwd = User.enc(password,@usr_key)
+      if(   User.where(  email: email, password: @tr_pwd   ).exists?      )  
           @res=1 
-          @user =User.where(  email: @email, password: @password   ).first
+          @user =User.where(  email: email, password: @tr_pwd   ).first
           redirect_to @user
       else 
+
         @res =0
         @user=User.new
-              render'signin.html.erb'
+              render 'signin.html.erb'
       end
 
 
