@@ -127,6 +127,7 @@ class UsersController < ApplicationController
   end
 
   def logout
+    SignedInLog.find(:first, :conditions =>["token = ?",cookies[:riskfit_token]]).destroy
     cookies.delete :riskfit_token
     redirect_to :controller => 'index', :action =>'index'
   end
