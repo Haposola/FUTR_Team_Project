@@ -41,7 +41,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     
-    @user = User.new(params[:user])
+    email = params[:user][:email]
+    password = params[:user][:password]
+    pwd_confirm = params[:user][:password_confirmation]
+    nick = params[:user][:nickname]
+    pwd_key = User.random_string(20)
+    enc_pwd = User.enc(password,pwd_key)
+    enc_confirm = User.enc(pwd_confirm,pwd_key)
+    name = params[:user][:name]
+    nation = params[:user][:nation]
+    @user = User.new(:email => email, :password => enc_pwd, :nickname =>nick,
+                                      :password_confirmation => enc_confirm, :pwd_key => pwd_key, :name => name, :nation => nation)
 
     respond_to do |format|
       if  User.where(email: @user.email).first !=nil
@@ -94,21 +104,32 @@ class UsersController < ApplicationController
 
   def signinChk
       @msg =1
-      a= params[:user]
-      @email= a[:email]
-      @password = a[:password]
-      if(   User.where(  email: @email, password: @password   ).exists?      )  
-          @res=1 
-          @user =User.where(  email: @email, password: @password   ).first
-          redirect_to @user
-      else 
-        @res =0
-        @user=User.new
-              render'signin.html.erb'
-      end
-
-
-    
-
+      signin_usr = User.try_to_signin(params[:user][:email])
+      if signin_usr && signin_usr!= nil
+      	password = params[:user][:password]
+      	@usr_key = signin_usr.pwd_key
+      	@tr_pwd = User.enc(password,@usr_key)
+      	if(   signin_usr.password == @tr_pwd      )  
+          		@res=1 
+          		cookies[:riskfit_token]={:value => User.random_string(30), :expires => Time.now + 1.days}
+          		SignedInLog.create(:email =>signin_usr.email, :token =>cookies[:riskfit_token])
+          		redirect_to signin_usr
+      	else 
+        		@res =0
+        		@user=User.new
+              	render 'signin.html.erb'
+      	end
+      else
+      	@res =-1
+        	@user=User.new
+              render 'signin.html.erb'
+       end
   end
+
+  def logout
+    SignedInLog.find(:first, :conditions =>["token = ?",cookies[:riskfit_token]]).destroy
+    cookies.delete :riskfit_token
+    redirect_to :controller => 'index', :action =>'index'
+  end
+
 end

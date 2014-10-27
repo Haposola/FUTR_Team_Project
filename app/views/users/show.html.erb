@@ -8,6 +8,7 @@
     Ask a question<br />
     Put a activity<br />
     ....<br />
+    <%= link_to 'logout',  :action => 'logout' %>
 </div>
 
 <div id ="userContent">
@@ -37,6 +38,8 @@
   <b>Nation:</b>
   <%= @user.nation %>
 </p>
+<%= @user.pwd_key %><br />
+<%= cookies[:riskfit_token] %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 </div>

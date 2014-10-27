@@ -1,14 +1,19 @@
 <div class="topBar">
 	Here is our logo
-	<div class="sign">
-		<%= link_to 'signin', signin_path %> |
-		<%= link_to 'signup', new_user_path %>
-	</div>
+	
+		<div class="sign">
+			<%= link_to 'signin', signin_path %> |
+			<%= link_to 'signup', new_user_path %>
+		</div>
+
 </div>
 <div class ="others">
-<% if @msg == 0 || @res == 0%>
+<% if @msg == 0 || @res !=1%>
 	<% if @res == 0 %>
 		<p style= "color: red">Username or password is wrong</p>
+	<% end %>
+	<% if @res == -1 %>
+		<p style= "color: red">User not exist</p>
 	<% end %>
 	<%= form_for (@user), url: 'signinChk' do |f|%>
 	<table>

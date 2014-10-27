@@ -21,6 +21,12 @@
 	background-color: lightblue;
 
 }
+.usrtop{
+	position:fixed;
+	top:15px;
+	right:20px;
+}
+
 .sign{
 	position:fixed;
 	top:15px;
