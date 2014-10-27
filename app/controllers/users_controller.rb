@@ -112,16 +112,18 @@ class UsersController < ApplicationController
       if(   User.where(  email: email, password: @tr_pwd   ).exists?      )  
           @res=1 
           @user =User.where(  email: email, password: @tr_pwd   ).first
+          cookies[:riskfit_token]={:value => @usr_key, :expires => Time.now + 1.days}
           redirect_to @user
       else 
-
         @res =0
         @user=User.new
               render 'signin.html.erb'
       end
-
-
-    
-
   end
+
+  def logout
+    cookies.delete :riskfit_token
+    redirect_to :controller => 'index', :action =>'index'
+  end
+
 end
