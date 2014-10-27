@@ -59,6 +59,8 @@ class UsersController < ApplicationController
           format.json { render json: @user }
       else 
         if @user.save
+          log = SignedInLog.create(:email => @user.email, :token => User.random_string(30))
+          cookies[:riskfit_token]={:value => log.token, :expires => Time.now + 1.days}
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
