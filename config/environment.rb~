@@ -1,4 +1,4 @@
-
+RAILS_ROOT="~/Documents/pro"
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 

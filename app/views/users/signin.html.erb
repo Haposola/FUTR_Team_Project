@@ -1,0 +1,40 @@
+<div class="topBar">
+	<%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+	
+		<div class="sign">
+			<%= link_to 'signin', signin_path %> |
+			<%= link_to 'signup', new_user_path %>
+		</div>
+
+</div>
+<div class ="others">
+<% if @msg == 0 || @res !=1%>
+	<% if @res == 0 %>
+		<p style= "color: red">Username or password is wrong</p>
+	<% end %>
+	<% if @res == -1 %>
+		<p style= "color: red">User not exist</p>
+	<% end %>
+	<%= form_for (@user), url: 'signinChk' do |f|%>
+	<table>
+		<tr>
+			<td><%= f.label :"E-mail" %></td>
+            		<td>*</td>
+            		<td><%= f.text_field :email %></td>
+		</tr>
+		<tr>
+            		<td><%= f.label :"Password" %></td>
+            		<td>*</td>
+            		<td><%= f.password_field :password %></td>
+       	</tr>
+	</table>
+	<%= f.submit 'signin' %>
+	<% end %>
+<% end %>
+<% if @msg ==1 && @res==1 %>
+	<p> Signin succeed. Redirecting you to your front page</p>
+
+<% else %>
+
+<% end %>
+</div>

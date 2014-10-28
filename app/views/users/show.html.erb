@@ -1,0 +1,60 @@
+<div class="topBar">
+  <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+  <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
+    <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
+    <div class = "usrtop">
+      <%= link_to @user.nickname, @user %>
+    </div>
+  <% else %>
+    <div class="sign">
+      <%= link_to 'signin', "signin" %> |
+      <%= link_to 'signup', new_user_path %>
+    </div>
+  <% end %>
+</div>
+
+<div id = "userSideBar">
+    This is a side bar<br />
+    About what a user can do<br />
+    Like ....<br />
+    <a></a>
+    Ask a question<br />
+    Put a activity<br />
+    ....<br />
+    <%= link_to 'logout',  :action => 'logout' %>
+</div>
+
+<div id ="userContent">
+<p id="notice"><%= notice %></p>
+<p>Welcome! <%= @user.nickname %></p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user.password %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @user.nickname %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Nation:</b>
+  <%= @user.nation %>
+</p>
+<%= @user.pwd_key %><br />
+<%= cookies[:riskfit_token] %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+</div>
+
+
