@@ -3,10 +3,10 @@
 <title>Move_picture</title>
 <style type="text/css"> 
 #window {
-	width:300px;
-	height:300px;
-	border: 300px solid #ccc;
-	background-image: url(11.jpg);
+	width:800px;
+	height:800px;
+	border: 100px solid #ccc;
+	background-image: url('assets/0.jpg');
 	background-repeat: no-repeat;
 	cursor: move;
 }
@@ -17,8 +17,8 @@
 <!--
 var p = new Array();
 var speed = 0.03; 
-var picWidth=500;
-var picHeight=650;
+var picWidth=2567;
+var picHeight=1613;
 var x,y; 
 var x_new,y_new;
 var haveclick = false;
@@ -62,10 +62,10 @@ if(haveclick)
 	x2 = (speed*(x_new-x)+parseInt(p[0])).toString(10); 
 	y2 = (speed*(y_new-y)+parseInt(p[1])).toString(10);
 	
-	if (x2<300-picWidth) x2=300-picWidth;
+	if (x2<800-picWidth) x2=800-picWidth;
 	if (y2>0) y2=0;
 	if (x2>0) x2=0;
-	if (y2<300-picHeight) y2=300-picHeight;
+	if (y2<800-picHeight) y2=800-picHeight;
  	document.getElementById("window").style.backgroundPosition=x2+"px "+y2+"px";
 }
 }

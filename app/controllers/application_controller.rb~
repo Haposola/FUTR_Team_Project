@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  bfore_filter:set_charset
-  def set_charset
-    @headers["Content-Type"]="text/html;charset=gb2312"
+  
   end
 end

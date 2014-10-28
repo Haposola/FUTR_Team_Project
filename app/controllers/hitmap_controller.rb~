@@ -1,4 +1,4 @@
 class MoveobjController < ApplicationController
-  def index
+  def movepic
   end
 end
