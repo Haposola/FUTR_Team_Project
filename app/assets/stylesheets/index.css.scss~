@@ -6,7 +6,7 @@
 Design by http://www.templateaccess.com
 Released for free under a Creative Commons Attribution 3.0 License
 */
-body { margin:0; padding:0; width:100%; color:#959595; font:normal 12px/1.8em Arial, Helvetica, sans-serif; background:url(asserts/hbg_img.jpg) no-repeat center 100px ;}
+body { margin:0; padding:0; width:100%; color:#959595; font:normal 12px/1.8em Arial, Helvetica, sans-serif; background:url(images/hbg_img.jpg) no-repeat center 100px ;}
 html, .main { padding:0; margin:0;}
 .main { }
 .clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
@@ -39,8 +39,8 @@ a.com { }
 .content .mainbar { margin:0; padding:8px 0; float:right; width:770px;}
 
 .content .mainbar .article {background-color: pink; margin:0; padding:8px 24px 8px 40px; height: 400px;}
-.content .mainbar .article .activity { background:url(asserts/notyet.jpg) no-repeat center;float:left; margin:0; padding:0; width:330px; height: 400px;}
-.content .mainbar .article .server { background:url(asserts/notyet.jpg) no-repeat center;float:right; margin:0; padding:0; width:330px; height: 400px;}
+.content .mainbar .article .activity { background:url(notyet.jpg) no-repeat center;float:left; margin:0; padding:0; width:330px; height: 400px;}
+.content .mainbar .article .server { background:url(notyet.jpg) no-repeat center;float:right; margin:0; padding:0; width:330px; height: 400px;}
 .content .sidebar {margin:0; padding:8px 0;float:left; width:200px; height:816px;background-color: yellow;}
 .content .sidebar .gadget { margin:0; padding:8px 16px 8px 40px; }
 ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none; color:#959595;}
@@ -48,13 +48,13 @@ ul.sb_menu li, ul.ex_menu li { margin:0;}
 ul.sb_menu li { padding:4px 0; width:220px;}
 ul.ex_menu li { padding:4px 0;}
 ul.sb_menu li a, ul.ex_menu li a { color:#959595; text-decoration:none; margin-left:-12px; padding-left:12px;}
-ul.sb_menu li a:hover, ul.ex_menu li a:hover { color:#20bac6; font-weight:bold; background:url(asserts/li_a.gif) no-repeat left center;}
+ul.sb_menu li a:hover, ul.ex_menu li a:hover { color:#20bac6; font-weight:bold; background:url(images/li_a.gif) no-repeat left center;}
 ul.sb_menu li a:hover { text-decoration:underline;}
 ul.ex_menu li a:hover { text-decoration:none;}
 
 
 /* fbg */
-.fbg { background:url(asserts/fbg_bg.jpg) repeat-x center bottom;}
+.fbg { background:url(images/fbg_bg.jpg) repeat-x center bottom;}
 .fbg_resize { margin:0 auto; width:990px; padding:24px 40px 12px;}
 .fbg ul li { padding:4px 0;}
 .fbg a { margin:0; padding:2px 4px;}
