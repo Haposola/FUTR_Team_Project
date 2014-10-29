@@ -32,7 +32,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/1.json
   def show
     @activity = Activity.find(params[:id])
-
+    @q_about_act = QAboutAct.new
+    @q_about_act.activity_id = @activity.id
+    @questions = QAboutAct.where("activity_id = ?", @activity.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @activity }
@@ -60,6 +62,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params[:activity])
 
+    @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).nickname
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
@@ -97,5 +100,13 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to :action =>'list', :id =>1 }
       format.json { head :no_content }
     end
+  end
+  def newQuestion
+    actId = params[:id]
+    @question = QAboutAct.new(params[:q_about_act])
+    @question.activity_id = actId
+    @question.qustioner = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @question.save
+    redirect_to Activity.find(actId)
   end
 end

@@ -1,19 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="topBar">
+    <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
+        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
+        <div class = "usrtop">
+            <%= link_to @user.nickname, @user %>
+        </div>
+    <% else %>
+        <div class="sign">
+            <%= link_to 'signin', :controller => 'users', :action => 'signin' %> |
+            <%= link_to 'signup', new_user_path %>
+        </div>
+    <% end %>
+</div>
 
-<p>
-  <b>Owner:</b>
-  <%= @activity.owner %>
-</p>
+<div class ="others">
+    <div class ="actSideBar">
+      This is activity side bar;
+      <% if log && log != nil%>
+        <%= link_to 'New Activity', new_activity_path %>
+      <% end %>
+    </div>
+    <div class ="actContent">
+          <span style  ="font-size: 40px"><%= @activity.name %></span>
+      <div class = "actInfo">
 
-<p>
-  <b>Name:</b>
-  <%= @activity.name %>
-</p>
+      <br /> <br /> <br /> <br />
+      <span><b>Owner:</b> <%= @activity.owner %></span>
 
-<p>
-  <b>Tim:</b>
+<div>
+  <b>Time:</b>
   <%= @activity.tim %>
-</p>
+</div>
 
 <p>
   <b>Peonum:</b>
@@ -30,6 +47,23 @@
   <%= @activity.description %>
 </p>
 
+<div class = "actQA">
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
+  <% @questions.each do |q|%>
+    <div class = "question">
+      <%=  q.qustion %>
+
+    </div>
+  <% end %>
+
+  <b>I have some questions about this activity ... </b>
+  <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
+    <%= f.text_area :qustion, :size => "30x5" %>
+    <%= f.submit %>
+
+  <% end %>
+</div>
+<br />
 <%= link_to 'Back', activities_path %>
+</div>
+</div>

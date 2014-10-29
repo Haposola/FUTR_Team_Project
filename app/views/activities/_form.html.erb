@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :owner %><br />
-    <%= f.text_field :owner %>
-  </div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -36,6 +33,6 @@
     <%= f.text_field :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'set up this act', :owner => "hhh" %>
   </div>
 <% end %>
