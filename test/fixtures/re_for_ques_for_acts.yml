@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  q_about_act_id: 1
+  replier: MyString
+  answer: MyString
+
+two:
+  q_about_act_id: 1
+  replier: MyString
+  answer: MyString
