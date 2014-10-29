@@ -1,3 +1,36 @@
 // Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.actSideBar{
+	position : fixed;
+	top: 50px;
+	left: 10px;
+	overflow: hidden;
+	float: left;
+	width: 150px;
+	height:100%;
+	margin: 10px 10px 10px 10px;
+	border-right: solid 2px;
+}
+
+.actContent{
+	position: absolute;
+	left: 220px;
+}
+
+
+.activity {
+	position:relative;
+	width : 650px;
+	height:150px;
+	border : 1px solid;
+	margin-top : 10px ;
+	left: 200px;
+}
+
+
+
+	.time{
+		position:absolute;
+		right:0px;
+	}

@@ -1,0 +1,41 @@
+<div class="topBar">
+    <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
+        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
+        <div class = "usrtop">
+            <%= link_to @user.nickname, @user %>
+        </div>
+    <% else %>
+        <div class="sign">
+            <%= link_to 'signin', :controller => 'users', :action => 'signin' %> |
+            <%= link_to 'signup', new_user_path %>
+        </div>
+    <% end %>
+</div>
+
+<div class ="others">
+    <div class ="actSideBar">
+        This is activity side bar;
+        <% if log && log != nil%>
+    <%= link_to 'New Activity', new_activity_path %>
+    <% end %>
+    </div>
+
+    <div class = "actContent">
+
+        <% @activities.each do |activity| %>
+        <div class ="activity">
+            <span class = "name"><%= link_to activity.name, activity %></span>
+            <span class = "time"><%=  activity.tim %></span>
+            <hr>
+            <span class = "description"><%= activity.description %></span>
+        </div>
+        <% end %>
+        <br />
+
+        <%  for i in 1..@pagetotal %>
+            <span><%= link_to "#{i}", :controller => "activities", :action =>"list", :id =>i %>
+            </span>
+        <% end %>
+        </div>
+</div>

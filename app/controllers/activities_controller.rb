@@ -1,6 +1,24 @@
 class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
+  def list
+    @pagenum = params[:id].to_i-1
+    activities = Activity.all
+    @pagetotal = activities.length/10+1
+    activitiestmp= []
+    activities.each do |a|
+      activitiestmp << a
+    end
+    @activities = []
+    for i in 0..9 do 
+      if @pagenum*10+i <activitiestmp.length
+        @activities << activitiestmp[@pagenum*10+i]
+      end
+    end
+
+  end
+
+
   def index
     @activities = Activity.all
 
@@ -76,7 +94,7 @@ class ActivitiesController < ApplicationController
     @activity.destroy
 
     respond_to do |format|
-      format.html { redirect_to activities_url }
+      format.html { redirect_to :action =>'list', :id =>1 }
       format.json { head :no_content }
     end
   end

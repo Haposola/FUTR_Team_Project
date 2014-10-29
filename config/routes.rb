@@ -1,8 +1,8 @@
 Team::Application.routes.draw do
   resources :activities
-
-
   resources :users
+
+  match 'activities/page/:id' => 'activities#list'
   match 'signin' => 'users#signin'
   match 'signinChk' => 'users#signinChk' , :via => 'post'
   match 'logout' =>'users#logout'
