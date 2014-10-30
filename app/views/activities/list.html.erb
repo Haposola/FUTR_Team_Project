@@ -1,22 +1,9 @@
-<div class="topBar">
-    <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-        <div class = "usrtop">
-            <%= link_to @user.nickname, @user %>
-        </div>
-    <% else %>
-        <div class="sign">
-            <%= link_to 'signin', :controller => 'users', :action => 'signin' %> |
-            <%= link_to 'signup', new_user_path %>
-        </div>
-    <% end %>
-</div>
+
 
 <div class ="others">
     <div class ="actSideBar">
         This is activity side bar;
-        <% if log && log != nil%>
+        <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
     <%= link_to 'New Activity', new_activity_path %>
     <% end %>
     </div>
@@ -24,7 +11,7 @@
     <div class = "actContent">
 
         <% @activities.each do |activity| %>
-        <div class ="activity">
+        <div class ="activities">
             <span class = "name"><%= link_to activity.name, activity %></span>
             <span class = "time"><%=  activity.tim %></span>
             <hr>

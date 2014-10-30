@@ -1,56 +1,48 @@
-<div class="topBar">
-  <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-  <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-    <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-    <div class = "usrtop">
-      <%= link_to @user.nickname, @user %>
-    </div>
-  <% else %>
-    <div class="sign">
-      <%= link_to 'signin', "signin" %> |
-      <%= link_to 'signup', new_user_path %>
-    </div>
-  <% end %>
-</div>
 
-<div id = "userSideBar">
-    This is a side bar<br />
-    About what a user can do<br />
-    Like ....<br />
-    <a></a>
-    Ask a question<br />
-    Put a activity<br />
-    ....<br />
-    <%= link_to 'logout',  :action => 'logout' %>
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Personal</title>
 
-<div id ="userContent">
-<p id="notice"><%= notice %></p>
-<p>Welcome! <%= @user.nickname %></p>
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+</head>
 
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
+<body>
+  <div class="others">
+     <div class="sidebar">
+      <div id = "userSideBar">
+            This is a side bar<br />
+            About what a user can do<br />
+            Like ....<br />
+            <a></a>
+            <div>
+             <ul>      
+               <li><h4><a href="#">Ask a question</a></h4></li>
+               <li><h4><a href="#">Put a activity</a></h4></li>
+               <li><h4><%= link_to 'logout',  :action => 'logout' %></h4></li>
+            </ul>
+            </div>
+            
 
-<p>
-  <b>Nickname:</b>
-  <%= @user.nickname %>
-</p>
+       </div>
+     </div>
+     <div class="mainbar">
+        <div id ="userContent">
+          <p id="notice"><%= notice %></p>
+          <p>Welcome! <%= @user.nickname %></p>
+          <p><b>Email:</b><%= @user.email %>
+          </p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+          <p><b>Password:</b>
+             <%= @user.password %>
+          </p>
 
-<p>
-  <b>Nation:</b>
-  <%= @user.nation %>
-</p>
+          <p><b>Nickname:</b>
+          <%= @user.nickname %>
+          </p>
+
+          <p><b>Name:</b><%= @user.name %>
+          </p>
+          <p><b>Nation:</b><%= @user.nation %></p>
+
 <p>My Activities</p>
 <% @myAct.each do |a|%>
 <div>
@@ -64,8 +56,12 @@
 </div>
 <% end %>
 <br/>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-</div>
 
+            <%= link_to 'Edit', edit_user_path(@user) %> 
+            <%= link_to 'Back', users_path %>
+        </div>
 
+      </div>
+
+  </div></body>
+</html>

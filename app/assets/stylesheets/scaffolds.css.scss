@@ -20,13 +20,10 @@ pre {
 
 a {
   color: #000;
+  &:hover{
+  color: #333
+  }
 
-  &:hover:before {
-    content: '[';
-  }
-  &:hover:after{
-    content: ']';
-  }
 }
 
 div {

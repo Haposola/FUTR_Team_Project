@@ -2,6 +2,8 @@ Team::Application.routes.draw do
 
   root :to => 'index#index'
 
+
+  match 'index' =>'index#index'
   resources :activities
   resources :users
 
@@ -18,6 +20,7 @@ Team::Application.routes.draw do
 
 
   match 'hitmap' => 'hitmap#index'
+
 
 
   #resources :outservices
@@ -45,7 +48,7 @@ Team::Application.routes.draw do
   #match 'outservices/restaurant/:name/:nickname/:comment',:to =>'outservices#delete_restaurant_comments' , :via =>'delete', :as=>'delete_restaurant_comments'
 
 
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
