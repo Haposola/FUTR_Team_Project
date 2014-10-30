@@ -1,15 +1,7 @@
-<div class="topBar">
+<div>
     <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
     <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
         <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-        <div class = "usrtop">
-            <%= link_to @user.nickname, @user %>
-        </div>
-    <% else %>
-        <div class="sign">
-            <%= link_to 'signin', :controller => 'users', :action => 'signin' %> |
-            <%= link_to 'signup', new_user_path %>
-        </div>
     <% end %>
 </div>
 
@@ -41,7 +33,7 @@
               <%= r.answer %>   <%= r.replier %>
             </div>
             <% end %>
-          <% if @user.email == @activity.owner %>
+          <% if @user != nil && @user.email == @activity.owner %>
             <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{q.id})" %>
             <div  class = "replyBox", style = "display:none" %>
               <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>

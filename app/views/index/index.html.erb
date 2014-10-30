@@ -1,25 +1,106 @@
-<script type="text/javascript">
-	function signin(){
-		alert("HHH");
-	}
-</script>	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://sc.chinaz.com
+Released for free under a Creative Commons Attribution 3.0 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>HITER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<div class="topBar">
-	<%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-	<% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-		<% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-		<div class = "usrtop">
-			<%= link_to @user.nickname, @user %>
-		</div>
-	<% else %>
-		<div class="sign">
-			<%= link_to 'signin', "signin" %> |
-			<%= link_to 'signup', new_user_path %>
-		</div>
-	<% end %>
-</div>
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+
+<!-- CuFon ends -->
+</head>
+<body>
+
 <div class="others">
-<h1>This is our front page</h1>
-<p>Try to add some links ...</p>
-<%= cookies[:riskfit_token] %>
+<div class="clr"></div>
+<div class="main">
+ <div class="img"> 
+
+   <img src="assets/hbg_img.jpg" no-repeat width="100%" />
+
+ </div>
+  
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <div class="activity">
+            <p> <h1>Activity</h1></p><div class="clr"></div>
+            <p><h2>this part is about students' activity.<h2></p>
+          </div>
+          <div class="server">
+            <p> <h1>Server</h1></p><div class="clr"></div>
+            <p><h2>this part provides with some servers.<h2></p>
+          </div>
+        </div>
+        <div class="article">
+          <h2><span>Quesions&Answers</span> </h2><div class="clr"></div>
+          <p><h2>this part is for questions and answers.<h2></p>
+        </div>
+        
+      </div>
+      <div class="sidebar">
+        <div class="searchform" >
+          <form id="formsearch" name="formsearch" method="post" action="" >
+            <span><input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="60" value="Search our ste:" type="text" /></span>
+            <input name="button_search" src="assets/search_btn.gif" class="button_search" type="image" />
+          </form>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span>Sidebar</span> Menu</h2><div class="clr"></div>
+          <ul class="sb_menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">HIT map</a></li>
+            <li><a href="#">Activity</a></li>
+            <li><a href="#">Server</a></li>
+            <li><a href="#">Q&A</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2><span>Image Gallery</span></h2>
+        <a href="#"><img src="assets/pix1.jpg" width="100" height="100" alt="pix" /></a>
+        <a href="#"><img src="assets/pix2.jpg" width="100" height="100" alt="pix" /></a>
+        <a href="#"><img src="assets/pix3.jpg" width="100" height="100" alt="pix" /></a>
+        <a href="#"><img src="assets/pix4.jpg" width="100" height="100" alt="pix" /></a>
+        <a href="#"><img src="assets/pix5.jpg" width="100" height="100" alt="pix" /></a>
+
+      </div>
+
+      <div class="col c3">
+        <h2><span>Contact</span></h2>
+        <p>ad some informations</p>
+        <p><a href="#">xxxx@gmail.com</
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; HITER <a href="#">Our website is conducted by [i] <a href="#">FURE team</a></p>
+      <ul class="fmenu">
+        <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="hitmap.html">HIT map</a></li>
+          <li><a href="activity.html">Activity</a></li>
+          <li><a href="server.html">Server</a></li>
+          <li><a href="ques.html">Q&A</a></li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+  </div>
 </div>
+<div style="display:none"><script src='#' language='JavaScript' charset='gb2312'></script></div>
+
+</div></body>
+</html>
