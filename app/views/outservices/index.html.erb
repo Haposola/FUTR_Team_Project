@@ -3,19 +3,19 @@
 <script type="text/javascript">
 function mouseOver_r()
 {
-document.getElementById("restaurant").style.display="inline";
+document.getElementById("restaurant").style.display="block";
 document.getElementById("KTV").style.display="none";
 document.getElementById("Bar").style.display="none";
 }
 function mouseOver_k()
 {
-document.getElementById("KTV").style.display="inline";
+document.getElementById("KTV").style.display="block";
 document.getElementById("restaurant").style.display="none";
 document.getElementById("Bar").style.display="none";
 }
 function mouseOver_b()
 {
-document.getElementById("Bar").style.display="inline";
+document.getElementById("Bar").style.display="block";
 document.getElementById("KTV").style.display="none";
 document.getElementById("restaurant").style.display="none";
 }
@@ -44,59 +44,68 @@ document.getElementById("restaurant").style.display="none";
             Services out of HIT
         </h1>
         <div id="feature">
-            <div class="wrapper">
-                <div id="restaurant">
+            <div class="wrapper" style="border:0px black solid">
+                <div id="restaurant" style="padding-right: 23em">
                     <h2>
                         restaurant
                     </h2><% @restaurants.each do |restaurant| %>
+                    <div style="max-width:640px;border:1px blue solid;padding-right: 23em;margin:0.5em;position: relative">
                     <h3>
                         <%= link_to restaurant.name, show_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name) %>
                     </h3>
-                    <p>
+                   
+                        <div style="width:320px;border:solid 1px lightblue"><%= restaurant.description %></div>
+                      <div float="right" style="border:1px red solid;position:absolute;right:0;top:0">
                         <%= image_tag restaurant.picture_addr %>
-                    </p>
-                    <p>
-                        <%= restaurant.description %>
-                    </p>
-                    <p style="width:100%;height:20px;overflow:hidden;">
+                      </div>
+                    
+                    <div>
                         <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </p><% end %>
+                    </div>
+                    </div>
+                    <% end %>
                 </div>
 
-                <div id="KTV" style="display:none">
+                <div id="KTV" style="display:none;padding-right: 23em">
                     <h2>
                         KTV
                     </h2><% @ktvs.each do |ktv| %>
+                    <div style="max-width:640px;border:1px blue solid;padding-right: 23em;margin:0.5em;position: relative">
                     <h3>
                         <%= link_to ktv.name, show_outservice_path(:service_kind=>'ktv', :name=>ktv.name) %>
                     </h3>
-                    <p>
+
+                    <div style="width:320px;border:solid 1px lightblue"><%= ktv.description %></div>
+                    <div float="right" style="border:1px red solid;position:absolute;right:0;top:0">
                         <%= image_tag ktv.picture_addr %>
-                    </p>
-                    <p>
-                        <%= ktv.description %>
-                    </p>
-                    <p style="width:100%;height:20px;overflow:hidden;">
+                    </div>
+                  
+                    <div>
                         <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'ktv', :name=>ktv.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </p><% end %>
+                    </div>
+                    </div>
+                    <% end %>
                 </div>
 
-                <div id="Bar" style="display:none">
+                <div id="Bar" style="display:none;padding-right: 23em">
                     <h2>
                         bar
                     </h2><% @bars.each do |bar| %>
+                    <div style="max-width:640px;border:1px blue solid;padding-right: 23em;margin:0.5em;position: relative">
                     <h3>
                         <%= link_to bar.name, show_outservice_path(:service_kind=>'bar', :name=>bar.name) %>
                     </h3>
-                    <p>
+                   
+                        <div style="width:320px;border:solid 1px lightblue"><%= bar.description %></div>
+                      <div float="right" style="border:1px red solid;position:absolute;right:0;top:0">
                         <%= image_tag bar.picture_addr %>
-                    </p>
-                    <p>
-                        <%= bar.description %>
-                    </p>
-                    <p style="width:100%;height:20px;overflow:hidden;">
+                      </div>
+                    
+                    <div>
                         <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'bar', :name=>bar.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </p><% end %>
+                    </div>
+                    </div>
+                    <% end %>
                 </div>
 
                 <div id="subCol">
