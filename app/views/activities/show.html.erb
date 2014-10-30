@@ -37,7 +37,9 @@
             <%=  q.qustion %>
             <%= q.qustioner %>
             <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
-              <%= r.answer %>   <%= r.speaker %>
+              <div>
+              <%= r.answer %>   <%= r.replier %>
+            </div>
             <% end %>
           <% if @user.email == @activity.owner %>
             <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{q.id})" %>
