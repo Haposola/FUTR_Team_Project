@@ -1,4 +1,4 @@
 class ComForAct < ActiveRecord::Base
   attr_accessible :activity_id, :content, :speaker
-  belong_to :activity
+  belongs_to :activity
 end

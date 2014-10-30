@@ -33,6 +33,8 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @q_about_act = QAboutAct.new
+    @reply = ReForQuesForAct.new
+    @comment =  ComForAct.new
     @q_about_act.activity_id = @activity.id
     @questions = QAboutAct.where("activity_id = ?", @activity.id)
     respond_to do |format|
@@ -107,6 +109,22 @@ class ActivitiesController < ApplicationController
     @question.activity_id = actId
     @question.qustioner = SignedInLog.checkout(cookies[:riskfit_token]).email
     @question.save
+    redirect_to Activity.find(actId)
+  end
+  def newReply
+    queId=params[:id]
+    @reply = ReForQuesForAct.new(params[:re_for_ques_for_act])
+    @reply.q_about_act_id = queId
+    @reply.replier = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @reply.save
+    redirect_to Activity.find(QAboutAct.find(queId).activity_id)
+  end
+  def newComment
+    actId = params[:id]
+    @comment = ComForAct.new(params[:com_for_act])
+    @comment.activity_id = actId
+    @comment.speaker = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @comment.save
     redirect_to Activity.find(actId)
   end
 end

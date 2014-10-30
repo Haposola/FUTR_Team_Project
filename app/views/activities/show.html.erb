@@ -21,49 +21,66 @@
       <% end %>
     </div>
     <div class ="actContent">
-          <span style  ="font-size: 40px"><%= @activity.name %></span>
+      <span style  ="font-size: 40px"><%= @activity.name %></span>
       <div class = "actInfo">
-
-      <br /> <br /> <br /> <br />
-      <span><b>Owner:</b> <%= @activity.owner %></span>
-
-<div>
-  <b>Time:</b>
-  <%= @activity.tim %>
-</div>
-
-<p>
-  <b>Peonum:</b>
-  <%= @activity.peoNum %>
-</p>
-
-<p>
-  <b>Contact:</b>
-  <%= @activity.contact %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @activity.description %>
-</p>
-
-<div class = "actQA">
-
-  <% @questions.each do |q|%>
-    <div class = "question">
-      <%=  q.qustion %>
-
+        <br /> <br /> <br /> <br />
+        <span><b>Owner:</b> <%= @activity.owner %></span><br />
+        <b>Time:</b><%= @activity.tim %><br />
+        <b>Peonum:</b><%= @activity.peoNum %><br/>
+        <b>Contact:</b><%= @activity.contact %><br />
+        <b>Description:</b><%= @activity.description %><br />
+      </div>
+      <div class = "actQA">
+        <% @questions.each do |q|%>
+          <div class = "question">
+            <%=  q.qustion %>
+            <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
+              <%= r.answer %>
+            <% end %>
+          <% if @user.nickname == @activity.owner %>
+            <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{q.id})" %>
+            <div  class = "replyBox", style = "display:none" %>
+              <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
+                <%= f.text_area :answer, :size => "30x3" %>
+                <%= f.submit 'reply' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <b>I have some questions about this activity ... </b>
+      <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
+        <%= f.text_area :qustion, :size => "30x5" %>
+        <%= f.submit 'ask the owner'%>
+      <% end %>
     </div>
-  <% end %>
+    <div class = "comment">
+      <% ComForAct.where("activity_id = ?",@activity.id).each do |c| %>
+        <div class = "comContent">
+          <%=  c.content %>
+        </div>
+      <% end %>
+      <b>Write some comment for this activity</b>
+      <%= form_for @comment, url: @activity.id.to_s+'/newComment' do |f| %>
+        <%= f.text_area :content, :size => "30x6" %>
+        <%= f.submit 'comment' %>
+      <% end %>
+    </div>
+        <br />
+    <%= link_to 'Back', activities_path %>
+  </div>
 
-  <b>I have some questions about this activity ... </b>
-  <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
-    <%= f.text_area :qustion, :size => "30x5" %>
-    <%= f.submit %>
+</div>
 
-  <% end %>
-</div>
-<br />
-<%= link_to 'Back', activities_path %>
-</div>
-</div>
+<script type="text/javascript">
+  function replyShow(id){
+    var aEle=document.getElementsByTagName('*');
+        var aResult=[];
+        var re=new RegExp('\\b'+'replyBox'+'\\b', 'i');
+        var i=0;
+        for(i=0;i<aEle.length;i++)
+                if(re.test(aEle[i].className))
+                        aResult.push(aEle[i]);
+        aResult[id-1].style.display='block';
+  }
+</script>
