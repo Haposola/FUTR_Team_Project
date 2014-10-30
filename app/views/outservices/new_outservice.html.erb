@@ -1,0 +1,39 @@
+<h1>New restaurant</h1>
+
+<%= form_for(@outservice_place, url:outservices_path) do |f| %>
+  <% if @outservice_place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@outservice_place.errors.count, "error") %> prohibited this outservice_place from being saved:</h2>
+
+      <ul>
+      <% @outservice_place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :service_kind %><br />
+    <%= f.select(:service_kind,[['restaurant', :restaurant],['ktv', :ktv],['bar', :bar]]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_addr %><br />
+    <%= f.text_field :picture_addr %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', outservices_path %>

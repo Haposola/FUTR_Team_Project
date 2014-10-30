@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
+    t.string  "picname"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -39,6 +40,31 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "outservice_comments", :force => true do |t|
+    t.string   "service_kind"
+    t.string   "nickname"
+    t.string   "name"
+    t.text     "comment"
+    t.integer  "star"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "outservice_places", :force => true do |t|
+    t.string   "service_kind"
+    t.string   "name"
+    t.string   "picture_addr"
+    t.text     "description"
+    t.integer  "star"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "outservices", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "q_about_acts", :force => true do |t|
     t.integer  "activity_id"
     t.string   "qustioner"
@@ -53,6 +79,24 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
     t.string   "answer"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "restaurant_comments", :force => true do |t|
+    t.string   "nickname"
+    t.string   "restaurant_name"
+    t.text     "comment"
+    t.integer  "star"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "picture_addr"
+    t.text     "description"
+    t.integer  "star"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "signed_in_logs", :force => true do |t|
