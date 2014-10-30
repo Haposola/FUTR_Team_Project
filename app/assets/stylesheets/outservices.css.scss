@@ -1,9 +1,41 @@
 // Place all the styles related to the outservices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#feature.wrapper{
-	max-width: 640px;
-	padding-right: 23em;
-	position: relative;
-	padding-left: 1em;
+
+#feature p {
+  margin-bottom: 0.75em;
+  margin-left: 0.75em;
+  max-width: 640px;
+}
+#feature{
+  background-color: #d5e9f6;
+  padding: 0.5em 0 1.5em;
+  margin: 0;
+  font-size: 100%;
+  text-align: left;
+}
+#feature .wrapper{
+  max-width: 640px;
+  padding-right: 23em;
+  position: relative;
+  padding-left: 1em;
+  
+  margin: 0 auto;
+  padding: 0 1em;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+#feature ul{
+  margin-left: 0px;
+
+}
+#subCol{
+  position: absolute;
+  top: 21px;
+  right: 0px;
+  background: #FFF;
+  padding: 1em 1.5em 1em 1.25em;
+  width: 10em;
+  font-size: 0.92em;
+  margin-right: 1em;
 }
