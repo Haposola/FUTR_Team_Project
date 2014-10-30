@@ -1,43 +1,59 @@
-<div class="topBar">
-	<%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-	<% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-		<% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-		<div class = "usrtop">
-			<%= link_to @user.nickname, @user %>
-		</div>
-	<% else %>
-		<div class="sign">
-			<%= link_to 'signin', "signin" %> |
-			<%= link_to 'signup', new_user_path %>
-		</div>
-	<% end %>
-</div>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="topBar">
+            <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %><% if log = SignedInLog.checkout(cookies[:riskfit_token]) %><% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
+            <div class="usrtop">
+                <%= link_to @user.nickname, @user %>
+            </div><% else %>
+            <div class="sign">
+                <%= link_to 'signin', "signin" %>| <%= link_to 'signup', new_user_path %>
+            </div><% end %>
+        </div>
+        <div id="feature" class="others" style="width: 100%;margin-top:50px">
+            <div class="wrapper" style="border:0px black solid">
+                <div align="center" width="800px" border=" 1px blue" style="background-color:lightblue">
+                    
+                    <div>
+                       		<div style="max-width:640px;border:1px blue solid;margin:0.5em;position: relative">
+                               <h2> <%= @outservice_place.name %></h2>
+                            
+                            <div style="position:absolute;right:0;top:0;margin-left:30px">
+                                <%= image_tag @outservice_place.picture_addr %>
+                            </div>
+                        		<div style="text-align:left">
+                                <%= @outservice_place.description %>
+                            </div>
+                         	</div>
+                         		<div>
+                                <b style="position:absolute;left:0;margin-left:30px">Comments:</b>
+                            <% @usercomments.each do |usercomment| %>
+                        
+                                <b style="position:absolute;left:0;margin-left:30px;margin-top:20px"><%= usercomment.nickname %>:</b></br>
+                            
+                                <span style="text-align:left;width:80%;position:absolute;left:0;margin-left:60px;margin-top:20px;border:solid lightblue 1px"><%= usercomment.comment %></span></br></br>
+                            
+                            
+                                <div style="float:right;margin-right:20px;margin-top:5px">
+                                    <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </div>
+                            <% end %>
+                          </div>
+                    </div>
 
-
-<div class="others" style="border:solid red 1px; width: 100%" >
-	<p id="notice"><%= notice %></p>
-	<table align="center" width="800px" border="1px blue"style="background-color:lightblue;border-collapse:collapse;border-color:blue">
-      <tr><th><%= @outservice_place.name %></th>
-          <td  align="center"><%= image_tag @outservice_place.picture_addr %></td></tr>
-      <tr><td><%= @outservice_place.description %></td></tr>
-      <tr><td>Comments:</td></tr>
-      <% @usercomments.each do |usercomment| %>
-      <tr><td><b><%= usercomment.nickname %></b></td></tr>
-      <tr><td><%= usercomment.comment %></td>
-        <td width="150px"><div align="center" style="width:100%;height:20px;overflow:hidden;"><%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %></div></td>  
-      </tr>
-      <% end %>
-	</table>
-<div class="comment" align="center" style="width:90%">
-<%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
-  	<%= label_tag(:comment, "comment:") %></br>
-    <%= text_area_tag(:comment, "", size: "50x6") %></br>
-    <%= submit_tag 'submit'%>
-<% end %>
-<div align="right"><%= link_to 'Back', outservices_path %></div>
-</div>
-
-
-
-</div>
-
+                    <div class="comment" style="width:90% ;margin-top:30px">
+                        <%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
+                        <%= label_tag(:comment, "comment:") %></br>
+                        <%= text_area_tag(:comment, "", size: "50x6") %></br>
+                        <%= submit_tag 'submit'%> <% end %>
+                        <div align="right">
+                            <%= link_to 'Back', outservices_path %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
