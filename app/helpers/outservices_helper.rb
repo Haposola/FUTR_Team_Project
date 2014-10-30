@@ -1,0 +1,2 @@
+module OutservicesHelper
+end
