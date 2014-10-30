@@ -1,0 +1,73 @@
+<html>
+<head>
+<script type="text/javascript">
+function mouseOver_r()
+{
+document.getElementById("restaurant").style.display="inline";
+document.getElementById("KTV").style.display="none";
+document.getElementById("Bar").style.display="none";
+}
+function mouseOver_k()
+{
+document.getElementById("KTV").style.display="inline";
+document.getElementById("restaurant").style.display="none";
+document.getElementById("Bar").style.display="none";
+}
+function mouseOver_b()
+{
+document.getElementById("Bar").style.display="inline";
+document.getElementById("KTV").style.display="none";
+document.getElementById("restaurant").style.display="none";
+}
+
+</script>
+</head>
+
+<body>
+<h1>Listing outservices</h1>
+<div>
+  <div style="float:left;margin:20px">
+  <table width="100px" border="1px" style="background-color:lightblue;border-collapse:collapse;border-color:blue" >
+    <tr><th onmouseover="mouseOver_r()"><font color="grey">Restaurant</font></th></tr>
+    <tr><th onmouseover="mouseOver_k()"><font color="grey">KTV</font></th></tr>
+    <tr><th onmouseover="mouseOver_b()"><font color="grey">Bar</font></th></tr>
+  </table>
+</div>
+<div id="board" align="center">
+  <div id="restaurant">
+    <table width="600px" border="1px blue"style="background-color:lightblue;border-collapse:collapse;border-color:blue">
+      <tr><th>restaurant</th></tr>
+      <% @restaurants.each do |restaurant| %>
+      <tr><td align="center"><%= link_to restaurant.name, restaurant_path(restaurant.name) %></td>
+          <td align="center"><%= image_tag restaurant.picture_addr %></td></tr>
+      <tr><td><%= restaurant.description %></td>
+          <td width="150px"><div align="center" style="width:100%;height:20px;overflow:hidden;"><%= link_to 'Destroy', delete_restaurant_path(restaurant.name), method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
+      </tr>
+
+      <% end %>
+    </table>
+  </div>
+  <div id="KTV" style="display:none">
+    <table width="100px">
+      <tr><th>KTV</th></tr>
+      <tr><td>rest1</td></tr>
+      <tr><td>rest2</td></tr>
+      <tr><td>rest3</td></tr>
+      <tr><td>rest4</td></tr>
+    </table>
+  </div>
+  <div id="Bar" style="display:none">
+    <table width="100px">
+      <tr><th>Bar</th></tr>
+      <tr><td>rest1</td></tr>
+      <tr><td>rest2</td></tr>
+      <tr><td>rest3</td></tr>
+      <tr><td>rest4</td></tr>
+    </table>
+  </div>
+</div>
+
+
+</div>
+
+</body>

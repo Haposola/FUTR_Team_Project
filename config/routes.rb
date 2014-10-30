@@ -1,10 +1,24 @@
 Team::Application.routes.draw do
+  #resources :outservices
+  match 'outservices',:to =>'outservices#index' , :via =>'get', :as=>'outservices'
+  match 'outservices/restaurant/new',:to =>'outservices#new_restaurant' , :via =>'get', :as=>'new_restaurant'
+  match 'outservices',:to =>'outservices#create_restaurant' , :via =>'post'
+  match 'outservices/restaurant/:name',:to =>'outservices#show_restaurant' , :via =>'get', :as=>'restaurant'
+  match 'outservices/restaurant/:name',:to =>'outservices#update_restaurant' , :via =>'put', :as=>'put_restaurant'
+  match 'outservices/restaurant/:name',:to =>'outservices#delete_restaurant' , :via =>'delete', :as=>'delete_restaurant'
+  match 'outservices/restaurant/:name/edit',:to =>'outservices#edit_restaurant' , :via =>'get', :as=>'edit_restaurant'
+
+  match 'outservices/restaurant/:name',:to =>'outservices#show_restaurant_comments' , :via =>'get', :as=>'restaurant_comments'
+  match 'outservices/restaurant/:name',:to =>'outservices#add_restaurant_comments' , :via =>'post', :as=>'add_restaurant_comments' 
+  match 'outservices/restaurant/:name/:nickname/:comment',:to =>'outservices#delete_restaurant_comments' , :via =>'delete', :as=>'delete_restaurant_comments'
+
   resources :users
   match 'signin' => 'users#signin'
   match 'signinChk' => 'users#signinChk' , :via => 'post'
   match 'logout' =>'users#logout'
   root :to => 'index#index'
   match 'hitmap' => 'hitmap#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
