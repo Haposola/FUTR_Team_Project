@@ -1,9 +1,11 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.sidebar{margin:10px; float:left; width:140px;}
+.mainbar{margin:10px; float:right; width:400px;}
 #userSideBar{
 	position : fixed;
-	top: 50px;
+	top: 100px;
 	left: 10px;
 	overflow: hidden;
 	float: left;
@@ -13,8 +15,40 @@
 	border-right: solid 2px;
 
 }
-#userContent{
+#userSideBar ul li{
+	float:left;
+    margin: 10px 10px 10px 10px;
+	background:#fff;
+	
+	box-shadow:0 1px 0 #dedede;
+	-webkit-box-shadow:0 1px 0 #dedede;
+	-moz-box-shadow:0 1px 0 #dedede;
+	-o-box-shadow:0 1px 0 #dedede;
+	/*transition*/
+	transition:all .2s linear;
+	-webkit-transition:all .2s linear;
+	-moz-transition:all .2s linear;
+	-o-transition:all .2s linear;
+	opacity: 0.7;
+	-moz-opacity: 0.7;
+	filter:alpha(opacity=70);
+	}
+
+.mainbar #userContent{
 	position:absolute;
-	top: 50px;
+	top: 30px;
 	left: 200px;
+	padding-bottom:30px;	
+}
+
+.mainbar .avtivity{
+    position:relative;
+    color:blue;
+    float:left;
+    heght:350px;
+	margin:400px 0 24px 30px;
+	box-shadow:0 3px 0 #dedede;
+	-webkit-box-shadow:0 3px 0 #dedede;
+	-moz-box-shadow:0 3px 0 #dedede;
+	-o-box-shadow:0 3px 0 #dedede;
 }

@@ -6,41 +6,58 @@
 </head>
 <body>
   <div class="others">
+     <div class="sidebar">
       <div id = "userSideBar">
             This is a side bar<br />
             About what a user can do<br />
             Like ....<br />
             <a></a>
-            Ask a question<br />
-            Put a activity<br />
-            ....<br />
+            <div>
+             <ul>      
+               <li><h4><a href="#">Ask a question</a></h4></li>
+               <li><h4><a href="#">Put a activity</a></h4></li>
+            </ul>
+            </div>
             <%= link_to 'logout',  :action => 'logout' %>
+
        </div>
+     </div>
+     <div class="mainbar">
+        <div id ="userContent">
+          <p id="notice"><%= notice %></p>
+          <p>Welcome! <%= @user.nickname %></p>
+          <p><b>Email:</b><%= @user.email %>
+          </p>
 
-  <div id ="userContent">
-      <p id="notice"><%= notice %></p>
-      <p>Welcome! <%= @user.nickname %></p>
-      <p>
-        <b>Email:</b>
-        <%= @user.email %>
-      </p>
-
-      <p><b>Password:</b>
+          <p><b>Password:</b>
              <%= @user.password %>
-      </p>
+          </p>
 
-      <p><b>Nickname:</b>
-       <%= @user.nickname %>
-      </p>
+          <p><b>Nickname:</b>
+          <%= @user.nickname %>
+          </p>
 
-      <p><b>Name:</b><%= @user.name %>
-      </p>
-       <p><b>Nation:</b><%= @user.nation %></p>
-      <%= @user.pwd_key %><br />
-      <%= cookies[:riskfit_token] %>
-      <%= link_to 'Edit', edit_user_path(@user) %> |
-      <%= link_to 'Back', users_path %>
-   </div>
-   
-</div></body>
+          <p><b>Name:</b><%= @user.name %>
+          </p>
+          <p><b>Nation:</b><%= @user.nation %></p>
+            <%= @user.pwd_key %><br />
+            <%= cookies[:riskfit_token] %>
+            <%= link_to 'Edit', edit_user_path(@user) %> 
+            <%= link_to 'Back', users_path %>
+        </div>
+         
+         <div class="avtivity">
+            <h3>Activity </h3>
+           <div>
+             <ul>
+              <li>Some activity</li>
+              <li>Some activity</li>
+
+             </ul>
+            </div>
+
+          </div>
+      </div>
+
+  </div></body>
 </html>
