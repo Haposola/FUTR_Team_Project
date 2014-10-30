@@ -4,6 +4,7 @@ class CreateActivities < ActiveRecord::Migration
       t.string :owner
       t.string :name
       t.time :tim
+      t.string :tag
       t.integer :peoNum
       t.string :contact
       t.string :description
