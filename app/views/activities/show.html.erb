@@ -1,5 +1,4 @@
 <div>
-    <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
     <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
         <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
     <% end %>
