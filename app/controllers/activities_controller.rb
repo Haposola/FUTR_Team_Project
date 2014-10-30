@@ -48,7 +48,11 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
-    @tags = ActTag.all
+    tags = ActTag.all
+    @tags = []
+    tags.each do |t|
+      @tags << t.name
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @activity }
@@ -65,8 +69,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params[:activity])
     @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).email
-    @tag = ActTag.new(:name => @activity.tag)
-    @tag.picname = "default"
+    @tag = ActTag.new(:name => @activity.tag,:picname => "default")
     respond_to do |format|
       if @activity.save && @tag.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }

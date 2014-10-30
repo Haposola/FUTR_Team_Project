@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-#ActiveRecord::Schema.define(:version => 20141030043551) do
 ActiveRecord::Schema.define(:version => 20141030064951) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
+    t.string  "picname"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -41,22 +40,6 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "q_about_acts", :force => true do |t|
-    t.integer  "activity_id"
-    t.string   "qustioner"
-    t.string   "qustion"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "re_for_ques_for_acts", :force => true do |t|
-    t.integer  "q_about_act_id"
-    t.string   "replier"
-    t.string   "answer"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-
-
   create_table "outservice_comments", :force => true do |t|
     t.string   "service_kind"
     t.string   "nickname"
@@ -80,6 +63,22 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
   create_table "outservices", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "q_about_acts", :force => true do |t|
+    t.integer  "activity_id"
+    t.string   "qustioner"
+    t.string   "qustion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "re_for_ques_for_acts", :force => true do |t|
+    t.integer  "q_about_act_id"
+    t.string   "replier"
+    t.string   "answer"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "restaurant_comments", :force => true do |t|
