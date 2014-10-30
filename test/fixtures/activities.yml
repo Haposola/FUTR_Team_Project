@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner: MyString
+  name: MyString
+  tim: 2014-10-29 13:34:18
+  peoNum: 1
+  contact: MyString
+  description: MyString
+
+two:
+  owner: MyString
+  name: MyString
+  tim: 2014-10-29 13:34:18
+  peoNum: 1
+  contact: MyString
+  description: MyString

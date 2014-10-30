@@ -1,0 +1,23 @@
+<div class="topBar">
+    <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
+        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
+        <div class = "usrtop">
+            <%= link_to @user.nickname, @user %>
+        </div>
+    <% else %>
+        <div class="sign">
+            <%= link_to 'signin', "signin" %> |
+            <%= link_to 'signup', new_user_path %>
+        </div>
+    <% end %>
+</div>
+<div class = "others">
+
+<h1>New activity</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', activities_path %>
+<%= image_tag "map/rails.png"%>
+</div>

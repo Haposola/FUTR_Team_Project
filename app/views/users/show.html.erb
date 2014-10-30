@@ -51,8 +51,11 @@
   <b>Nation:</b>
   <%= @user.nation %>
 </p>
-<%= @user.pwd_key %><br />
-<%= cookies[:riskfit_token] %>
+<p>My Activities</p>
+<% @myAct.each do |a|%>
+  <%= link_to a.name, a %>
+<% end %>
+<br/>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 </div>
