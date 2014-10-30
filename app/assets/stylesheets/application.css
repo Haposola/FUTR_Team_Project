@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
 .topBar{
 	position:fixed;
 	top:0px;
@@ -19,7 +20,8 @@
 	height: 50px;
 	overflow:hidden;
 	background-color: lightblue;
-
+	opacity : 1;
+	z-index: 100;
 }
 .usrtop{
 	position:fixed;

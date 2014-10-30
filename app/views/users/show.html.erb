@@ -51,8 +51,19 @@
   <b>Nation:</b>
   <%= @user.nation %>
 </p>
-<%= @user.pwd_key %><br />
-<%= cookies[:riskfit_token] %>
+<p>My Activities</p>
+<% @myAct.each do |a|%>
+<div>
+  <%= link_to a.name, a %>
+</div>
+<% end %>
+<p>My footprint</p>
+<% @myFootprint.each do |f|%>
+<div>
+  <%= f.service_kind %> <%= link_to f.name, show_outservice_path(f.service_kind,f.name) %>
+</div>
+<% end %>
+<br/>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 </div>
