@@ -64,7 +64,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params[:activity])
 
-    @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).nickname
+    @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).email
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }

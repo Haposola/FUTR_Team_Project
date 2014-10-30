@@ -34,14 +34,15 @@
         <% @questions.each do |q|%>
           <div class = "question">
             <%=  q.qustion %>
+            <%= q.qustioner %>
             <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
-              <%= r.answer %>
+              <%= r.answer %>   <%= r.speaker %>
             <% end %>
-          <% if @user.nickname == @activity.owner %>
+          <% if @user.email == @activity.owner %>
             <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{q.id})" %>
             <div  class = "replyBox", style = "display:none" %>
               <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
-                <%= f.text_area :answer, :size => "30x3" %>
+                <%= f.text_area :answer, :size => "30x2" %>
                 <%= f.submit 'reply' %>
               <% end %>
             </div>
@@ -50,7 +51,7 @@
       <% end %>
       <b>I have some questions about this activity ... </b>
       <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
-        <%= f.text_area :qustion, :size => "30x5" %>
+        <%= f.text_area :qustion, :size => "30x3" %>
         <%= f.submit 'ask the owner'%>
       <% end %>
     </div>
