@@ -29,6 +29,7 @@
         <b>Peonum:</b><%= @activity.peoNum %><br/>
         <b>Contact:</b><%= @activity.contact %><br />
         <b>Description:</b><%= @activity.description %><br />
+        <%= image_tag @picpath, :size => "80x80" %>
       </div>
       <div class = "actQA">
         <% @questions.each do |q|%>

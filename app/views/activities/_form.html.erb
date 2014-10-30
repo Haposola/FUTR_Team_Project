@@ -21,6 +21,14 @@
     <%= f.datetime_select :tim %>
   </div>
   <div class="field">
+    <%= f.label "Select a tag" %><br />
+    <%= f.select :tag, @tags %>
+  </div>
+  <div class="field">
+    <%= f.label "Or put your own tag " %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
     <%= f.label :peoNum %><br />
     <%= f.number_field :peoNum %>
   </div>
@@ -30,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description, :size => "30x7" %>
   </div>
   <div class="actions">
     <%= f.submit 'set up this act', :owner => "hhh" %>

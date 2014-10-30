@@ -37,6 +37,7 @@ class ActivitiesController < ApplicationController
     @comment =  ComForAct.new
     @q_about_act.activity_id = @activity.id
     @questions = QAboutAct.where("activity_id = ?", @activity.id)
+    @picpath = ActTag.check("")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @activity }
@@ -47,6 +48,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
+    @tags = ActTag.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @activity }
@@ -62,10 +64,11 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(params[:activity])
-
     @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @tag = ActTag.new(:name => @activity.tag)
+    @tag.picname = "default"
     respond_to do |format|
-      if @activity.save
+      if @activity.save && @tag.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render json: @activity, status: :created, location: @activity }
       else
