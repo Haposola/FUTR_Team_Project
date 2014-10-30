@@ -1,5 +1,24 @@
+
 <div class="topBar">
-  <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1>
+          <a href="index.html"><span>HITer</span> </a>
+        </h1></div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="hitmap.html">HIT map</a></li>
+          <li><a href="activity.html">Activity</a></li>
+          <li><a href="server.html">Server</a></li>
+          <li><a href="ques.html">Q&A</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
   <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
     <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
     <div class = "usrtop">
@@ -11,7 +30,7 @@
       <%= link_to 'signup', new_user_path %>
     </div>
   <% end %>
-</div>
+</div> 
 
 <div id = "userSideBar">
     This is a side bar<br />

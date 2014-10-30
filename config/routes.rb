@@ -5,6 +5,7 @@ Team::Application.routes.draw do
   match 'logout' =>'users#logout'
   root :to => 'index#index'
   match 'hitmap' => 'hitmap#index'
+  match 'index' =>'index#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

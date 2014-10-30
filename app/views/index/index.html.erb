@@ -14,42 +14,15 @@ Released for free under a Creative Commons Attribution 3.0 License
 </head>
 <body>
 
-<div class="topBar">
-  <%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-  <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-    <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-    <div class = "usrtop">
-      <%= link_to @user.nickname, @user %>
-    </div>
-  <% else %>
-    <div class="sign">
-      <%= link_to 'signin', "signin" %> |
-      <%= link_to 'signup', new_user_path %>
-    </div>
-  <% end %>
-</div> 
 <div class="others">
+<div class="clr"></div>
 <div class="main">
+ <div class="img"> 
 
-  <div class="header">
-    <div class="header_resize">
-      <div class="logo">
-        <h1>
-          <img src="assets/logo.gif" width=auto align=top>
-          <a href="index.html">HIT<span>er</span> <small>This is for students in HIT. Hope it can help you.</small></a>
-        </h1></div>
-      <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="support.html">HIT map</a></li>
-          <li><a href="about.html">Activity</a></li>
-          <li><a href="server.html">Server</a></li>
-          <li><a href="blog.html">Q&A</a></li>
-        </ul>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
+   <img src="assets/hbg_img.jpg" no-repeat width="100%" />
+
+ </div>
+  
 
   <div class="content">
     <div class="content_resize">
@@ -118,10 +91,10 @@ Released for free under a Creative Commons Attribution 3.0 License
       <p class="lf">&copy; HITER <a href="#">Our website is conducted by [i] <a href="#">FURE team</a></p>
       <ul class="fmenu">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
+          <li><a href="hitmap.html">HIT map</a></li>
+          <li><a href="activity.html">Activity</a></li>
+          <li><a href="server.html">Server</a></li>
+          <li><a href="ques.html">Q&A</a></li>
       </ul>
       <div class="clr"></div>
     </div>
