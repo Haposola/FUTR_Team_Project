@@ -2,8 +2,10 @@ class OutservicesController < ApplicationController
   # GET /outservices
   # GET /outservices.json
   def index
-    @restaurants = Restaurant.all
-
+    #@restaurants = Outservice_place.all
+    @restaurants = Outservice_place.find(:all, :conditions =>["service_kind = ?",:restaurant])
+    @ktvs = Outservice_place.find(:all, :conditions =>["service_kind = ?",:ktv])
+    @bars = Outservice_place.find(:all, :conditions =>["service_kind = ?",:bar])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @outservices }
@@ -81,8 +83,119 @@ class OutservicesController < ApplicationController
     end
   end
 
+
+#---------------------outservices-------------------------------------------------
+
+  def new_outservice
+    @outservice_place = Outservice_place.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @outservice }
+    end
+  end
+
+  def create_outservice
+    @outservice_place = Outservice_place.new(params[:outservice_place])
+
+    respond_to do |format|
+      if @outservice_place.save
+        format.html { redirect_to outservices_path, notice: 'Outservice was successfully created.' }
+        format.json { render json: outservices_path, status: :created, location: outservices_path }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @outservice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def delete_outservice
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+    @outservice_place.destroy
+
+    respond_to do |format|
+      format.html { redirect_to outservices_path }
+      format.json { head :no_content }
+    end
+  end
+  
+  def show_outservice
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+    @usercomments = Outservice_comment.find(:all, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+    @user_comment = Outservice_comment.new()
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @outservice }
+    end
+  end
+
+  def edit_outservice
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+  end
+
+  def update_outservice
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+    respond_to do |format|
+      if @outservice_place.update_attributes(params[:outservice_place])
+        format.html { redirect_to outservices_path, notice: 'Outservice was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @outservice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+#---------------------outservices-------------------------------------------------
+
+#----------------------------outservice comments-----------------------------------------------
+  def delete_outservice_comments
+    @delete_comment = Outservice_comment.find(:first, :conditions =>["name = ? AND nickname = ? AND comment=? 
+      AND service_kind=?",params[:name],params[:nickname],params[:comment],params[:service_kind]])
+    @delete_comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to show_outservice_path }
+      format.json { head :no_content }
+    end
+  end
+
+  def add_outservice_comments
+    #@usercomment = Restaurant_comment.new(params[:user_comment])
+    userlog = SignedInLog.checkout(cookies[:riskfit_token])
+    @user = User.find(:first, :conditions =>["email = ?",userlog.email])
+    nickname = @user.nickname
+    #@usercomment.nickname =nickname
+    #@usercomment.restaurant_name =restaurantname
+    @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
+      :name => params[:name], :comment => params[:comment])
+    respond_to do |format|
+      if @usercomment.save
+        format.html { redirect_to show_outservice_path, notice: 'Comment was successfully created.' }
+        format.json { render json: outservices_path, status: :created, location: restaurant_path }
+      else
+        format.html { redirect_to show_outservice_path, notice: 'Comment failed.' }
+      end
+    end
+  end
+
+#----------------------------outservice comments-----------------------------------------------
+
+
+
+
+
+
+
+
   def new_restaurant
     @restaurant = Restaurant.new
+    #@restaurant = Outservice_place.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -92,6 +205,7 @@ class OutservicesController < ApplicationController
 
   def create_restaurant
     @restaurant = Restaurant.new(params[:restaurant])
+    #@restaurant = Outservice_place.new(params[:outservice_place])
 
     respond_to do |format|
       if @restaurant.save

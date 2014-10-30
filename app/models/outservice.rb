@@ -10,3 +10,13 @@ class Restaurant_comment < ActiveRecord::Base
    validates :nickname, :restaurant_name, :comment, presence: true
 end
 
+class Outservice_place < ActiveRecord::Base
+   attr_accessible :service_kind, :name, :picture_addr, :description, :star
+   validates :service_kind, :name, :picture_addr, :description, presence: true
+end
+
+class Outservice_comment < ActiveRecord::Base
+   attr_accessible :service_kind, :nickname, :name, :comment, :star
+   validates :service_kind, :nickname, :name, :comment, presence: true
+end
+
