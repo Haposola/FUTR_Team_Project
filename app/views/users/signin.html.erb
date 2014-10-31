@@ -1,12 +1,10 @@
-<div class="topBar">
-	<%= link_to 'Here is our logo', :controller => 'index', :action => 'index' %>
-	
+
 		<div class="sign">
 			<%= link_to 'signin', signin_path %> |
 			<%= link_to 'signup', new_user_path %>
 		</div>
 
-</div>
+
 <div class ="others">
 <% if @msg == 0 || @res !=1%>
 	<% if @res == 0 %>

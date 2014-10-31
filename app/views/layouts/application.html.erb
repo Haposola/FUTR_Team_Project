@@ -36,7 +36,7 @@
     </div>
   <% else %>
     <div class="sign">
-      <%= link_to 'signin', "signin" %> |
+      <%= link_to 'signin', :controller => 'users', :action => 'signin' %> |
       <%= link_to 'signup', new_user_path %>
     </div>
   <% end %>
