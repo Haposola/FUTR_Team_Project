@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
-    t.string  "picname"
+    t.string   "picname"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20141030064951) do
   create_table "activities", :force => true do |t|
     t.string   "owner"
     t.string   "name"
-    t.datetime "tim"
+    t.time     "tim"
     t.string   "tag"
     t.integer  "peoNum"
     t.string   "contact"
