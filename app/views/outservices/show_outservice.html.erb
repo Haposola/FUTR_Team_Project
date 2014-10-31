@@ -5,30 +5,39 @@
     <body>
             <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %><% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
             <% end %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>
+            <%= @outservice_place.service_kind %>
+        </h1>
         <div id="feature" class="others" style="width: 100%;margin-top:50px">
             <div class="wrapper" style="border:0px black solid">
                 <div align="center" width="800px" border=" 1px blue" style="background-color:lightblue">
                     <div>
-                       		<div style="max-width:640px;border:1px blue solid;margin:0.5em;position: relative">
-                               <h2> <%= @outservice_place.name %></h2>
-                            
-                            <div style="position:absolute;right:0;top:0;margin-left:30px">
-                                <%= image_tag @outservice_place.picture_addr %>
+                       		<div style="max-width:800px;border:1px blue solid;margin:0.5em;position: relative">
+                       			<div style="float:right;margin-left:30px;border:solid 1px red">
+                       					<%= image_tag(@outservice_place.picture_addr,:height=>"160px") %>
+                                
                             </div>
+                            <h2> <%= @outservice_place.name %></h2>
+                            
+                            
                         		<div style="text-align:left">
                                 <%= @outservice_place.description %>
                             </div>
                          	</div>
                          		<div>
-                                <b style="position:absolute;left:0;margin-left:30px">Comments:</b>
+                                <b style="position:absolute;left:150px;margin-left:30px">Comments:</b>
                             <% @usercomments.each do |usercomment| %>
                         
-                                <b style="position:absolute;left:0;margin-left:30px;margin-top:20px"><%= usercomment.nickname %>:</b></br>
+                                <b style="position:absolute;left:150px;margin-left:30px;margin-top:20px"><%= usercomment.nickname %>:</b></br>
                             
-                                <span style="text-align:left;width:80%;position:absolute;left:0;margin-left:60px;margin-top:20px;border:solid lightblue 1px"><%= usercomment.comment %></span></br></br>
+                                <span style="text-align:left;width:80%;position:absolute;left:150px;margin-left:60px;margin-top:20px;border:solid lightblue 1px"><%= usercomment.comment %></span></br></br>
                             
                             
-                                <div style="float:right;margin-right:20px;margin-top:5px">
+                                <div style="float:right;margin-right:150px;margin-top:5px">
                                     <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
                                 </div>
                             <% end %>
@@ -41,7 +50,7 @@
                         <%= label_tag(:comment, "comment:") %></br>
                         <%= text_area_tag(:comment, "", size: "50x6") %></br>
                         <%= submit_tag 'submit'%> <% end %>
-                        <div align="right">
+                        <div align="right" style="margin-right:100px">
                             <%= link_to 'Back', outservices_path %>
                         </div>
                     </div>
