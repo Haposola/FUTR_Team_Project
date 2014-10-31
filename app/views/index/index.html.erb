@@ -11,6 +11,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
 
 <!-- CuFon ends -->
+
 </head>
 <body>
 
@@ -30,13 +31,44 @@ Released for free under a Creative Commons Attribution 3.0 License
         <div class="article">
           <div class="activity">
             <p> <h1>Activity</h1></p><div class="clr"></div>
-            <p><h2>this part is about students' activity.<h2></p>
+            <% @activities.each do |activity| %>
+            <div class ="activities" style="width:350px;left:0">
+              <span><%= link_to activity.name, activity %></span></br>
+              <span><%=  activity.tim %></span>
+              <hr>
+              <span class = "description"><%= activity.description %></span>
+            </div>
+            <% end %>
+
+
           </div>
+
           <div class="server">
             <p> <h1>Server</h1></p><div class="clr"></div>
-            <p><h2>this part provides with some servers.<h2></p>
+            <% if @service_restaurant != nil %>
+            <div>
+              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_restaurant.name, show_outservice_path(:service_kind=>'restaurant',
+               :name=>@service_restaurant.name) %> </h2>
+              <p style="border:solid 1px"><%= @service_restaurant.description %></p>
+            </div>
+            <% end %>
+            <% if @service_ktv != nil %>
+            <div>
+              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_ktv.name, show_outservice_path(:service_kind=>'ktv',
+               :name=>@service_ktv.name) %> </h2>
+              <p style="border:solid 1px"><%= @service_ktv.description %></p>
+            </div>
+            <% end %>
+            <% if @service_bar != nil %>
+            <div>
+              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_bar.name, show_outservice_path(:service_kind=>'bar',
+               :name=>@service_bar.name) %> </h2>
+              <p style="border:solid 1px"><%= @service_bar.description %></p>
+            </div>
+            <% end %>
           </div>
         </div>
+
         <div class="article">
           <h2><span>Quesions&Answers</span> </h2><div class="clr"></div>
           <p><h2>this part is for questions and answers.<h2></p>

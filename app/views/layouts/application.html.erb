@@ -13,12 +13,13 @@
     <div class="header_resize">
       <div class="logo">
         <h1>
-          <a href="index.html"><span>HITer</span> </a>
+          <a href="/index.html"><span>HITer</span> </a>
         </h1></div>
       <div class="menu_nav">
         <ul>
           <li class="active"><%=  link_to 'Home', :controller => 'index',:action =>'index'%></li>
           <li><%= link_to 'map', :controller => 'hitmap',:action =>'index'%></li>
+          <li><%= link_to 'map2', :controller => 'hitmap',:action =>'another'%></li>
           <li><%= link_to 'Activity',:controller => 'activities',:action =>'list',:id=>'1' %></li>
           <li><%= link_to 'Services', outservices_path %></li>
           <li><a href="">Q&A</a></li>

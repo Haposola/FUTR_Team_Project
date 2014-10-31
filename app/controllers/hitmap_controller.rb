@@ -1,4 +1,6 @@
 class HitmapController < ApplicationController
-  def movepic
+  def index
+  end
+  def another
   end
 end
