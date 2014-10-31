@@ -23,7 +23,7 @@
         <%= image_tag @picpath, :size => "80x80" %>
       </div>
       <div class = "actQA">
-        <% @questions.each do |q|%>
+        <% @questions.each_with_index do |q,i|%>
           <div class = "question">
             <%=  q.qustion %>
             <%= q.qustioner %>
@@ -33,7 +33,7 @@
             </div>
             <% end %>
           <% if @user != nil && @user.email == @activity.owner %>
-            <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{q.id})" %>
+            <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{i})" %>
             <div  class = "replyBox", style = "display:none" %>
               <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
                 <%= f.text_area :answer, :size => "30x2" %>
@@ -76,6 +76,6 @@
         for(i=0;i<aEle.length;i++)
                 if(re.test(aEle[i].className))
                         aResult.push(aEle[i]);
-        aResult[id-1].style.display='block';
+        aResult[id].style.display='block';
   }
 </script>
