@@ -1,6 +1,14 @@
 Team::Application.routes.draw do
-root :to => 'index#index'
-  devise_for :users
+  devise_for :admins, controllers: {
+        sessions: 'admin/sessions'
+      }
+
+
+  root :to => 'index#index'
+  devise_for :users, controllers: {
+        sessions: 'user/sessions'
+      }
+  match '/admins/index' => 'admin/admins#index'
 
   #
 
