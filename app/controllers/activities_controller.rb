@@ -68,11 +68,11 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(params[:activity])
-    @activity.owner = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @activity.owner = current_user.email
     @tag = ActTag.new(:name => @activity.tag,:picname => "default")
     respond_to do |format|
       if @activity.save && @tag.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        format.html { redirect_to @activity }
         format.json { render json: @activity, status: :created, location: @activity }
       else
         format.html { render action: "new" }
@@ -112,7 +112,7 @@ class ActivitiesController < ApplicationController
     actId = params[:id]
     @question = QAboutAct.new(params[:q_about_act])
     @question.activity_id = actId
-    @question.qustioner = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @question.qustioner = current_user.nickname
     @question.save
     redirect_to Activity.find(actId)
   end
@@ -120,7 +120,7 @@ class ActivitiesController < ApplicationController
     queId=params[:id]
     @reply = ReForQuesForAct.new(params[:re_for_ques_for_act])
     @reply.q_about_act_id = queId
-    @reply.replier = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @reply.replier = current_user.nickname
     @reply.save
     redirect_to Activity.find(QAboutAct.find(queId).activity_id)
   end
@@ -128,7 +128,7 @@ class ActivitiesController < ApplicationController
     actId = params[:id]
     @comment = ComForAct.new(params[:com_for_act])
     @comment.activity_id = actId
-    @comment.speaker = SignedInLog.checkout(cookies[:riskfit_token]).email
+    @comment.speaker = current_user.nickname
     @comment.save
     redirect_to Activity.find(actId)
   end
