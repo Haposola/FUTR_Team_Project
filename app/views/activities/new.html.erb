@@ -1,13 +1,4 @@
 
-    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-    <% end %>
-</div>
-<div class = "others">
-
 <h1>New activity</h1>
-
 <%= render 'form' %>
-
 <a href="javascript:history.go(-1);">Back</a>
-</div>

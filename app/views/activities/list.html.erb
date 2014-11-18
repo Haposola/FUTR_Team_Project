@@ -1,9 +1,9 @@
 
 
-<div class ="others">
+
     <div class ="actSideBar">
-        This is activity side bar;
-        <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
+        This is activity side bar;<br />
+        <% if user_signed_in? %>
     <%= link_to 'New Activity', new_activity_path %>
     <% end %>
     </div>
@@ -25,4 +25,3 @@
             </span>
         <% end %>
     </div>
-</div>
