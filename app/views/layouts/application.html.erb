@@ -7,15 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-     <p class="notice"><%=notice%></p>
-      <p class="alert"><%=alert%></p>
+    
 <div class="topBar">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <h1>
-          <a href="/index.html"><span>HITer</span> </a>
-        </h1></div>
+        <h1><a href="/index.html"><span>HITer</span> </a></h1>
+      </div>
       <div class="menu_nav">
         <ul>
           <li class="active"><%=  link_to 'Home', :controller => '/index',:action =>'index'%></li>
@@ -31,18 +29,20 @@
   </div>
 
   <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-
     <div class = "usrtop">
-
+      <%= current_user.email%>
     </div>
   <% else %>
     <div class="sign">
-
-  <% end %>
-</div> 
-<div class  ="others">
-<%= yield %>
+      <%= link_to 'Sign In'%> | 
+      <%= link_to 'Sign Up' %>
+    <% end %>
+  </div> 
 </div>
+<div class  ="others">
+ <p class="notice"><%=notice%></p>
+      <p class="alert"><%=alert%></p>
+<%= yield %>
 </div>
 </body>
 </html>
