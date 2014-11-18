@@ -1,6 +1,3 @@
-
-
-
     <div class ="actSideBar">
         This is activity side bar;<br />
         <% if user_signed_in? %>
@@ -9,7 +6,6 @@
     </div>
 
     <div class = "actContent">
-
         <% @activities.each do |activity| %>
         <div class ="activities">
             <span class = "name"><%= link_to activity.name, activity %></span>
@@ -19,9 +15,10 @@
         </div>
         <% end %>
         <br />
-
+        <div class = "pagenum">
         <%  for i in 1..@pagetotal %>
             <span><%= link_to "#{i}", :controller => "activities", :action =>"list", :id =>i %>
             </span>
         <% end %>
+        </div>
     </div>

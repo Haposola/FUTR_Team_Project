@@ -1,49 +1,42 @@
-<div>
-    <% if log = SignedInLog.checkout(cookies[:riskfit_token]) %>
-        <% @user = User.find(:first, :conditions =>["email = ? ", log.email])%>
-    <% end %>
+<div class ="actSideBar">
+  This is activity side bar;<br />
+  <% if user_signed_in? %>
+    <%= link_to 'New Activity', new_activity_path %>
+  <% end %>
 </div>
-
-<div class ="others">
-    <div class ="actSideBar">
-      This is activity side bar;
-      <% if log && log != nil%>
-        <%= link_to 'New Activity', new_activity_path %>
-      <% end %>
-    </div>
-    <div class ="actContent">
-      <span style  ="font-size: 40px"><%= @activity.name %></span>
-      <div class = "actInfo">
-        <br /> <br /> <br /> <br />
-        <span><b>Owner:</b> <%= @activity.owner %></span><br />
-        <b>Time:</b><%= @activity.tim %><br />
-        <b>Peonum:</b><%= @activity.peoNum %><br/>
-        <b>Contact:</b><%= @activity.contact %><br />
-        <b>Description:</b><%= @activity.description %><br />
-        <%= image_tag @picpath, :size => "80x80" %>
-      </div>
-      <div class = "actQA">
-        <% @questions.each_with_index do |q,i|%>
-          <div class = "question">
-            <%=  q.qustion %>
-            <%= q.qustioner %>
-            <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
-              <div>
-              <%= r.answer %>   <%= r.replier %>
-            </div>
-            <% end %>
-          <% if @user != nil && @user.email == @activity.owner %>
-            <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{i})" %>
-            <div  class = "replyBox", style = "display:none" %>
-              <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
-                <%= f.text_area :answer, :size => "30x2" %>
+<div class ="actContent">
+  <span style  ="font-size: 40px"><%= @activity.name %></span>
+  <div class = "actInfo">
+    <br /> <br /> <br /> <br />
+    <span><b>Owner:</b> <%= @activity.owner %></span><br />
+    <b>Time:</b><%= @activity.tim %><br />
+    <b>Peonum:</b><%= @activity.peoNum %><br/>
+    <b>Contact:</b><%= @activity.contact %><br />
+    <b>Description:</b><%= @activity.description %><br />
+    <%= image_tag @picpath, :size => "80x80" %>
+  </div>
+  <div class = "actQA">
+    <% @questions.each_with_index do |q,i|%>
+      <div class = "question">
+        <%=  q.qustion %>
+        <%= q.qustioner %>
+        <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
+          <div>
+            <%= r.answer %>   <%= r.replier %>
+          </div>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{i})" %>
+        <div  class = "replyBox", style = "display:none" %>
+          <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
+            <%= f.text_area :answer, :size => "30x2" %>
                 <%= f.submit 'reply' %>
               <% end %>
             </div>
           <% end %>
         </div>
       <% end %>
-      <% if @user != nil  %>
+      <% if user_signed_in? && current_user.email != @activity.owner  %>
       <b>I have some questions about this activity ... </b>
       <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
         <%= f.text_area :qustion, :size => "30x3" %>
@@ -57,7 +50,7 @@
           <%=  c.content %>
         </div>
       <% end %>
-      <% if @user != nil %>
+      <% if user_signed_in? %>
       <b>Write some comment for this activity</b>
       <%= form_for @comment, url: @activity.id.to_s+'/newComment' do |f| %>
         <%= f.text_area :content, :size => "30x6" %>
@@ -69,7 +62,6 @@
     <a href="javascript:history.go(-1);">Back</a>
   </div>
 
-</div>
 
 <script type="text/javascript">
   function replyShow(id){
