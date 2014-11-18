@@ -9,7 +9,7 @@ Team::Application.routes.draw do
         sessions: 'user/sessions'
       }
   match '/admins/index' => 'admin/admins#index'
-
+  match 'users/index' =>'user/users#index'
   #
 
 
