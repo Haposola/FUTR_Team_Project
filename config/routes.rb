@@ -1,5 +1,5 @@
 Team::Application.routes.draw do
-root :to => 'index#index'
+  root :to => 'index#index'
   devise_for :users
 
   #
