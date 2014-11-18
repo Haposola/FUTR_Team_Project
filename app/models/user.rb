@@ -1,34 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :nickname, :password, :password_confirmation, :pwd_key, :name, :nation
-  
-  validates :email, presence: true
-  validates :password, confirmation: true, presence: true
-  validates :password_confirmation, presence: true
-  validates :nickname, presence: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  def self.enc(pass,random_string)
-  	Digest::MD5.hexdigest(pass)+Digest::MD5.hexdigest(random_string)
-  end
-
-  def self.random_string(len)
-  	randstring = ""
-  	chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
-  	1.upto(len){ |i| randstring << chars[ rand(chars.size-1) ] }
-  	return randstring
-  end
-  def self.get_key(email)
-  	transaction do 
-  		user = User.find(:first, :conditions => ["email = ?", email ])
-             if user && user != nil 
-                return user.pwd_key
-             else 
-              return ""
-            end
-  	end
-  end
-  def self.try_to_signin(email)
-    transaction do
-      User.find(:first, :conditions => ["email = ?", email])
-    end
-  end
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :title, :body
 end

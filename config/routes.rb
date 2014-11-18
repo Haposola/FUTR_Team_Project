@@ -1,11 +1,12 @@
 Team::Application.routes.draw do
+root :to => 'index#index'
+  devise_for :users
 
-  root :to => 'index#index'
+  #
 
 
-  match 'index' =>'index#index'
+  #match 'index' =>'index#index'
   resources :activities
-  resources :users
 
   match 'activities/:id/newQuestion' => 'activities#newQuestion'
   match 'activities/:id/newReply' => 'activities#newReply'
@@ -14,9 +15,9 @@ Team::Application.routes.draw do
   match 'activities/:string' => 'activities#list'
   match 'activities/page/:id' => 'activities#list'
 
-  match 'signin' => 'users#signin'
-  match 'signinChk' => 'users#signinChk' , :via => 'post'
-  match 'logout' =>'users#logout'
+  #match 'signin' => 'users#signin'
+  #match 'signinChk' => 'users#signinChk' , :via => 'post'
+  #match 'logout' =>'users#logout'
 
 
   match 'hitmap' => 'hitmap#index'
