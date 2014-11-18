@@ -43,10 +43,12 @@
           <% end %>
         </div>
       <% end %>
+      <% if @user != nil  %>
       <b>I have some questions about this activity ... </b>
       <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
         <%= f.text_area :qustion, :size => "30x3" %>
         <%= f.submit 'ask the owner'%>
+      <% end %>
       <% end %>
     </div>
     <div class = "comment">
@@ -55,12 +57,14 @@
           <%=  c.content %>
         </div>
       <% end %>
+      <% if @user != nil %>
       <b>Write some comment for this activity</b>
       <%= form_for @comment, url: @activity.id.to_s+'/newComment' do |f| %>
         <%= f.text_area :content, :size => "30x6" %>
         <%= f.submit 'comment' %>
       <% end %>
     </div>
+    <% end %>
         <br />
     <a href="javascript:history.go(-1);">Back</a>
   </div>
