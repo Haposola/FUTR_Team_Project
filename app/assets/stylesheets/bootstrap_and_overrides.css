@@ -28,11 +28,13 @@
 	float:right !important;
 	margin-right: 30px;
   }
+
   .pagecontainer{
   	margin: 0px auto;
   	float:none;
   	display: table;
   	width:80%;
-  	background-color: white;
-  	opacity: 0.8;
+  	background: rgba(0, 0, 0, 0.2) !important; /* IE无效，FF有效 */  
+    background: #fff;  
+    filter: alpha(opacity=1);  
   }

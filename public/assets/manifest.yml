@@ -1,10 +1,14 @@
 ---
+1_bc.jpg: 1_bc-1e13432a28d6bae0e6ab712f95294a95.jpg
+1_bc/index.jpg: 1_bc-1e13432a28d6bae0e6ab712f95294a95.jpg
+3_bc.jpg: 3_bc-82a1efd2a2f8da3a0c4bdee4a3ff3f03.jpg
+3_bc/index.jpg: 3_bc-82a1efd2a2f8da3a0c4bdee4a3ff3f03.jpg
 actTag/LOL.jpg: actTag/LOL-955a875f8ef7de2e399969cdd6ec9079.jpg
 actTag/LOL/index.jpg: actTag/LOL-955a875f8ef7de2e399969cdd6ec9079.jpg
 actTag/default.jpg: actTag/default-0038e061591d6de0fd095be2599d75c6.jpg
 actTag/default/index.jpg: actTag/default-0038e061591d6de0fd095be2599d75c6.jpg
-bc.jpg: bc-1e13432a28d6bae0e6ab712f95294a95.jpg
-bc/index.jpg: bc-1e13432a28d6bae0e6ab712f95294a95.jpg
+bc.jpg: bc-b3cf98960a7e5a95c955bb1cb8b9b2b2.jpg
+bc/index.jpg: bc-b3cf98960a7e5a95c955bb1cb8b9b2b2.jpg
 fbg_bg.jpg: fbg_bg-d30f946dfa4487eb7097a93cea125fe1.jpg
 fbg_bg/index.jpg: fbg_bg-d30f946dfa4487eb7097a93cea125fe1.jpg
 hbg_img.jpg: hbg_img-e144ccd0cb611093f9d000e2b73218cf.jpg
@@ -57,8 +61,8 @@ userpic.gif: userpic-41c7ffeeac7e1bdb7fbb8f1cb1bbfda1.gif
 userpic/index.gif: userpic-41c7ffeeac7e1bdb7fbb8f1cb1bbfda1.gif
 application.js: application-e2489bbd354c4b0febc8316d0abc4df2.js
 application/index.js: application-e2489bbd354c4b0febc8316d0abc4df2.js
-application.css: application-3225ad370f5e061a235c4f1a3f6b2c33.css
-application/index.css: application-3225ad370f5e061a235c4f1a3f6b2c33.css
+application.css: application-4edf61d7865efdeb18cbb240cb740b16.css
+application/index.css: application-4edf61d7865efdeb18cbb240cb740b16.css
 jquery.min.map: jquery.min-c5a89be96c8d2def857e2657b2c155c0.map
 jquery/index.min.map: jquery.min-c5a89be96c8d2def857e2657b2c155c0.map
 fontawesome-webfont.eot: fontawesome-webfont-748acb824ec6cf781401beccead3cfb2.eot

@@ -7,7 +7,6 @@ Design by http://www.templateaccess.com
 Released for free under a Creative Commons Attribution 3.0 License
 */
 
-body {background:image-url("bc.jpg") repeat; margin:0; padding:0; width:100%; color:#959595; font:normal 12px/1.8em Arial, Helvetica, sans-serif; }
 html, .main { padding:0; margin:0;}
 
 .main { }
@@ -20,11 +19,9 @@ html, .main { padding:0; margin:0;}
 
 /* content */
 .content_resize {  margin:0 auto; padding:24px 0; width:980px;}
-.content .mainbar {  background-color:pink;margin:0; padding:8px 0; float:right; width:770px;}
+.content .mainbar {  background-color:red;margin:0; padding:8px 0; float:right; width:770px;}
 
 .content .mainbar .article { margin:0; padding:8px 24px 8px 40px; height: 400px;}
-.content .mainbar .article .activity { background:image-url("notyet.jpg") no-repeat center;float:left; margin:0; padding:0; width:330px; height: 400px;}
-.content .mainbar .article .server { background:image-url("notyet.jpg") no-repeat center;float:right; margin:0; padding:0; width:330px; height: 400px;}
 .content .sidebar {margin:0; padding:8px 0;float:left; width:200px; height:816px;}
 .content .sidebar .gadget { margin:0; padding:8px 16px 8px 40px; }
 ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none; color:#959595;}
