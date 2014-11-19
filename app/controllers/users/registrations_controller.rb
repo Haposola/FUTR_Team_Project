@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.active_for_authentication?
 
       resource.update_attributes({:category =>"commen",:realconfirm =>"yes"})
+      SignedInLog.create(:email => resource.email)
         #only this line up there is added  in order to save new attrs.
         #all the other is the original code
       set_flash_message :notice, :signed_up if is_flashing_format?

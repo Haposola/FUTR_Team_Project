@@ -2,8 +2,12 @@ class Admins::AdminsController < ApplicationController
 	before_filter :authenticate_admin!
 	layout "admins"
 	def index
+		render :layout => false
 	end
 	def usrmgmt
+		@log = SignedInLog.all
+		@olnum = @log.length
+
 		choose = params[:id]
 		if choose == "all"
 			@users = User.all
