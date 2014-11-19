@@ -42,7 +42,7 @@ function mouseOver_r()
                     </h2><% @restaurants.each do |restaurant| %>
                     <div style="width:800px;border:1px blue solid;margin:0.5em">
                         <div style="border:1px red solid;float:right;">
-                            <%= image_tag(restaurant.picture_addr,:height=>"180px") %>
+                            <%= image_tag(restaurant.picture_addr,:width=>"250px") %>
                         </div>
                         <h3>
                             <%= link_to restaurant.name, show_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name) %>
@@ -63,7 +63,7 @@ function mouseOver_r()
                     </h2><% @ktvs.each do |ktv| %>
                     <div style="width:800px;border:1px blue solid;margin:0.5em">
                         <div style="border:1px red solid;float:right;">
-                            <%= image_tag(ktv.picture_addr,:height=>"180px") %>
+                            <%= image_tag(ktv.picture_addr,:width=>"250px") %>
                         </div>
                         <h3>
                             <%= link_to ktv.name, show_outservice_path(:service_kind=>'ktv', :name=>ktv.name) %>
@@ -84,7 +84,7 @@ function mouseOver_r()
                     </h2><% @bars.each do |bar| %>
                     <div style="width:800px;border:1px blue solid;margin:0.5em">
                         <div style="border:1px red solid;float:right;">
-                            <%= image_tag(bar.picture_addr,:height=>"180px") %>
+                            <%= image_tag(bar.picture_addr,:width=>"250px") %>
                         </div>
                         <h3>
                             <%= link_to bar.name, show_outservice_path(:service_kind=>'bar', :name=>bar.name) %>
