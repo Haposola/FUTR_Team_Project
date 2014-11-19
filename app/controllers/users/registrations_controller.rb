@@ -8,11 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   def create
-     super do |@resource|
-     redirect_to '/index/index'
-   end
-   end
+  # def create
+   #  super do |@resource|
+   #  redirect_to '/index/index'
+   #end
+   #end
 
   # GET /resource/edit
   # def edit
