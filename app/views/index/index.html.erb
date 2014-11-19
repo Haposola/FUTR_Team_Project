@@ -16,7 +16,6 @@ Released for free under a Creative Commons Attribution 3.0 License
 <body>
 
 <div class="others">
-<%= @resource %>
 <div class="clr"></div>
 <div class="main">
  <div class="img"> 
@@ -32,6 +31,7 @@ Released for free under a Creative Commons Attribution 3.0 License
         <div class="article">
           <div class="activity">
             <p> <h1>Activity</h1></p><div class="clr"></div>
+            hhh<%= @ppp %>
             <% @activities.each do |activity| %>
             <div class ="activities" style="width:350px;left:0">
               <span><%= link_to activity.name, activity %></span></br>
