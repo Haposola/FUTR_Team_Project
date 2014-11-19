@@ -130,6 +130,8 @@ ActiveRecord::Schema.define(:version => 20141118104555) do
     t.string   "nickname"
     t.string   "name"
     t.string   "nation"
+    t.string   "category"
+    t.string   "realconfirm"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
