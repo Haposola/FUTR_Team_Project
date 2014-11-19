@@ -1,0 +1,22 @@
+<div class = "userSideBar">
+  <div>
+    <ul>
+      <li><h4><%= link_to 'User Information', '/users/info'%></h4></li>
+      <li><h4><a href="#">Ask a question</a></h4></li>
+      <li><h4><a href="/activities/new">Put a activity</a></h4></li>
+      <li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
+    </ul>
+  </div>
+</div>
+<div class ="userContent">
+  <p>Welcome! <%= current_user.nickname %></p>
+  <p><b>Email:</b><%= current_user.email %></p>
+  <p><b>Nickname:</b><%= current_user.nickname %></p>
+  <p><b>Name:</b><%= current_user.name %></p>
+  <p><b>Nation:</b><%= current_user.nation %></p>
+  <p><b>Category:</b><%= current_user.category%></p>
+  <p><b>RealNameConfirmation:</b><%= current_user.realconfirm%></p>
+  <br/>
+  <%= link_to 'Back', '/users/index' %>
+  </div>
+

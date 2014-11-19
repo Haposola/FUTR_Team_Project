@@ -1,18 +1,30 @@
 Team::Application.routes.draw do
   devise_for :admins, controllers: {
-        sessions: 'admins/sessions'
+        sessions: 'admins/sessions',
+        registrations: 'admins/registrations',
+        confirmations: 'admins/confirmations',
+        passwords: 'admins/passwords',
+        unlocks: 'admins/unlocks'
       }
 
 
   root :to => 'index#index'
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
+        sessions: 'users/sessions',
+        registrations: 'users/registrations',
+        confirmations: 'users/confirmations',
+        passwords: 'users/passwords',
+        unlocks: 'users/unlocks'
       }
   match '/admins/index' => 'admins/admins#index'
+  match 'admins/usrmgmt/:id' => 'admins/admins#usrmgmt'
+  match 'admins/actmgmt' =>'admins/admins#actmgmt'
+  match 'admins/svcmgmt' =>'admins/admins#svcmgmt'
+  match 'admins/sndemail' =>'admins/admins# sndemail'
 
   match 'users/index' =>'users/users#index'
   match 'users/registration' => 'users/users#regist'
-
+  match 'users/info' => 'users/users#info'
   #
 
 

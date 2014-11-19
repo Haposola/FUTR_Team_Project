@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .sidebar{margin:10px; float:left; width:140px;}
 .mainbar{margin:10px; float:right; width:400px;}
-#userSideBar{
+.userSideBar{
 	position : fixed;
 	top: 100px;
 	left: 10px;
@@ -15,7 +15,7 @@
 	border-right: solid 2px;
 
 }
-#userSideBar ul li{
+.userSideBar ul li{
 	float:left;
     margin: 10px 10px 10px 10px;
 	background:#fff;
@@ -34,14 +34,12 @@
 	filter:alpha(opacity=70);
 	}
 
-.mainbar #userContent{
+.userContent{
 	position:absolute;
-	top: 30px;
 	left: 200px;
-	padding-bottom:30px;	
 }
 
-.mainbar .avtivity{
+.avtivity{
     position:relative;
     color:blue;
     float:left;
