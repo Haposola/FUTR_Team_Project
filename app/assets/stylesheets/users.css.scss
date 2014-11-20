@@ -17,7 +17,7 @@
 }
 .userSideBar ul li{
 	float:left;
-    margin: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
 	background:#fff;
 	
 	box-shadow:0 1px 0 #dedede;
@@ -46,9 +46,9 @@
 }
 #formcontainer{
 	position:absolute;
-	width:48%;
+	width:60%;
 	top:70px;
-	left:25%;
+	left:20%;
 }
 #tipcontainer{
 	position:absolute;
@@ -103,24 +103,14 @@ transition: all .4s ease-out;
 	text-decoration:none;
 	color:green;
 }
-.regright{
-	float:right;
-}
-.regleft{
-	float:left;
-}
-.formright,.tipright{
-	right:0px;
-}
-#officialtip,#servicetip{
-	top:0px;
-}
-#clubtip,#commontip{
-	bottom:0px;
-}
-.formleft,.tipleft{
-	left:0px;
-}
+
+.regright{float:right;}
+.regleft{float:left;}
+.formright,.tipright{right:0px;}
+.formleft,.tipleft{left:0px;}
+#officialtip,#servicetip{top:0px;}
+#clubtip,#commontip{bottom:0px;}
+
 .form{
 	display:none;
 	position:absolute;
@@ -137,4 +127,9 @@ transition: all .4s ease-out;
 	text-align:center;
 	vertical-align:middle;
 }
-
+.tip span{
+	position:absolute;
+	width:100%;
+	top:20px;
+	left:0px;
+}

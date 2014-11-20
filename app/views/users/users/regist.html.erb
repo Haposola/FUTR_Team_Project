@@ -1,64 +1,56 @@
+
 <div id="tipcontainer">
-	<div id="offcialtip" class="tip tipleft">
-		We need to contact to you to make sure.<br />
-		Thanks for you patience;
+	<div id="officialtip" class="tip tipleft">
+		<span>We need to contact to you to make sure.<br />
+			Thanks for you patience;</span>
 	</div>
 	<div id="servicetip" class="tip tipright">
-		Happy to have you on our site!<br />
-		Hope we could help you business to grow!
+		<span>Happy to have you on our site!<br />
+			Hope we could help you business to grow!</span>
 	</div>
 	<div id="clubtip" class="tip tipleft">
-		Welcome to put your club's informations here.<br />
-		Maybe you don't need posts anymore.
+		<span>Welcome to put your club's informations here.<br />
+			Maybe you don't need posts anymore.</span>
 	</div>
 	<div id="commontip" class="tip tipright">
-		Hey! I am not a common user!<br />
-		Let me click those pictures!
+		<span>Hey! I am not a common user!<br />
+			Let me click those pictures!</span>
 	</div>
 </div>
 <div id="imgcontainer">
-	<div class="regleft reg">
-	
-	<div id="imgtl" class ="overleft overlay">
-	<a>I am in charge of <br /><br />a School Club</a>
+	<div  id="imgtl" class="regleft reg">
+		<div class ="overleft overlay">
+		<a>I am in charge of <br /><br />a School Club</a>
+		</div>
+		<%= image_tag("clubs.jpg") %>
 	</div>
-	<%= image_tag("clubs.jpg") %>
-	</div>
-
 
 	<div id="imgtr" class ="regright reg">
-	
-	<div class ="overright overlay">
+		<div class ="overright overlay">
 		<a>I'll back and register<br /><br /> As Myself</a>
-	</div>
-	<%= image_tag("common.jpg")%>
+		</div>
+		<%= image_tag("common.jpg")%>
 	</div>
 	
 
 	<div id="imgbl" class="regleft reg">
-	
-	<div class ="overleft overlay">
+		<div class ="overleft overlay">
 		<a>I am responsible for a<br /><br />School Official</a>
-	</div>
-	<%= image_tag("officials.jpg")%>
+		</div>
+		<%= image_tag("officials.jpg")%>
 	</div>
 	
-
 	<div id="imgbr" class = "regright reg">
-	
-	<div class ="overright overlay">
+		<div class ="overright overlay">
 		<a>I'm here to provide<br /><br />Services</a>
+		</div>
+		<%= image_tag("services.jpg")%>
 	</div>
-	<%= image_tag("services.jpg")%>
-	</div>
-	
 </div>
+
 <div id="formcontainer">
 	<div id="clubform" class="formright form">
-		email<br/>
-		name<br />
-		Organization Name<br />
-		Telephone
+		<%= render "/users/registrations/form"%>
 	</div>
 
 	<div id="officialform"class="formright form">
@@ -85,7 +77,7 @@
 
 <script type="text/javascript">
 	$("#imgtl").click(function () {
-		if ($("#clubform").is(":hidden")) {
+		if ($("#officialtip").is(":hidden")) {
 			$("#clubform").slideDown("slow");
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
@@ -94,7 +86,7 @@
 		} 	
 	});
 	$("#imgtr").click(function () {
-		if ($("#commonform").is(":hidden")) {
+		if ($("#servicetip").is(":hidden")) {
 			$("#commonform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
@@ -103,7 +95,7 @@
 		} 	
 	});
 	$("#imgbl").click(function () {
-		if ($("#officialform").is(":hidden")) {
+		if ($("#clubtip").is(":hidden")) {
 			$("#officialform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
@@ -112,7 +104,7 @@
 		} 	
 	});
 	$("#imgbr").click(function () {
-		if ($("#serviceform").is(":hidden")) {
+		if ($("#commontip").is(":hidden")) {
 			$("#serviceform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
@@ -120,4 +112,4 @@
 			$("#servicetip").fadeIn("slow");
 		} 	
 	});
-</script>>
+</script>
