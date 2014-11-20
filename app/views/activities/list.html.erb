@@ -7,12 +7,14 @@
 
     <div class = "actContent">
         <% @activities.each do |activity| %>
+        <% if activity && activity!= nil%>
         <div class ="activities">
             <span class = "name"><%= link_to activity.name, activity %></span>
             <span class = "time"><%=  activity.tim %></span>
             <hr>
             <span class = "description"><%= activity.description %></span>
         </div>
+        <% end %>
         <% end %>
         <br />
         <div class = "pagenum">

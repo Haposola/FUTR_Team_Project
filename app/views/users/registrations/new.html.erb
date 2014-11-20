@@ -5,18 +5,41 @@
 	<div id="officialtip" class="tip tipleft">
 		<span>We need to contact to you to make sure.<br />
 			Thanks for you patience;</span>
+		<a id="officialback">Back official</a>
 	</div>
 	<div id="servicetip" class="tip tipright">
 		<span>Happy to have you on our site!<br />
 			Hope we could help you business to grow!</span>
+		<a id="serviceback">Back service</a>
 	</div>
 	<div id="clubtip" class="tip tipleft">
 		<span>Welcome to put your club's informations here.<br />
 			Maybe you don't need posts anymore.</span>
+		<a id="clubback">Back club</a>
 	</div>
 	<div id="commontip" class="tip tipright">
 		<span>Hey! I am not a common user!<br />
 			Let me click those pictures!</span>
+		<a id="commonback">Back common</a>
+	</div>
+</div>
+
+<div id="formcontainer">
+	<div id="clubform" class="formright regform">
+		<%= render "form",locals:{string: @category="club"}%>
+	</div>
+
+	<div id="officialform"class="formright regform">
+		<%= render "form",locals:{string: @category="official"}%>
+	</div>
+
+	<div id="commonform" class="formleft regform">
+		<%= render "form",locals:{string: @category="common"}%>
+	</div>
+
+	<div id="serviceform" class="formleft regform">
+		<%= render "form",locals:{string: @category="service"}%>
+
 	</div>
 </div>
 <div id="imgcontainer">
@@ -49,65 +72,83 @@
 		<%= image_tag("signup/services.jpg")%>
 	</div>
 </div>
-
-<div id="formcontainer">
-	<div id="clubform" class="formright form">
-		<%= render "form"%>
-		<%= render "users/shared/links" %>
-	</div>
-
-	<div id="officialform"class="formright form">
-		<%= render "form"%>
-		<%= render "users/shared/links" %>
-	</div>
-
-	<div id="commonform" class="formleft form">
-		<%= render "form"%>
-		<%= render "users/shared/links" %>
-	</div>
-
-	<div id="serviceform" class="formleft form">
-		<%= render "form"%>
-		<%= render "users/shared/links" %>
-	</div>
-</div>
 </div>
 <script type="text/javascript">
 	$("#imgtl").click(function () {
-		if ($("#officialtip").is(":hidden")) {
+		if ($("#officialtip").is(":hidden") && $("#servicetip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden") ) {
 			$("#clubform").slideDown("slow");
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
 			$("#imgbr").animate({opacity:'0'},'slow');
 			$("#clubtip").fadeIn("slow");
+			$("#clubtip").css({"z-index":"100"});
 		}   
 	});
 	$("#imgtr").click(function () {
-		if ($("#servicetip").is(":hidden")) {
+		if ($("#officialtip").is(":hidden") && $("#servicetip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
 			$("#commonform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
 			$("#imgbr").animate({opacity:'0'},'slow');
 			$("#commontip").fadeIn("slow");
+			$("#commontip").css({"z-index":"100"});
 		}   
 	});
 	$("#imgbl").click(function () {
-		if ($("#clubtip").is(":hidden")) {
+		if ($("#officialtip").is(":hidden") && $("#officialtip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
 			$("#officialform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbr").animate({opacity:'0'},'slow');
 			$("#officialtip").fadeIn("slow");
+			$("#officialtip").css({"z-index":"100"});
 		}   
 	});
 	$("#imgbr").click(function () {
-		if ($("#commontip").is(":hidden")) {
+		if ($("#officialtip").is(":hidden") && $("#officialtip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
 			$("#serviceform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
 			$("#servicetip").fadeIn("slow");
+			$("#servicetip").css({"z-index":"100"});
 		}   
+	});
+	$("#clubback").click(function () {
+		$("#clubform").slideUp("fast");
+		$("#imgtl").animate({opacity:'1'},'slow');
+		$("#imgtr").animate({opacity:'1'},'slow');
+		$("#imgbl").animate({opacity:'1'},'slow');
+		$("#imgbr").animate({opacity:'1'},'slow');
+		$("#clubtip").fadeOut("slow");
+		$("#clubtip").css({"z-index":"-100"});
+	});
+	$("#commonback").click(function () {
+		$("#commonform").slideUp("fast");
+		$("#imgtl").animate({opacity:'1'},'slow');
+		$("#imgtr").animate({opacity:'1'},'slow');
+		$("#imgbl").animate({opacity:'1'},'slow');
+		$("#imgbr").animate({opacity:'1'},'slow');
+		$("#commontip").fadeOut("slow");
+		$("#commontip").css({"z-index":"-100"});
+	});
+	$("#officialback").click(function () {
+		$("#officialform").slideUp("fast");
+		$("#imgtl").animate({opacity:'1'},'slow');
+		$("#imgtr").animate({opacity:'1'},'slow');
+		$("#imgbl").animate({opacity:'1'},'slow');
+		$("#imgbr").animate({opacity:'1'},'slow');
+		$("#officialtip").fadeOut("slow");
+		$("#officialtip").css({"z-index":"-100"});
+	});
+	$("#serviceback").click(function () {
+		$("#serviceform").slideUp("fast");
+		$("#imgtl").animate({opacity:'1'},'slow');
+		$("#imgtr").animate({opacity:'1'},'slow');
+		$("#imgbl").animate({opacity:'1'},'slow');
+		$("#imgbr").animate({opacity:'1'},'slow');
+		$("#servicetip").fadeOut("slow");
+		$("#servicetip").css({"z-index":"-100"});
 	});
 </script>
 

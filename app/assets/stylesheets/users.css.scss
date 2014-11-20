@@ -46,6 +46,7 @@
 }
 #formcontainer{
 	position:absolute;
+	height:100%;
 	width:70%;
 	top:70px;
 	left:15%;
@@ -57,6 +58,16 @@
 	left:20%;
 	height:500px;
 }
+#signincontainer{
+	margin:0px auto;
+	display:table;
+	width:30%;
+}
+#signinleft{
+	float:left;
+	width: 150px;
+}
+#signinright{float:right;}
 h2{
 	margin:0px auto;
 	display:table;
@@ -97,16 +108,17 @@ input{
 	top:70px;
 	margin: 0 auto;
 }
-.overlay a{
+.overlay a,.tip a{
 	position:relative;
 	font-size:24px;
 	top:30%;
-	-webkit-transition: all .4s ease-out;
-	-moz-transition: all .4s ease-out;
+	-webkit-transition: all .5s ease-out;
+	-moz-transition: all .5s ease-out;
 	-o-transition: all .5s ease-out;
-	transition: all .4s ease-out;
+	transition: all .5s ease-out;
 }
-.overlay a:hover{
+
+.overlay a:hover,.tip a:hover{
 	text-decoration:none;
 	color:green;
 }
@@ -118,11 +130,12 @@ input{
 #officialtip,#servicetip{top:0px;}
 #clubtip,#commontip{bottom:0px;}
 
-.form{
+.regform{
 	display:none;
 	position:absolute;
 	top:30px;
 	width:50%;
+	height:100%;
 }
 .tip{
 	display:none;
