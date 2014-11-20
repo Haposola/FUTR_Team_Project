@@ -1,0 +1,115 @@
+
+<div id="tipcontainer">
+	<div id="officialtip" class="tip tipleft">
+		<span>We need to contact to you to make sure.<br />
+			Thanks for you patience;</span>
+	</div>
+	<div id="servicetip" class="tip tipright">
+		<span>Happy to have you on our site!<br />
+			Hope we could help you business to grow!</span>
+	</div>
+	<div id="clubtip" class="tip tipleft">
+		<span>Welcome to put your club's informations here.<br />
+			Maybe you don't need posts anymore.</span>
+	</div>
+	<div id="commontip" class="tip tipright">
+		<span>Hey! I am not a common user!<br />
+			Let me click those pictures!</span>
+	</div>
+</div>
+<div id="imgcontainer">
+	<div  id="imgtl" class="regleft reg">
+		<div class ="overleft overlay">
+		<a>I am in charge of <br /><br />a School Club</a>
+		</div>
+		<%= image_tag("clubs.jpg") %>
+	</div>
+
+	<div id="imgtr" class ="regright reg">
+		<div class ="overright overlay">
+		<a>I'll back and register<br /><br /> As Myself</a>
+		</div>
+		<%= image_tag("common.jpg")%>
+	</div>
+	
+
+	<div id="imgbl" class="regleft reg">
+		<div class ="overleft overlay">
+		<a>I am responsible for a<br /><br />School Official</a>
+		</div>
+		<%= image_tag("officials.jpg")%>
+	</div>
+	
+	<div id="imgbr" class = "regright reg">
+		<div class ="overright overlay">
+		<a>I'm here to provide<br /><br />Services</a>
+		</div>
+		<%= image_tag("services.jpg")%>
+	</div>
+</div>
+
+<div id="formcontainer">
+	<div id="clubform" class="formright form">
+		<%= render "/users/registrations/form"%>
+	</div>
+
+	<div id="officialform"class="formright form">
+		email<br/>
+		name<br />
+		Organization Name<br />
+		Telephone
+	</div>
+
+	<div id="commonform" class="formleft form">
+		email<br/>
+		name<br />
+		Organization Name<br />
+		Telephone
+	</div>
+
+	<div id="serviceform" class="formleft form">
+		email<br/>
+		name<br />
+		Organization Name<br />
+		Telephone
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#imgtl").click(function () {
+		if ($("#officialtip").is(":hidden")) {
+			$("#clubform").slideDown("slow");
+			$("#imgtr").animate({opacity:'0'},'slow');
+			$("#imgbl").animate({opacity:'0'},'slow');
+			$("#imgbr").animate({opacity:'0'},'slow');
+			$("#clubtip").fadeIn("slow");
+		} 	
+	});
+	$("#imgtr").click(function () {
+		if ($("#servicetip").is(":hidden")) {
+			$("#commonform").slideDown("slow");
+			$("#imgtl").animate({opacity:'0'},'slow');
+			$("#imgbl").animate({opacity:'0'},'slow');
+			$("#imgbr").animate({opacity:'0'},'slow');
+			$("#commontip").fadeIn("slow");
+		} 	
+	});
+	$("#imgbl").click(function () {
+		if ($("#clubtip").is(":hidden")) {
+			$("#officialform").slideDown("slow");
+			$("#imgtl").animate({opacity:'0'},'slow');
+			$("#imgtr").animate({opacity:'0'},'slow');
+			$("#imgbr").animate({opacity:'0'},'slow');
+			$("#officialtip").fadeIn("slow");
+		} 	
+	});
+	$("#imgbr").click(function () {
+		if ($("#commontip").is(":hidden")) {
+			$("#serviceform").slideDown("slow");
+			$("#imgtl").animate({opacity:'0'},'slow');
+			$("#imgtr").animate({opacity:'0'},'slow');
+			$("#imgbl").animate({opacity:'0'},'slow');
+			$("#servicetip").fadeIn("slow");
+		} 	
+	});
+</script>
