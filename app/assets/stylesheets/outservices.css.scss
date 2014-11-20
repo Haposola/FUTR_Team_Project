@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.service_index h1,.service_index h2, .service_index h3, .service h1, .service h2{
+  font-family: 'Raleway';
+}
 .icon-chevron-right{
   float: right;
 }
@@ -52,7 +55,7 @@ overflow:hidden;
 width:expression(this.width >200  ? 200 : "auto");
 }
 
-h1,h2{
+.service_index h1,.service_index h2{
   color: white;
 }
 .sidebar-nav{

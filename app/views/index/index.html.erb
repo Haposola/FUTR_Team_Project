@@ -1,3 +1,63 @@
+<script type="text/javascript">
+function MouseAct(name){
+
+}
+
+
+</script>
+
+
+<div class="main_container">
+
+
+  <ul class="inline slides no-margin">
+
+    <li>
+      <div class="col-md-4 wp4 no-margin animated fadeInDown">
+
+      <div class="overlay-effect effects clearfix">
+        <div class="img">
+            <img alt="Activity" src="/assets/notyet.jpg"></img>
+            <div class="overlay" style="border:solid red 1px">
+                <a class="expand" href="#">
+                    <span>1111</span>
+                </a>
+            </div>
+        </div>
+      </div>
+
+      </div>
+
+
+        <div class="col-md-4 wp4 delay-05s no-margin animated fadeInDown"> 
+          <div class="overlay-effect effects clearfix">
+        <div class="img">
+            <img alt="Activity" src="/assets/notyet.jpg"></img>
+            <div class="overlay">
+                <a class="expand" href="#">
+                    <span>2222</span>
+                </a>
+            </div>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-4 wp4 delay-1s no-margin animated fadeInDown">
+          <div class="overlay-effect effects clearfix">
+        <div class="img">
+            <img alt="Activity" src="/assets/notyet.jpg"></img>
+            <div class="overlay">
+                <a class="expand" href="#">
+                    <span>3333</span>
+                </a>
+            </div>
+        </div>
+      </div>
+        </div>
+    </li>
+
+</ul>
+
+
 <div class="activity">
   <p> <h1>Activity</h1></p><div class="clr"></div>
   <% @activities.each do |activity| %>
@@ -13,40 +73,29 @@
   <p> <h1>Server</h1></p><div class="clr"></div>
   <% if @service_restaurant != nil %>
     <div>
-      <h2 style="border:solid 1px;text-align:center"><%= link_to @service_restaurant.name, show_outservice_path(:service_kind=>'restaurant',
-               :name=>@service_restaurant.name) %> </h2>
+      <h2 style="border:solid 1px;text-align:center"><%= link_to @service_restaurant.name, show_outservice_path(:service_kind=>'restaurant',:name=>@service_restaurant.name) %> </h2>
+      <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_restaurant.description %></p>
+    </div>
+  <% end %>
+  <% if @service_ktv != nil %>
+    <div>
+      <h2 style="border:solid 1px;text-align:center"><%= link_to @service_ktv.name, show_outservice_path(:service_kind=>'ktv',:name=>@service_ktv.name) %> </h2>
+      <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_ktv.description %></p>
+    </div>
+  <% end %>
+  <% if @service_bar != nil %>
+    <div>
+      <h2 style="border:solid 1px;text-align:center"><%= link_to @service_bar.name, show_outservice_path(:service_kind=>'bar',:name=>@service_bar.name) %> </h2>
+      <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_bar.description %></p>
+    </div>
+  <% end %>
+</div>
 
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_restaurant.description %></p>
-            </div>
-            <% end %>
-            <% if @service_ktv != nil %>
-            <div>
-              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_ktv.name, show_outservice_path(:service_kind=>'ktv',
-               :name=>@service_ktv.name) %> </h2>
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_ktv.description %></p>
-            </div>
-            <% end %>
-            <% if @service_bar != nil %>
-            <div>
-              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_bar.name, show_outservice_path(:service_kind=>'bar',
-               :name=>@service_bar.name) %> </h2>
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_bar.description %></p>
-            </div>
-            <% end %>
-          </div>
-        </div>
+<div class="article">
+  <h2><span>Quesions&Answers</span> </h2>
+   <p><h2>this part is for questions and answers.<h2></p>
+</div>
 
-        <div class="article">
-          <h2><span>Quesions&Answers</span> </h2><div class="clr"></div>
-          <p><h2>this part is for questions and answers.<h2></p>
-        </div>
-        
-
-
-
-
-  
-  
 </div>
 
 
