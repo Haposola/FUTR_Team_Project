@@ -1,5 +1,6 @@
+<div class="main_container">
 <h2 style="align:center">Sign up</h2>
-
+<%= devise_error_messages! %>
 <div id="tipcontainer">
 	<div id="officialtip" class="tip tipleft">
 		<span>We need to contact to you to make sure.<br />
@@ -19,18 +20,18 @@
 	</div>
 </div>
 <div id="imgcontainer">
-	<div  id="imgtl" class="regleft reg">
-		<div class ="overleft overlay">
+	<div  id="imgtl" class=" regleft reg">
+		<div class ="overleft overlay ">
 		<a>I am in charge of <br /><br />a School Club</a>
 		</div>
-		<%= image_tag("clubs.jpg") %>
+		<%= image_tag("signup/clubs.jpg") %>
 	</div>
 
 	<div id="imgtr" class ="regright reg">
 		<div class ="overright overlay">
 		<a>I'll back and register<br /><br /> As Myself</a>
 		</div>
-		<%= image_tag("common.jpg")%>
+		<%= image_tag("signup/common.jpg")%>
 	</div>
 	
 
@@ -38,14 +39,14 @@
 		<div class ="overleft overlay">
 		<a>I am responsible for a<br /><br />School Official</a>
 		</div>
-		<%= image_tag("officials.jpg")%>
+		<%= image_tag("signup/officials.jpg")%>
 	</div>
 	
 	<div id="imgbr" class = "regright reg">
 		<div class ="overright overlay">
 		<a>I'm here to provide<br /><br />Services</a>
 		</div>
-		<%= image_tag("services.jpg")%>
+		<%= image_tag("signup/services.jpg")%>
 	</div>
 </div>
 
@@ -70,7 +71,7 @@
 		<%= render "users/shared/links" %>
 	</div>
 </div>
-
+</div>
 <script type="text/javascript">
 	$("#imgtl").click(function () {
 		if ($("#officialtip").is(":hidden")) {
