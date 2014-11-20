@@ -167,9 +167,10 @@ class OutservicesController < ApplicationController
 
   def add_outservice_comments
     #@usercomment = Restaurant_comment.new(params[:user_comment])
-    userlog = SignedInLog.checkout(cookies[:riskfit_token])
-    @user = User.find(:first, :conditions =>["email = ?",userlog.email])
-    nickname = @user.nickname
+    #userlog = SignedInLog.checkout(cookies[:riskfit_token])
+    #@user = User.find(:first, :conditions =>["email = ?",userlog.email])
+    #nickname = @user.nickname
+    nickname=current_user.nickname;
     #@usercomment.nickname =nickname
     #@usercomment.restaurant_name =restaurantname
     @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
