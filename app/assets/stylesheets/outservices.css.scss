@@ -33,17 +33,18 @@
   margin-left: 250px;
 }
 
-[name=commit]{
+.service_comment [name=commit]{
   margin-left: 430px;
-  margin-right:430px;
+  margin-right: 430px;
 }
-#comment{
+
+.service_comment #comment{
   margin-left: 250px;
   margin-right:250px;
   width: auto;
 }
 
-img {
+.service_detail img,.service_index img {
 border:0;
 margin-left:10px;
 max-width:200px;
