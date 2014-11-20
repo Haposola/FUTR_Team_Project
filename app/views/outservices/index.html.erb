@@ -1,54 +1,55 @@
 <html>
     <head>
-
         <script type="text/javascript">
-function mouseOver_r()
+        function show_click(q1,q2,q3,b1,b2,b3)
         {
-        document.getElementById("restaurant").style.display="block";
-        document.getElementById("KTV").style.display="none";
-        document.getElementById("Bar").style.display="none";
+        document.getElementById(q1).style.display="block";
+        document.getElementById(b1).className="active";
+        document.getElementById(q2).style.display="none";
+        document.getElementById(b2).className="";
+        document.getElementById(q3).style.display="none";
+        document.getElementById(b3).className="";
         }
-        function mouseOver_k()
-        {
-        document.getElementById("KTV").style.display="block";
-        document.getElementById("restaurant").style.display="none";
-        document.getElementById("Bar").style.display="none";
-        }
-        function mouseOver_b()
-        {
-        document.getElementById("Bar").style.display="block";
-        document.getElementById("KTV").style.display="none";
-        document.getElementById("restaurant").style.display="none";
-        }
-
         </script>
         <title></title>
     </head>
-    <body class="guide">
-        <div>
+    
 
-        </div><br>
-        <br>
-        <br>
-        <br>
+
+    <body class="guide">
+
+
+<div class="container-fluid">  
+      <div class="row-fluid">  
+        <div class="span3">  
+          <div class="well sidebar-nav">  
+            <ul class="nav nav-list">  
+              <li class="nav-header">Services</li>  
+              <li id="r_b"><a  href="#" onclick="show_click('restaurant','Bar','KTV','r_b','k_b','b_b')">Restaurant<i class="icon-chevron-right"></i></a></li>  
+              <li id="k_b"><a href="#" onclick="show_click('KTV','Bar','restaurant','k_b','r_b','b_b')">KTV<i class="icon-chevron-right"></i></a></li>  
+              <li id="b_b"><a href="#" onclick="show_click('Bar','restaurant','KTV','b_b','k_b','r_b')">Bar<i class="icon-chevron-right"></i></a></li>  
+            </ul>  
+          </div><!--/.well -->  
+        </div><!--/span-->  
+
+ <div class="well service_index main_container">
         <h1>
             Services out of HIT
         </h1>
-        <div id="feature">
-            <div class="wrapper" style="border:0px black solid">
-                <div id="restaurant" style="padding-right: 23em">
+        
+                <div id="restaurant" >
                     <h2>
                         restaurant
                     </h2><% @restaurants.each do |restaurant| %>
-                    <div style="width:800px;border:1px blue solid;margin:0.5em">
-                        <div style="border:1px red solid;float:right;">
-                            <%= image_tag(restaurant.picture_addr,:height=>"180px") %>
+                    <div class="well service_sec">
+                        <div style="float:right;">
+                            <%= image_tag(restaurant.picture_addr,:class=>"img-polaroid") %>
                         </div>
                         <h3>
                             <%= link_to restaurant.name, show_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name) %>
                         </h3>
                         
-                        <div style="width:800px;border:solid 1px lightblue">
+                        <div class="service_dis">
                             <%= restaurant.description %>
                         </div>
                         
@@ -57,19 +58,19 @@ function mouseOver_r()
                         </div>
                     </div><% end %>
                 </div>
-                <div id="KTV" style="display:none;padding-right: 23em">
+                <div id="KTV" style="display:none;">
                     <h2>
                         KTV
                     </h2><% @ktvs.each do |ktv| %>
-                    <div style="width:800px;border:1px blue solid;margin:0.5em">
-                        <div style="border:1px red solid;float:right;">
-                            <%= image_tag(ktv.picture_addr,:height=>"180px") %>
+                    <div class="well service_sec">
+                        <div style="float:right;">
+                            <%= image_tag(ktv.picture_addr,:class=>"img-polaroid") %>
                         </div>
                         <h3>
                             <%= link_to ktv.name, show_outservice_path(:service_kind=>'ktv', :name=>ktv.name) %>
                         </h3>
                         
-                        <div style="width:800px;border:solid 1px lightblue">
+                        <div class="service_dis">
                             <%= ktv.description %>
                         </div>
                         
@@ -78,18 +79,18 @@ function mouseOver_r()
                         </div>
                     </div><% end %>
                 </div>
-                <div id="Bar" style="display:none;padding-right: 23em">
+                <div id="Bar" style="display:none;">
                     <h2>
                         bar
                     </h2><% @bars.each do |bar| %>
-                    <div style="width:800px;border:1px blue solid;margin:0.5em">
-                        <div style="border:1px red solid;float:right;">
-                            <%= image_tag(bar.picture_addr,:height=>"180px") %>
+                    <div class="well service_sec">
+                        <div style="float:right;">
+                            <%= image_tag(bar.picture_addr,:class=>"img-polaroid") %>
                         </div>
                         <h3>
                             <%= link_to bar.name, show_outservice_path(:service_kind=>'bar', :name=>bar.name) %>
                         </h3>
-                        <div style="width:800px;border:solid 1px lightblue">
+                        <div class="service_dis">
                             <%= bar.description %>
                         </div>
 
@@ -98,23 +99,9 @@ function mouseOver_r()
                         </div>
                     </div><% end %>
                 </div>
-                <div id="subCol">
-                    <h3 class="list">
-                        Services List
-                    </h3>
-                    <ol class="chapters">
-                        <li>
-                            <font color="black" onmouseover="mouseOver_r()">Restaurant</font>
-                        </li>
-                        <li>
-                            <font color="black" onmouseover="mouseOver_k()">KTV</font>
-                        </li>
-                        <li>
-                            <font color="black" onmouseover="mouseOver_b()">Bar</font>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
+
+                </div><!--/row-->  
+            </div><!--/.fluid-container--> 
+
     </body>
 </html>

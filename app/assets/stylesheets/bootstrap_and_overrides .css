@@ -5,9 +5,6 @@
   To use Glyphicons sprites instead of Font Awecontainersome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
-
-body {background:image-url("bc.jpg") repeat; margin:0; padding:0; width:100%; color:#959595; font:normal 12px/1.8em Arial, Helvetica, sans-serif; }
-html, .main { padding:0; margin:0;}
 .navbar .brand{
 	margin-left: 20px;
 }
@@ -31,10 +28,24 @@ html, .main { padding:0; margin:0;}
 	float:right !important;
 	margin-right: 30px;
   }
+
   .pagecontainer{
   	margin: 0px auto;
   	float:none;
   	display: table;
   	width:90%;
   	opacity: 0.8;
+  }
+
+  .main_container{
+    
+    background: rgba(0, 0, 0, 0.25) !important; /* IE无效，FF有效 */  
+    background: #fff;  
+    filter: alpha(opacity=1); 
+  }
+
+  .bs-docs-sidebar{
+    margin-left: 5px;
+    width: 200px;
+
   }
