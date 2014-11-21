@@ -1,74 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-
-</head>
-
-<body>
-
-<div class="container">
-  <div class="header">
-     <div class="qlogo" ><img src="assets/logo.gif" alt="here is the logo"></div> 
-  <div id="maintitle">Question and Answers</div>
-   <div class="clearfloat"></div>
-    <!-- end .header --></div>
-
-  <div class="qsidebar">
-
-    <ul class="qnav">
-      <li><a href="#" id="lbl">All</a></li>
-      <li><a href="#" id="lbl">Study</a></li>
-      <li><a href="#" id="lbl">Entertainment</a></li>
-      <li><a href="#" id="lbl">Others</a></li>
-    </ul>
-
-    <!-- end .qsidebar --></div>
-  <div class="rightside">
-    <div id="content">
-
-    <!-- end .content -->
-    <a href="questions/new"><img src="assets/question.gif" name="btn" width="220" height="64" id="btn" /><hr /></a>
-
+<div class="main_container">
+  <div class="quescontainer">
+    <div class="header">
+      <div id="maintitle">Question and Answers</div>
+      <div class="clearfloat"></div>
+      <!-- end .header --> </div>
+    <div class="qsidebar">
+      <ul class="qnav">
+        <li><a href="#" id="lbl">All</a></li>
+        <li><a href="#" id="lbl">Study</a></li>
+        <li><a href="#" id="lbl">Entertainment</a></li>
+        <li><a href="#" id="lbl">Others</a></li>
+      </ul>
+      <!-- end .qsidebar --> </div>
+    <div class="rightside">
+      <div id="content">
+        <!-- end .content -->
+        <a href="questions/new">
+          <img src="assets/question.gif" name="btn" width="220" height="64" id="btn" />
+          <hr />
+        </a>
+      </div>
+      <div id="main">
+        <h1>Listing questions</h1>
+        <% @questions.each do |question| %>
+        <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
+          <tr>
+            <td height="27">
+              <cc class="title">Nickname:</cc>
+              <%= question.Nickname %></td>
+            <td width="243" height="27">
+              <cc class="title">Lable:</cc>
+              <%= question.Lable %></td>
+            <td width="248" height="29">
+              <cc class="title">
+                <%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc>
+              <cc class="title">
+                <%= link_to 'Show', question %>
+                |
+                <%= link_to 'Edit', edit_question_path(question) %>
+                |
+                <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td width="41" height="29">reply</td>
+            </cc>
+          </tr>
+          <tr>
+            <td width="98" rowspan="2" bgcolor="#339966">
+              <img src="assets/userpic.gif" width="98"></td>
+            <td height="27" colspan="3">
+              <cc class="title">Topic:</cc>
+              <%= question.Topic %></td>
+          </tr>
+          <tr>
+            <td colspan="3" align="left" valign="top">
+              <cc class="title">Description:</cc>
+              <br>
+              <%= question.Description %></td>
+          </tr>
+        </table>
+        <% end %>
+        <br />
+      </div>
     </div>
-  <div id="main">
-  <h1>Listing questions</h1>
-  <% @questions.each do |question| %>
-  <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
-  <tr>
-    <td height="27"><cc class="title">Nickname:</cc><%= question.Nickname %> </td>
-    <td width="243" height="27"><cc class="title">Lable:</cc><%= question.Lable %>
-   </td>
-
-    <td width="248" height="29"> <cc class="title"><%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc><cc class="title"><%= link_to 'Show', question %>|<%= link_to 'Edit', edit_question_path(question) %>|<%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td width="41" height="29">reply</td></cc>
-    </tr>
-  <tr>
-    <td width="98" rowspan="2" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>
-    <td height="27" colspan="3"><cc class="title">Topic:</cc><%= question.Topic %></td>
-    </tr>
-  <tr>
-    <td colspan="3" align="left" valign="top"><cc class="title">Description:</cc>
-      <br><%= question.Description %></td>
-  </tr>
-  </table>
-
-
-
- 
-<% end %>
-
-
-<br />
-
-
-
-
-    </div>
-  </div>
-  <div class="footer">
-    <p class="lf">&copy; HITER Our website is conducted by FURE team</p>
-  <!-- end .footer --></div>
-  <!-- end .container --></div>
-  <script>
-</html>
-
+    <!-- end .container --> </div>
+</div>

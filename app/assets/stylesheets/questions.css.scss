@@ -1,4 +1,4 @@
-html{text-align:center;}
+
 
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6, p {
 
  
 
-.container {
+.quescontainer {
 	width: auto;
 	background-color: #FFF; 
 	height: auto;
@@ -65,9 +65,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 
-.header {
-	background-color: #ADB96E;
-}
 
 
 
@@ -136,7 +133,6 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 
 
 .footer {
-	background-color: #CCC49F;
 	position: relative;
 	clear: both;
 	height: 100px;
@@ -166,7 +162,7 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 }
 
 #main {
-	background-color: #D7FCD3;
+
 	height: 500px;
 	width: 780px;
 	padding:0 20px;
@@ -188,7 +184,6 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 #maintitle{
 	float: left;
 	font-size: xx-large;
-	color: #FF0;
 	font-family: "MS Serif", "New York", serif;
 	text-align:center;
 }
