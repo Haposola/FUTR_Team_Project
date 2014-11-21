@@ -1,0 +1,208 @@
+html{text-align:center;}
+
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	padding: 0;
+	color: #000;
+	text-align: center;
+	height: auto;
+	width: auto;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+
+}
+
+
+
+ul, ol, dl { 
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 
+	padding-right: 15px;
+	padding-left: 15px; 
+	text-align: center;
+}
+
+.qnav a img {  
+	border: none;
+}
+
+
+
+.qnav a:link {
+	color: #42413C;
+	text-decoration: underline;
+}
+
+.qnav a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+
+.qnav a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+
+ 
+
+.container {
+	width: auto;
+	background-color: #FFF; 
+	height: auto;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	position: relative;
+	text-align: center;
+}
+
+
+
+.header {
+	background-color: #ADB96E;
+}
+
+
+
+.qsidebar {
+	float: left;
+	width: 220px;
+	background-color: #D6D6D6;
+	height: 641px;
+	background-image: url("Contents-bg.gif");
+	background-repeat: no-repeat;
+	text-align: center;
+}
+
+#content {
+	width: 780px;
+	float: top;
+	height: auto;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	position: relative;
+	right: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	top: 0px;
+	text-align: right;
+}
+
+
+
+#content ul, #content ol { 
+	padding: 0 15px 15px 40px; 
+}
+
+
+
+ul.qnav {
+	list-style: none;  
+	border-top: 1px solid #666; 
+	margin-bottom: 15px; 
+}
+
+ul.qnav li {
+	border-bottom: 1px solid #666; 
+}
+
+ul.qnav a, ul.qnav a:visited {
+	display: block;
+	width: 200px;
+	text-decoration: none;
+	background-color: #C6D580;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+}
+
+ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus { 
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+
+
+.footer {
+	background-color: #CCC49F;
+	position: relative;
+	clear: both;
+	height: 100px;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+}
+
+
+
+.fltrt {  
+	float: right;
+	margin-left: 8px;
+}
+
+.fltlft {
+	float: left;
+	margin-right: 8px;
+}
+
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+#main {
+	background-color: #D7FCD3;
+	height: 500px;
+	width: 780px;
+	padding:0 20px;
+	margin-top: 0px;
+	float: none;
+	text-align: center;
+	overflow: auto;
+}
+
+.rightside {
+	float: right;
+	height: 641px;
+	width: 800px;
+}
+.qlogo {
+	float:left;
+	text-align: left;
+}
+#maintitle{
+	float: left;
+	font-size: xx-large;
+	color: #FF0;
+	font-family: "MS Serif", "New York", serif;
+	text-align:center;
+}
+.container .rightside #main .qmtable .title {
+	color: #30C;
+}
+.container .rightside #main .qmtable tr td {
+	text-align:left;
+}
+.qmtable {
+	border-top-width: thin;
+	border-top-style: dotted;
+	border-top-color: #000;
+	border-bottom-style: dotted;
+	border-bottom-color: #000;
+	border-bottom-width: thin;
+}
