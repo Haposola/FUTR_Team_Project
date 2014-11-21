@@ -21,7 +21,11 @@
 		<td><%= user.name%></td>
 		<td><%= user.nation%></td>
 		<td><%= user.category%></td>
-		<td><%= user.realconfirm%></td>
+		<% if user.realconfirm =="yes"%>
+			<td><%= "yes"%></td>
+		<% else %>
+			<td><%= link_to 'no', ad_cnfm_path(user)%></td>
+		<% end %>
 		<td><%= user.last_sign_in_at%></td>
 		<td><%= !(SignedInLog.find(:first,:conditions =>["email = ?",user.email])==nil)%></td>
 	</tr>

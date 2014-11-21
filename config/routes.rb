@@ -23,8 +23,9 @@ Team::Application.routes.draw do
   match 'admins/usrmgmt/:id' => 'admins/admins#usrmgmt'
   match 'admins/actmgmt' =>'admins/admins#actmgmt'
   match 'admins/svcmgmt' =>'admins/admins#svcmgmt'
-  match 'admins/sndemail' =>'admins/admins# sndemail'
+  match 'admins/sndemail' =>'admins/admins#sndemail'
 
+  match 'admins/ad_cnfm/:id' =>'admins/admins#cnfm', :as => "ad_cnfm"
   match 'users/index' =>'users/users#index'
   match 'users/registration' => 'users/users#regist'
   match 'users/info' => 'users/users#info'
