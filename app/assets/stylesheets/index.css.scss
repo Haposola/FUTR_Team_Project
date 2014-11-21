@@ -87,6 +87,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
 .main_index {
     text-align: center;
+    padding: 0px;
 }
 
 .effects .img:last-child {
@@ -108,7 +109,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
 .main_index .no-margin, .hero .no-margin {
     padding: 0px !important;
-    margin: 0px !important;
+    margin: 0px;
 }
 
 .main_index .reg {
@@ -187,7 +188,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
 .main_index hr{
 	width:50px;
-	margin-top: 50%;
+	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }

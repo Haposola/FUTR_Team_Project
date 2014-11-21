@@ -44,19 +44,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">HITer</a>
+        <a class="brand head_font" href="#">HITTER</a>
         <div class="nav-collapse">
           <div id="navbar-container">
-            <ul class="nav">
-              <li><%=  link_to 'Home', '/'%></li>
-              <li><%= link_to 'map', '/hitmap'%></li>
-              <li><%= link_to 'map2', '/hitmap2'%></li>
-              <li><%= link_to 'Activity','/activities/page/1' %></li>
-              <li><%= link_to 'Services', outservices_path %></li>
-              <li><a href="">Q&A</a></li>
+            <ul class="nav head_font">
+              <li><%=  link_to 'HOME', '/'%></li>
+              <li><%= link_to 'HIT MAP', '/hitmap'%></li>
+              <li><%= link_to 'HIT JOYS','/activities/page/1' %></li>
+              <li><%= link_to 'HIT SERVES', outservices_path %></li>
+              <li><a href="">HIT KNOWS</a></li>
             </ul>
           </div>
-          <ul class ="nav nav-right">
+          <ul class ="nav nav-right head_font">
           <% if user_signed_in? %>
             <li><%= link_to current_user.email, '/users/index' %></li>
           <% else %>
