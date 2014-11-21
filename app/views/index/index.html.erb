@@ -1,5 +1,5 @@
+<div class="home_page">
 <section id="hero" class="hero">
-
     <div class="container">
         <div class="row-fluid">
             <div class="span8 offset2 text-center inner">
@@ -9,68 +9,55 @@
         </div>
         <div class="row">
             <div class="span6 offset3 text-center animated fadeInUp delay-15s">
-                <a class="learn-more-btn" href="/users/sign_in">JOIN US</a>
+                  <% if user_signed_in? %>
+                  <a class="learn-more-btn" href="/users/index">MY HOME</a>
+                  <% else %>
+                  <a class="learn-more-btn" href="/users/sign_up">JOIN US</a>
+                  <% end %>
             </div>
         </div>
     </div>
-
 </section>
 
-
-
-
-<div class="row-fluid no-margin main_index">
-
-
-      <div class="span4 wp4 no-margin animated fadeInDown">
-
+<div class="row no-margin main_index">
+      <div class="span4 wp4 no-margin_first animated fadeInDown">
       <div class="index_home no-margin overlay-effect effects">
         <div class="img">
-            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <img alt="Activity" src="/assets/homepage/activity.jpg"></img>
             <div class="overlay">
-                <a class="expand" href="activities/page/1">
-                    <span>HITer Joins</span>
+                <a class="expand" href="/activities/page/1">
+                    <span>HIT JOINS</span>
                     <hr>
                 </a>
             </div>
         </div>
       </div>
-
       </div>
-
 
         <div class="span4 wp4 delay-05s no-margin animated fadeInDown"> 
-
         <div class="index_home no-margin overlay-effect effects">
         <div class="img">
-            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <img alt="Activity" src="/assets/homepage/service.jpg"></img>
             <div class="overlay">
                 <a class="expand" href="/outservices">
-                    <span>HITer Serves</span>
-                    <hr>
+                    <span>HIT Serves</span><hr>
                 </a>
-
             </div>
         </div>
       </div>
-
         </div>
         <div class="span4 wp4 delay-1s no-margin animated fadeInDown">
         <div class="index_home no-margin overlay-effect effects clearfix">
         <div class="img">
-            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <img alt="Activity" src="/assets/homepage/knows.jpg"></img>
             <div class="overlay">
                 <a class="expand" href="/questions">
-                    <span>HITer Knows</span>
+                    <span>HIT Knows</span>
                     <hr>
                 </a>
             </div>
         </div>
       </div>
         </div>
-
 </div>
-
-
-
-
+</div>
