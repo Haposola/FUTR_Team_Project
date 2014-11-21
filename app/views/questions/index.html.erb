@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+     <div class="qlogo" ><img src="assets/logo.gif" alt="here is the logo"></div> 
+  <div id="maintitle">Question and Answers</div>
+   <div class="clearfloat"></div>
+    <!-- end .header --></div>
+
+  <div class="qsidebar">
+
+    <ul class="qnav">
+      <li><a href="#" id="lbl">All</a></li>
+      <li><a href="#" id="lbl">Study</a></li>
+      <li><a href="#" id="lbl">Entertainment</a></li>
+      <li><a href="#" id="lbl">Others</a></li>
+    </ul>
+
+    <!-- end .qsidebar --></div>
+  <div class="rightside">
+    <div id="content">
+
+    <!-- end .content -->
+    <a href="questions/new"><img src="assets/question.gif" name="btn" width="220" height="64" id="btn" /><hr /></a>
+
+    </div>
+  <div id="main">
+  <h1>Listing questions</h1>
+  <table>
+  <tr>
+    <th>Nickname</th>
+    <th>Lable</th>
+    <th>Topic</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.Nickname %></td>
+    <td><%= question.Lable %></td>
+    <td><%= question.Topic %></td>
+    <td><%= question.Description %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+
+    </div>
+  </div>
+  <div class="footer">
+    <p>此 .fo。</p>
+  <!-- end .footer --></div>
+  <!-- end .container --></div>
+  <script>
+</html>
+
