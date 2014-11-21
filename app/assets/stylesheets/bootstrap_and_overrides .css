@@ -28,11 +28,24 @@
 	float:right !important;
 	margin-right: 30px;
   }
+
   .pagecontainer{
   	margin: 0px auto;
   	float:none;
   	display: table;
-  	width:80%;
-  	background-color: white;
+  	width:90%;
   	opacity: 0.8;
+  }
+
+  .main_container{
+    
+    background: rgba(0, 0, 0, 0.25) !important; /* IE无效，FF有效 */  
+    background: #fff;  
+    filter: alpha(opacity=1); 
+  }
+
+  .bs-docs-sidebar{
+    margin-left: 5px;
+    width: 200px;
+
   }

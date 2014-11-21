@@ -1,20 +1,12 @@
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>
-            <%= @outservice_place.service_kind %>
-        </h1>
-
-        <div id="feature" class="others" style="width: 100%;margin-top:50px">
-            <div class="wrapper" style="border:0px black solid">
-                <div align="center" width="800px" border=" 1px blue" style="background-color:lightblue">
-                    <div>
-                       		<div style="max-width:800px;border:1px blue solid;margin:0.5em;position: relative">
-                       			<div style="float:right;margin-left:30px;border:solid 1px red">
-                       					<%= image_tag(@outservice_place.picture_addr,:height=>"160px") %>
+        
+            <div class="well main_container">
+                <h1>
+                <%= @outservice_place.service_kind %>
+                </h1>
+                <div class="well service_detail">
+                       		<div >
+                       			<div style="float:right;margin-left:30pxd">
+                       					<%= image_tag(@outservice_place.picture_addr,:class=>"img-polaroid") %>
                                 
                             </div>
                             <h2> <%= @outservice_place.name %></h2>
@@ -24,39 +16,38 @@
                                 <%= @outservice_place.description %>
                             </div>
                          	</div>
-                         		<div>
-                                <b style="position:absolute;left:150px;margin-left:30px">Comments:</b>
+                         	<div>
+                            <br><br>
+                                <b>Comments:</b><br>
                             <% @usercomments.each do |usercomment| %>
-                        
-                                <b style="position:absolute;left:150px;margin-left:30px;margin-top:20px"><%= usercomment.nickname %>:</b></br>
+                            <div class="well service_com">
+                                <i class="icon-user"></i>  <b> <%= usercomment.nickname %>:</b></br>
                             
-                                <span style="text-align:left;width:80%;position:absolute;left:150px;margin-left:60px;margin-top:20px;border:solid lightblue 1px"><%= usercomment.comment %></span></br></br>
+                                <span><%= usercomment.comment %></span></br></br>
                             
                             
-                                <div style="float:right;margin-right:150px;margin-top:5px">
+                                <div class="comment_destroy">
                                     <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
                                 </div>
+                            </div>
                             <% end %>
                           </div>
                     </div>
-<<<<<<< HEAD
-
-
 
                     <% if user_signed_in? %>
-
-                    <div class="comment" style="width:90% ;margin-top:30px">
+                    <br>
+                    <div class="service_comment" >
                         <%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
                         <%= label_tag(:comment, "comment:") %></br>
-                        <%= text_area_tag(:comment, "", size: "30x6") %></br>
+                        <%= text_area_tag(:comment, "", size: "50x5") %></br>
                         <%= submit_tag 'submit'%> <% end %>
-                        <div align="right" style="margin-right:100px">
-                            <%= link_to 'Back', outservices_path %>
-                        </div>
                     </div>
                     <% end %>
+
+                    <div align="right" style="margin-right:100px">
+                            <%= link_to 'Back', outservices_path %>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div> <!-- main container -->
     </body>
 

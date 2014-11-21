@@ -2,19 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.icon-chevron-right{
+  float: right;
+}
+.service_com{
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.comment_destroy{
+  text-align: right;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.service_detail{
+  background-color: rgba(255, 255, 255, 0.5);
+  margin:0px auto;
+  width:800px; 
+  border:solid 1px white;
+}
+
+.service_detail h2{
+  color:black;
+}
+.service_index{
+    margin-left: 220px;
+}
+
+.service_comment label{
+  margin-left: 250px;
+}
+
+.service_comment [name=commit]{
+  margin-left: 430px;
+  margin-right: 430px;
+}
+
+.service_comment #comment{
+  margin-left: 250px;
+  margin-right:250px;
+  width: auto;
+}
+
+.service_detail img,.service_index img {
+border:0;
+margin-left:10px;
+max-width:200px;
+overflow:hidden;
+width:expression(this.width >200  ? 200 : "auto");
+}
+
+h1,h2{
+  color: white;
+}
+.sidebar-nav{
+  max-width: 150px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.service_sec{
+  background-color: rgba(255, 255, 255, 0.5);
+  width:800px;
+  border:1px white solid;
+  margin:0.5em;
+  min-height: 150px;
+}
+
+.service_dis{
+  width:780px;
+  margin:10px;
+  
+}
+
+
 #feature p {
   margin-bottom: 0.75em;
   margin-left: 0.75em;
   max-width: 800px;
 }
 #feature{
-  background-color: #d5e9f6;
+  /*background-color: #d5e9f6;*/
   opacity:0.9;
   padding: 0.5em 0 1.5em;
   margin: 0;
   font-size: 100%;
   text-align: left;
 }
+
 #feature .wrapper{
   max-width: 1100px;
   padding-right: 23em;
