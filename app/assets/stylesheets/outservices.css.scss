@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.service_index a:hover{
+  text-decoration: none;
+}
+
+
+.service_index h1,.service_index h2, .service_index h3, .service h1, .service h2{
+  font-family: 'Raleway';
+}
 .icon-chevron-right{
   float: right;
 }
@@ -18,7 +26,7 @@
 .service_detail{
   background-color: rgba(255, 255, 255, 0.5);
   margin:0px auto;
-  width:800px; 
+  max-width:800px; 
   border:solid 1px white;
 }
 
@@ -30,17 +38,18 @@
 }
 
 .service_comment label{
-  margin-left: 250px;
+  text-align: center;
 }
 
-.service_comment [name=commit]{
-  margin-left: 430px;
-  margin-right: 430px;
+.service_comment{
+  text-align: center;
+}
+
+.service_comment input{
+  float: none !important;
 }
 
 .service_comment #comment{
-  margin-left: 250px;
-  margin-right:250px;
   width: auto;
 }
 
@@ -52,7 +61,7 @@ overflow:hidden;
 width:expression(this.width >200  ? 200 : "auto");
 }
 
-h1,h2{
+.service_index h1,.service_index h2{
   color: white;
 }
 .sidebar-nav{
@@ -63,14 +72,14 @@ h1,h2{
 
 .service_sec{
   background-color: rgba(255, 255, 255, 0.5);
-  width:800px;
+  max-width:800px;
   border:1px white solid;
   margin:0.5em;
   min-height: 150px;
 }
 
 .service_dis{
-  width:780px;
+  max-width:780px;
   margin:10px;
   
 }
