@@ -32,13 +32,13 @@
         <% if @category !="common" %>
           <td>Register As</td>
           <% if @category =="club"%>
-            <td><%= f.text_field :category, value: "club",disabled: "true" %></td>
+            <td><%= f.text_field :category, value: "club",readonly: "readonly" %></td>
           <% end %>
           <% if  @category =="official"%>
-            <td><%= f.text_field :category, value: "official",disabled: "true" %></td>
+            <td><%= f.text_field :category, value: "official",readonly: "readonly" %></td>
           <% end %>
           <% if  @category =="service"%>
-            <td><%= f.text_field :category, value: "service",disabled: "true" %></td>
+            <td><%= f.text_field :category, value: "service",readonly: "readonly" %></td>
           <% end %>
         <% end %>
       </tr>

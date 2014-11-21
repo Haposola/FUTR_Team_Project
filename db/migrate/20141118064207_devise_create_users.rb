@@ -8,8 +8,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :nickname
       t.string :name
       t.string :nation
-      t.string :category, default: "commen"
-      t.string :realconfirm,default: "yes"
+      t.string :category
+      t.string :realconfirm
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
