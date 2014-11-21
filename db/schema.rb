@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141120163002) do
+ActiveRecord::Schema.define(:version => 20141121121847) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20141120163002) do
     t.text     "Description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "Answer"
   end
 
   create_table "re_for_ques_for_acts", :force => true do |t|

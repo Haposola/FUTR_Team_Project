@@ -1,7 +1,9 @@
 Team::Application.routes.draw do
   resources :questions
   match 'question' => 'questions#index'
-  match 'users/question' => 'questions#index'
+  match 'users/questions' => 'questions#index'
+  match 'answer/new' => 'questions#new_a'
+  
   devise_for :admins, controllers: {
         sessions: 'admins/sessions',
         registrations: 'admins/registrations',

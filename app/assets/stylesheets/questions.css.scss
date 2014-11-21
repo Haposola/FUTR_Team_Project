@@ -7,7 +7,7 @@ body {
 	color: #000;
 	text-align: center;
 	height: auto;
-	width: auto;
+	width: 1150px;
 	margin-top: 0;
 	margin-right: auto;
 	margin-bottom: 0;
@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5, h6, p {
 	padding-right: 15px;
 	padding-left: 15px; 
 	text-align: center;
+	color:#000;
 }
 
 .qnav a img {  
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6, p {
  
 
 .container {
-	width: auto;
+ 	width: auto;
 	background-color: #FFF; 
 	height: auto;
 	margin-top: 20px;
@@ -136,10 +137,11 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 
 
 .footer {
+    text-align:center;
 	background-color: #CCC49F;
 	position: relative;
 	clear: both;
-	height: 100px;
+	height: 50px;
 	padding-top: 10px;
 	padding-right: 0;
 	padding-bottom: 10px;
