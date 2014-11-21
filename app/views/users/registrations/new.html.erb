@@ -1,154 +1,161 @@
 <div class="main_container">
-<h2 style="align:center">Sign up</h2>
-<%= devise_error_messages! %>
-<div id="tipcontainer">
-	<div id="officialtip" class="tip tipleft">
-		<span>We need to contact to you to make sure.<br />
-			Thanks for you patience;</span>
-		<a id="officialback">Back official</a>
-	</div>
-	<div id="servicetip" class="tip tipright">
-		<span>Happy to have you on our site!<br />
-			Hope we could help you business to grow!</span>
-		<a id="serviceback">Back service</a>
-	</div>
-	<div id="clubtip" class="tip tipleft">
-		<span>Welcome to put your club's informations here.<br />
-			Maybe you don't need posts anymore.</span>
-		<a id="clubback">Back club</a>
-	</div>
-	<div id="commontip" class="tip tipright">
-		<span>Hey! I am not a common user!<br />
-			Let me click those pictures!</span>
-		<a id="commonback">Back common</a>
-	</div>
-</div>
-
-<div id="formcontainer">
-	<div id="clubform" class="formright regform">
-		<%= render "form",locals:{string: @category="club"}%>
-	</div>
-
-	<div id="officialform"class="formright regform">
-		<%= render "form",locals:{string: @category="official"}%>
-	</div>
-
-	<div id="commonform" class="formleft regform">
-		<%= render "form",locals:{string: @category="common"}%>
-	</div>
-
-	<div id="serviceform" class="formleft regform">
-		<%= render "form",locals:{string: @category="service"}%>
-
-	</div>
-</div>
-<div id="imgcontainer">
-	<div  id="imgtl" class=" regleft reg">
-		<div class ="overleft overlay ">
-		<a>I am in charge of <br /><br />a School Club</a>
+	<h2 style="align:center">Sign up</h2>
+	<%= devise_error_messages! %>
+	<div id="cmncontainer">
+		<div  id="imgori" class="reg regleft">
+			<div class ="overlay overlayleft">
+				<a href="javascript::imgori()">I want to Register as a
+					<br /><br />Not-Common User</a>
+			</div>
+			<%= image_tag("signup/origin.jpg") %><br /><br />
+			<span style="font-size:17px;">I want to register as a not-common user</span>
 		</div>
-		<%= image_tag("signup/clubs.jpg") %>
+		<div class="regoriform regright">
+			<%= render "form", locals:{string: @category="common"} %>
+		</div>
+	</div>
+<div id="ucmncontainer">
+	<div id="tipcontainer">
+		<div id="officialtip" class="tip tipleft">
+			<span>We need to contact to you to make sure.<br />
+				Thanks for you patience.</span>
+			<a href="javascript::officialback()" id="officialback">Back</a>
+		</div>
+		<div id="servicetip" class="tip tipright">
+			<span>Happy to have you on our site!<br />
+				Hope we could help you business to grow!</span>
+			<a href="javascript::serviceback()"  id="serviceback">Back</a>
+		</div>
+		<div id="clubtip" class="tip tipleft">
+			<span>Welcome to put your club's informations here.<br />
+				Maybe you don't need posts anymore!</span>
+			<a href="javascript::clubback()"  id="clubback">Back</a>
+		</div>
+		<div id="commontip" class="tip tipright">
+			<span>Hey! I am not a common user!<br />
+				Let me click those pictures!</span>
+			<a href="javascript::commonback()"  id="commonback">Back</a>
+		</div>
 	</div>
 
-	<div id="imgtr" class ="regright reg">
-		<div class ="overright overlay">
-		<a>I'll back and register<br /><br /> As Myself</a>
+	<div id="formcontainer">
+		<div id="clubform" class="formright regform">
+			<%= render "form",locals:{string: @category="club"}%>
 		</div>
-		<%= image_tag("signup/common.jpg")%>
+
+		<div id="officialform"class="formright regform">
+			<%= render "form",locals:{string: @category="official"}%>
+		</div>
+
+		<div id="commonform" class="formleft regform">
+			<%= render "form",locals:{string: @category="common"}%>
+		</div>
+
+		<div id="serviceform" class="formleft regform">
+			<%= render "form",locals:{string: @category="service"}%>
+		</div>
 	</div>
+	<div id="imgcontainer">
+		<div  id="imgtl" class=" regleft reg">
+			<div class ="overleft overlay ">
+			<a href="javascript::imgtl()">I am in charge of <br /><br />
+				a School Club</a>
+			</div>
+			<%= image_tag("signup/clubs.jpg") %>
+		</div>
+
+		<div id="imgtr" class ="regright reg">
+			<div class ="overright overlay">
+			<a href="javascript::imgtr()">I'll back and register<br /><br /> 
+				As Myself</a>
+			</div>
+			<%= image_tag("signup/common.jpg")%>
+		</div>
 	
-
-	<div id="imgbl" class="regleft reg">
-		<div class ="overleft overlay">
-		<a>I am responsible for a<br /><br />School Official</a>
+		<div id="imgbl" class="regleft reg">
+			<div class ="overleft overlay">
+			<a href="javascript::imgbl()">I am responsible for a<br /><br />	
+				School Official</a>
+			</div>
+			<%= image_tag("signup/officials.jpg")%>
 		</div>
-		<%= image_tag("signup/officials.jpg")%>
-	</div>
 	
-	<div id="imgbr" class = "regright reg">
-		<div class ="overright overlay">
-		<a>I'm here to provide<br /><br />Services</a>
+		<div id="imgbr" class = "regright reg">
+			<div class ="overright overlay">
+			<a href="javascript::imgbr()">I'm here to provide<br /><br />	
+				Services</a>
+			</div>
+			<%= image_tag("signup/services.jpg")%>
 		</div>
-		<%= image_tag("signup/services.jpg")%>
 	</div>
 </div>
 </div>
 <script type="text/javascript">
-	$("#imgtl").click(function () {
+	$("#imgori").click(function imgori() {
+		$("#cmncontainer").fadeOut("slow");
+		$("#ucmncontainer").fadeIn("slow");
+	});
+	$("#imgtl").click(function imgtl() {
 		if ($("#officialtip").is(":hidden") && $("#servicetip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden") ) {
 			$("#clubform").slideDown("slow");
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
 			$("#imgbr").animate({opacity:'0'},'slow');
 			$("#clubtip").fadeIn("slow");
-			$("#clubtip").css({"z-index":"100"});
+			$(".reg").css({"z-index":"-100"});
 		}   
 	});
-	$("#imgtr").click(function () {
-		if ($("#officialtip").is(":hidden") && $("#servicetip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
-			$("#commonform").slideDown("slow");
-			$("#imgtl").animate({opacity:'0'},'slow');
-			$("#imgbl").animate({opacity:'0'},'slow');
-			$("#imgbr").animate({opacity:'0'},'slow');
-			$("#commontip").fadeIn("slow");
-			$("#commontip").css({"z-index":"100"});
-		}   
+	$("#imgtr").click(function imgtr() {
+		$("#cmncontainer").fadeIn("slow");
+		$("#ucmncontainer").fadeOut("slow");
+		
 	});
-	$("#imgbl").click(function () {
+	$("#imgbl").click(function imgbl() {
 		if ($("#officialtip").is(":hidden") && $("#officialtip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
 			$("#officialform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbr").animate({opacity:'0'},'slow');
 			$("#officialtip").fadeIn("slow");
-			$("#officialtip").css({"z-index":"100"});
+			$(".reg").css({"z-index":"-100"});
 		}   
 	});
-	$("#imgbr").click(function () {
+	$("#imgbr").click(function imgbr() {
 		if ($("#officialtip").is(":hidden") && $("#officialtip").is(":hidden") && $("#clubtip").is(":hidden") && $("#commontip").is(":hidden")) {
 			$("#serviceform").slideDown("slow");
 			$("#imgtl").animate({opacity:'0'},'slow');
 			$("#imgtr").animate({opacity:'0'},'slow');
 			$("#imgbl").animate({opacity:'0'},'slow');
 			$("#servicetip").fadeIn("slow");
-			$("#servicetip").css({"z-index":"100"});
+			$(".reg").css({"z-index":"-100"});
 		}   
 	});
-	$("#clubback").click(function () {
+	$("#clubback").click(function clubback() {
 		$("#clubform").slideUp("fast");
 		$("#imgtl").animate({opacity:'1'},'slow');
 		$("#imgtr").animate({opacity:'1'},'slow');
 		$("#imgbl").animate({opacity:'1'},'slow');
 		$("#imgbr").animate({opacity:'1'},'slow');
 		$("#clubtip").fadeOut("slow");
-		$("#clubtip").css({"z-index":"-100"});
+		$(".reg").css({"z-index":"100"});
 	});
-	$("#commonback").click(function () {
-		$("#commonform").slideUp("fast");
-		$("#imgtl").animate({opacity:'1'},'slow');
-		$("#imgtr").animate({opacity:'1'},'slow');
-		$("#imgbl").animate({opacity:'1'},'slow');
-		$("#imgbr").animate({opacity:'1'},'slow');
-		$("#commontip").fadeOut("slow");
-		$("#commontip").css({"z-index":"-100"});
-	});
-	$("#officialback").click(function () {
+	$("#officialback").click(function officialback() {
 		$("#officialform").slideUp("fast");
 		$("#imgtl").animate({opacity:'1'},'slow');
 		$("#imgtr").animate({opacity:'1'},'slow');
 		$("#imgbl").animate({opacity:'1'},'slow');
 		$("#imgbr").animate({opacity:'1'},'slow');
 		$("#officialtip").fadeOut("slow");
-		$("#officialtip").css({"z-index":"-100"});
+		$(".reg").css({"z-index":"100"});
 	});
-	$("#serviceback").click(function () {
+	$("#serviceback").click(function serviceback() {
 		$("#serviceform").slideUp("fast");
 		$("#imgtl").animate({opacity:'1'},'slow');
 		$("#imgtr").animate({opacity:'1'},'slow');
 		$("#imgbl").animate({opacity:'1'},'slow');
 		$("#imgbr").animate({opacity:'1'},'slow');
 		$("#servicetip").fadeOut("slow");
-		$("#servicetip").css({"z-index":"-100"});
+		$(".reg").css({"z-index":"100"});
 	});
 </script>
 

@@ -38,7 +38,7 @@
   }
 
   .main_container{
-    
+    position:relative;
     background: rgba(0, 0, 0, 0.25) !important; /* IE无效，FF有效 */  
     background: #fff;  
     filter: alpha(opacity=1); 
