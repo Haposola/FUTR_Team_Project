@@ -1,52 +1,74 @@
-<div class="activity">
-  <p> <h1>Activity</h1></p><div class="clr"></div>
-  <% @activities.each do |activity| %>
-    <div class ="activities" style="width:350px;left:0">
-      <span><%= link_to activity.name, activity %></span></br>
-      <span><%=  activity.tim %></span>
-      <hr>
-      <span class = "description"><%= activity.description %></span>
+<section id="hero" class="hero">
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span8 offset2 text-center inner">
+                <h1>Hitter</h1>
+                <h2 class="animated fadeInUp delay-05s">Hit service & helper<hr></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6 offset3 text-center animated fadeInUp delay-15s">
+                <a class="learn-more-btn" href="#">JOIN US</a>
+            </div>
+        </div>
     </div>
-  <% end %>
-</div>
-<div class="server">
-  <p> <h1>Server</h1></p><div class="clr"></div>
-  <% if @service_restaurant != nil %>
-    <div>
-      <h2 style="border:solid 1px;text-align:center"><%= link_to @service_restaurant.name, show_outservice_path(:service_kind=>'restaurant',
-               :name=>@service_restaurant.name) %> </h2>
 
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_restaurant.description %></p>
+</section>
+
+
+
+
+<div class="row-fluid no-margin main_index">
+
+
+      <div class="span4 wp4 no-margin animated fadeInDown">
+
+      <div class="index_home no-margin overlay-effect effects">
+        <div class="img">
+            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <div class="overlay">
+                <a class="expand" href="#">
+                    <span>Activity</span>
+                    <hr>
+                </a>
             </div>
-            <% end %>
-            <% if @service_ktv != nil %>
-            <div>
-              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_ktv.name, show_outservice_path(:service_kind=>'ktv',
-               :name=>@service_ktv.name) %> </h2>
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_ktv.description %></p>
+        </div>
+      </div>
+
+      </div>
+
+
+        <div class="span4 wp4 delay-05s no-margin animated fadeInDown"> 
+
+        <div class="index_home no-margin overlay-effect effects">
+        <div class="img">
+            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <div class="overlay">
+                <a class="expand" href="#">
+                    <span>Service</span>
+                    <hr>
+                </a>
+
             </div>
-            <% end %>
-            <% if @service_bar != nil %>
-            <div>
-              <h2 style="border:solid 1px;text-align:center"><%= link_to @service_bar.name, show_outservice_path(:service_kind=>'bar',
-               :name=>@service_bar.name) %> </h2>
-              <p style="border:solid 1px;height:30px;overflow:hidden"><%= @service_bar.description %></p>
+        </div>
+      </div>
+
+        </div>
+        <div class="span4 wp4 delay-1s no-margin animated fadeInDown">
+        <div class="index_home no-margin overlay-effect effects clearfix">
+        <div class="img">
+            <img alt="Activity" src="/assets/outservice/restaurant/alps.jpg"></img>
+            <div class="overlay">
+                <a class="expand" href="#">
+                    <span>Map</span>
+                    <hr>
+                </a>
             </div>
-            <% end %>
-          </div>
+        </div>
+      </div>
         </div>
 
-        <div class="article">
-          <h2><span>Quesions&Answers</span> </h2><div class="clr"></div>
-          <p><h2>this part is for questions and answers.<h2></p>
-        </div>
-        
-
-
-
-
-  
-  
 </div>
 
 
