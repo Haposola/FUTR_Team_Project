@@ -38,6 +38,18 @@
 	position:absolute;
 	left: 200px;
 }
+#cmncontainer{
+	float:none;
+	display:table;
+	margin: 0 auto;
+	margin-top:50px;
+	width:80%;
+	height:500px;
+
+}
+#ucmncontainer{
+	display:none;
+}
 #imgcontainer{
 	float:none;
 	display:table;
@@ -46,16 +58,19 @@
 }
 #formcontainer{
 	position:absolute;
-	height:100%;
-	width:70%;
+	width:80%;
+	margin-left:10%;
 	top:70px;
-	left:15%;
+}
+#formcontainer input{
+	width:60%;
+	margin-left:20px;
 }
 #tipcontainer{
 	position:absolute;
-	width:60%;
+	width:70%;
+	margin-left:15%;
 	top:70px;
-	left:20%;
 	height:500px;
 }
 #signincontainer{
@@ -80,6 +95,10 @@ h2{
 	margin-bottom:30px;
 	text-align:center;
 	overflow:hidden;
+}
+#imgori{
+	margin-top: 0px;
+	margin-bottom:0px;
 }
 input{
 	float:left;
@@ -108,10 +127,19 @@ input{
 	top:70px;
 	margin: 0 auto;
 }
-.overlay a,.tip a{
+.overlay a{
 	position:relative;
 	font-size:24px;
-	top:30%;
+	top:40%;
+	-webkit-transition: all .5s ease-out;
+	-moz-transition: all .5s ease-out;
+	-o-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+}
+.tip a{
+	position:relative;
+	font-size:24px;
+	top:100px;
 	-webkit-transition: all .5s ease-out;
 	-moz-transition: all .5s ease-out;
 	-o-transition: all .5s ease-out;
@@ -133,7 +161,11 @@ input{
 .regform{
 	display:none;
 	position:absolute;
-	top:30px;
+	width:50%;
+	height:100%;
+}
+.regoriform{
+	float:right;
 	width:50%;
 	height:100%;
 }
