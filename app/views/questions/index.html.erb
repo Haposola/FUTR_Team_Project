@@ -3,7 +3,7 @@
     <div class="header">
       <div id="maintitle">Question and Answers</div>
       <div class="clearfloat"></div>
-      <!-- end .header --> </div>
+    </div>
     <div class="qsidebar">
       <ul class="qnav">
         <li><a href="#" id="lbl">All</a></li>
@@ -11,10 +11,9 @@
         <li><a href="#" id="lbl">Entertainment</a></li>
         <li><a href="#" id="lbl">Others</a></li>
       </ul>
-      <!-- end .qsidebar --> </div>
+    </div>
     <div class="rightside">
       <div id="content">
-        <!-- end .content -->
         <a href="questions/new">
           <img src="assets/question.gif" name="btn" width="220" height="64" id="btn" />
           <hr />
@@ -25,15 +24,14 @@
         <% @questions.each do |question| %>
         <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
           <tr>
-            <td height="27">
-              <cc class="title">Nickname:</cc>
-              <%= question.Nickname %></td>
-            <td width="243" height="27">
-              <cc class="title">Lable:</cc>
-              <%= question.Lable %></td>
+            <td height="27"><cc class="title">Nickname:</cc>
+              <%= question.Nickname %>
+            </td>
+            <td width="243" height="27"><cc class="title">Lable:</cc>
+              <%= question.Lable %>
+            </td>
             <td width="248" height="29">
-              <cc class="title">
-                <%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc>
+              <cc class="title"><%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc>
               <cc class="title">
                 <%= link_to 'Show', question %>
                 |
