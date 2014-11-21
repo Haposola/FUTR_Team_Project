@@ -170,9 +170,9 @@ class OutservicesController < ApplicationController
     #userlog = SignedInLog.checkout(cookies[:riskfit_token])
     #@user = User.find(:first, :conditions =>["email = ?",userlog.email])
     #nickname = @user.nickname
-    nickname=current_user.nickname;
     #@usercomment.nickname =nickname
     #@usercomment.restaurant_name =restaurantname
+    nickname=current_user.nickname;
     @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
       :name => params[:name], :comment => params[:comment])
     respond_to do |format|
