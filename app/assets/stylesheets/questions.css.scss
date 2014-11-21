@@ -192,3 +192,17 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 	font-family: "MS Serif", "New York", serif;
 	text-align:center;
 }
+.container .rightside #main .qmtable .title {
+	color: #30C;
+}
+.container .rightside #main .qmtable tr td {
+	text-align:left;
+}
+.qmtable {
+	border-top-width: thin;
+	border-top-style: dotted;
+	border-top-color: #000;
+	border-bottom-style: dotted;
+	border-bottom-color: #000;
+	border-bottom-width: thin;
+}

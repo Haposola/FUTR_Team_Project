@@ -32,29 +32,31 @@
     </div>
   <div id="main">
   <h1>Listing questions</h1>
-  <table>
+  <% @questions.each do |question| %>
+  <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
   <tr>
-    <th>Nickname</th>
-    <th>Lable</th>
-    <th>Topic</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <td height="27"><cc class="title">Nickname:</cc><%= question.Nickname %> </td>
+    <td width="243" height="27"><cc class="title">Lable:</cc><%= question.Lable %>
+   </td>
 
-<% @questions.each do |question| %>
+    <td width="248" height="29"> <cc class="title"><%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc><cc class="title"><%= link_to 'Show', question %>|<%= link_to 'Edit', edit_question_path(question) %>|<%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td width="41" height="29">reply</td></cc>
+    </tr>
   <tr>
-    <td><%= question.Nickname %></td>
-    <td><%= question.Lable %></td>
-    <td><%= question.Topic %></td>
-    <td><%= question.Description %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td width="98" rowspan="2" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>
+    <td height="27" colspan="3"><cc class="title">Topic:</cc><%= question.Topic %></td>
+    </tr>
+  <tr>
+    <td colspan="3" align="left" valign="top"><cc class="title">Description:</cc>
+      <br><%= question.Description %></td>
   </tr>
+  </table>
+
+
+
+ 
 <% end %>
-</table>
+
 
 <br />
 
@@ -64,7 +66,7 @@
     </div>
   </div>
   <div class="footer">
-    <p>此 .fo。</p>
+    <p class="lf">&copy; HITER Our website is conducted by FURE team</p>
   <!-- end .footer --></div>
   <!-- end .container --></div>
   <script>
