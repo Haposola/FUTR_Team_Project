@@ -7,7 +7,6 @@ class Admins::AdminsController < ApplicationController
 	def usrmgmt
 		@log = SignedInLog.all
 		@olnum = @log.length
-
 		choose = params[:id]
 		if choose == "all"
 			@users = User.all
@@ -19,11 +18,17 @@ class Admins::AdminsController < ApplicationController
 			@users = User.where("(category=? OR category=? OR category=?) AND realconfirm =?","club","official","commercial","yes")
 		end
 	end
-
+	def cnfm
+		user = User.find(params[:id])
+		user.update_attributes(:realconfirm =>"yes")
+		redirect_to '/admins/usrmgmt/all'
+	end
 	def actmgmt
 	end
 	def svcmgmt
 	end
 	def svcmgmt
+	end
+	def sndemail
 	end
 end
