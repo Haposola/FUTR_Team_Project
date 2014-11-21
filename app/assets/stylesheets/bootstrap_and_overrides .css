@@ -6,32 +6,39 @@
   =require twitter-bootstrap-static/fontawesome
   */
 .navbar .brand{
-	margin-left: 20px;
+  margin-left: 20px;
 }
 #navbar-container{
-	float:left;
-	width:80%;
+  float:left;
+  width:80%;
 }
 #navbar-container ul li{
-	font-size: 20px;
+  font-size: 20px;
 }
 .container{
-	margin-top: 60px;
+  margin-top: 60px;
 }
 .navbar .nav{
-	margin: 0px auto;
-  	float:none;
-  	 table-layout:fixed;
-  	display: table;
+  margin: 0px auto;
+    float:none;
+     table-layout:fixed;
+    display: table;
   }
 .navbar.nav .nav-right{
-	float:right !important;
-	margin-right: 30px;
+  float:right !important;
+  margin-right: 30px;
   }
 
+  .pagecontainer{
+    margin: 0px auto;
+    float:none;
+    display: table;
+    width:90%;
+    opacity: 0.8;
+  }
 
   .main_container{
-    position: relative;
+    position:relative;
     background: rgba(0, 0, 0, 0.25) !important; /* IE无效，FF有效 */  
     background: #fff;  
     filter: alpha(opacity=1); 

@@ -1,3 +1,6 @@
+<html>
+<body>
+
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -10,24 +13,30 @@
       </ul>
     </div>
   <% end %>
+<div id="comeques">
+<table width="446" border="1" cellpadding="3">
+  <tr>
+    <td width="79" bgcolor="#CCCCCC"><%= f.label :Nickname %><br /></td>
+    <td width="343">&nbsp;<%= f.text_field :Nickname %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Lable:</td>
+    <td>&nbsp;<%= f.text_field :Lable %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Topic</td>
+    <td>&nbsp;<%= f.text_field :Topic %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Description:</td>
+    <td><%= f.text_area :Description %></td>
+  </tr>
+  <tr><td colspan="2" bgcolor="#CCCCCC"><%= f.submit %></td> </tr>
+</table>
+</div>
 
-  <div class="field">
-    <%= f.label :Nickname %><br />
-    <%= f.text_field :Nickname %>
-  </div>
-  <div class="field">
-    <%= f.label :Lable %><br />
-    <%= f.text_field :Lable %>
-  </div>
-  <div class="field">
-    <%= f.label :Topic %><br />
-    <%= f.text_field :Topic %>
-  </div>
-  <div class="field">
-    <%= f.label :Description %><br />
-    <%= f.text_area :Description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+
+</body>
+</html>

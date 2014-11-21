@@ -1,4 +1,4 @@
-html{text-align:center;}
+
 
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
@@ -12,7 +12,6 @@ body {
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;
-
 }
 
 
@@ -52,8 +51,8 @@ h1, h2, h3, h4, h5, h6, p {
 
  
 
-.container {
- 	width: auto;
+.quescontainer {
+	width: auto;
 	background-color: #FFF; 
 	height: auto;
 	margin-top: 20px;
@@ -64,10 +63,17 @@ h1, h2, h3, h4, h5, h6, p {
 	text-align: center;
 }
 
+.quescontainer #maintitle{
+	float: left;
+	font-size: xx-large;
+	color: #900;
+	font-family: "MS Serif", "New York", serif;
+	text-align:center;
+}
+.quescontainer .header {
 
-
-.header {
 	background-color: #ADB96E;
+
 }
 
 
@@ -100,13 +106,15 @@ h1, h2, h3, h4, h5, h6, p {
 	text-align: right;
 }
 
-
+#comeques{
+    text-align:center;
+	margin-left:auto;
+	margin_right:auto;
+}
 
 #content ul, #content ol { 
 	padding: 0 15px 15px 40px; 
 }
-
-
 
 ul.qnav {
 	list-style: none;  
@@ -136,7 +144,7 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 
 
 
-.footer {
+.quesfooter {
     text-align:center;
 	background-color: #CCC49F;
 	position: relative;
@@ -168,7 +176,7 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 }
 
 #main {
-	background-color: #D7FCD3;
+
 	height: 500px;
 	width: 780px;
 	padding:0 20px;
@@ -190,14 +198,13 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 #maintitle{
 	float: left;
 	font-size: xx-large;
-	color: #FF0;
 	font-family: "MS Serif", "New York", serif;
 	text-align:center;
 }
-.container .rightside #main .qmtable .title {
+ .qmtable .title {
 	color: #30C;
 }
-.container .rightside #main .qmtable tr td {
+.qmtable tr td {
 	text-align:left;
 }
 .qmtable {
@@ -207,4 +214,15 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 	border-bottom-style: dotted;
 	border-bottom-color: #000;
 	border-bottom-width: thin;
+}
+#ansedittop,#quesshowtop{
+    width:auto;
+    position:relative;
+    clear:both;
+    margin:0 auto;
+}
+#anseditbelow, #quesshowbelow{
+    width:auto;
+    position:relative;
+	margin:30px auto;
 }

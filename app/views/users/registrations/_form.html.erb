@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <table>
     <tr>
-      <td>Email</td>
+      <td><%= f.label :email %></td>
       <td><%= f.email_field :email, autofocus: true %></td>
     </tr>
     <tr>
-      <td>Password
+      <td><%= f.label :password %>
         <% if @validatable %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
@@ -29,18 +29,20 @@
       <td><%= f.text_field :nation %></td>
     </tr>
       <tr>
-        <td>Register As</td>
-        <% if @category =="club"%>
-          <td><%= f.text_field :category, value: "club",disabled: "true" %></td>
-        <% end %>
-        <% if  @category =="official"%>
-          <td><%= f.text_field :category, value: "official",disabled: "true" %></td>
-        <% end %>
-        <% if  @category =="service"%>
-          <td><%= f.text_field :category, value: "service",disabled: "true" %></td>
+        <% if @category !="common" %>
+          <td>Register As</td>
+          <% if @category =="club"%>
+            <td><%= f.text_field :category, value: "club",readonly: "readonly" %></td>
+          <% end %>
+          <% if  @category =="official"%>
+            <td><%= f.text_field :category, value: "official",readonly: "readonly" %></td>
+          <% end %>
+          <% if  @category =="service"%>
+            <td><%= f.text_field :category, value: "service",readonly: "readonly" %></td>
+          <% end %>
         <% end %>
       </tr>
     
   </table>
-  <%= f.submit "Sign up" %>
+  <%= f.submit "Sign up"%>
 <% end %>

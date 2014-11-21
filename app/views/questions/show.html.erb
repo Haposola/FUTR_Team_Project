@@ -1,27 +1,28 @@
+<html>
+<body>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nickname:</b>
-  <%= @question.Nickname %>
-</p>
-
-<p>
-  <b>Lable:</b>
-  <%= @question.Lable %>
-</p>
-
-<p>
-  <b>Topic:</b>
-  <%= @question.Topic %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @question.Description %>
-</p>
+<div id="quesshowtop">
+         <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
+           <tr>
+                <td height="27"><cc class="title">Nickname:</cc><%= @question.Nickname %> </td>
+                <td height="27"><cc class="title">Lable:</cc><%= @question.Lable %></td>
+           </tr>
+           <tr>
+                <td width="98" rowspan="2" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>
+                <td height="27" colspan="3"><cc class="title">Topic:</cc><%= @question.Topic %></td>
+           </tr>
+            <tr>
+                <td colspan="3" align="left" valign="top"><cc class="title">Description:</cc>
+                <br><%= @question.Description %></td>
+            </tr>
+          </table>
+   </div>
+   <div id="quesshowbelow">
 <p>
   <b>Answer:</b>
   <%= @question.Answer %>
 </p>
-
+</div>
 <%= link_to 'Back', questions_path %>
+</body>
+</html>

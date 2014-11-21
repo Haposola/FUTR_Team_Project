@@ -16,7 +16,7 @@ class Admins::AdminsController < ApplicationController
 			@users =User.where("realconfirm = ?","no")
 		end
 		if choose == "uncommon"
-			@users = User.where("category=? OR category=? OR category=?","club","official","commercial")
+			@users = User.where("(category=? OR category=? OR category=?) AND realconfirm =?","club","official","commercial","yes")
 		end
 	end
 

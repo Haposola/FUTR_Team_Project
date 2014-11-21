@@ -14,8 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource_saved
     if resource.active_for_authentication?
-
-      resource.update_attributes({:category =>"commen",:realconfirm =>"yes"})
+      if(resource.category == nil)
+        resource.update_attributes({:category =>"commen",:realconfirm =>"yes"})
+      else
+        resource.update_attributes({:realconfirm =>"no"})
+      end
       SignedInLog.create(:email => resource.email)
         #only this line up there is added  in order to save new attrs.
         #all the other is the original code
