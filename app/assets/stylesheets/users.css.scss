@@ -17,7 +17,7 @@
 }
 .userSideBar ul li{
 	float:left;
-    margin: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
 	background:#fff;
 	
 	box-shadow:0 1px 0 #dedede;
@@ -38,15 +38,121 @@
 	position:absolute;
 	left: 200px;
 }
+#imgcontainer{
+	float:none;
+	display:table;
+	margin: 0 auto;
+	width:70%;
+}
+#formcontainer{
+	position:absolute;
+	height:100%;
+	width:80%;
+	top:70px;
+	margin-left:0px;
 
-.avtivity{
-    position:relative;
-    color:blue;
-    float:left;
-    heght:350px;
-	margin:400px 0 24px 30px;
-	box-shadow:0 3px 0 #dedede;
-	-webkit-box-shadow:0 3px 0 #dedede;
-	-moz-box-shadow:0 3px 0 #dedede;
-	-o-box-shadow:0 3px 0 #dedede;
+}
+#tipcontainer{
+	position:absolute;
+	width:60%;
+	top:70px;
+	left:20%;
+	height:500px;
+}
+#signincontainer{
+	margin:0px auto;
+	display:table;
+	width:30%;
+}
+#signinleft{
+	float:left;
+	width: 150px;
+}
+#signinright{float:right;}
+h2{
+	margin:0px auto;
+	display:table;
+}
+.reg{
+	position:relative;
+	height:50%;
+	width:48%;
+	margin-top: 30px;
+	margin-bottom:30px;
+	text-align:center;
+	overflow:hidden;
+}
+input{
+	float:left;
+}
+.reg .overlay{
+	opacity:0;
+	position:absolute;
+	margin: 0 auto;
+	background:rgba(255, 255, 255, 0) !important;
+	height:100%;width:100%;
+	text-align:center;
+	vertical-align:middle;
+	/* CSS3 Transition Magic */
+	-webkit-transition: all .5s ease-out;
+	-moz-transition: all .5s ease-out;
+	-o-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+}
+.reg:hover .overlay{
+	display:block;
+	opacity:1;
+	filter: alpha(opacity=1); 
+}
+
+.reg img{
+	postion:absolute;
+	top:70px;
+	margin: 0 auto;
+}
+.overlay a,.tip a{
+	position:relative;
+	font-size:24px;
+	top:30%;
+	-webkit-transition: all .5s ease-out;
+	-moz-transition: all .5s ease-out;
+	-o-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+}
+
+.overlay a:hover,.tip a:hover{
+	text-decoration:none;
+	color:green;
+}
+
+.regright{float:right;}
+.regleft{float:left;}
+.formright,.tipright{right:0px;}
+.formleft,.tipleft{left:0px;}
+#officialtip,#servicetip{top:0px;}
+#clubtip,#commontip{bottom:0px;}
+
+.regform{
+	display:none;
+	position:absolute;
+	top:30px;
+	width:50%;
+	height:100%;
+}
+.tip{
+	display:none;
+	position:absolute;
+	width:50%;
+	height:200px;
+	margin-top:30px;
+	margin-bottom:30px;
+	font-size:17px;
+	text-align:center;
+	vertical-align:middle;
+}
+.tip span{
+	position:absolute;
+	width:100%;
+	top:20px;
+	left:0px;
 }

@@ -1,0 +1,46 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <table>
+    <tr>
+      <td>Email</td>
+      <td><%= f.email_field :email, autofocus: true %></td>
+    </tr>
+    <tr>
+      <td>Password
+        <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      </td>
+      <td><%= f.password_field :password, autocomplete: "off" %></td>
+    </tr>
+    <tr>
+      <td>Password Confirmation</td>
+      <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+    </tr>
+    <tr>
+      <td>Nickname</td>
+      <td><%= f.text_field :nickname %></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>Nation</td>
+      <td><%= f.text_field :nation %></td>
+    </tr>
+      <tr>
+        <td>Register As</td>
+        <% if @category =="club"%>
+          <td><%= f.text_field :category, value: "club",disabled: "true" %></td>
+        <% end %>
+        <% if  @category =="official"%>
+          <td><%= f.text_field :category, value: "official",disabled: "true" %></td>
+        <% end %>
+        <% if  @category =="service"%>
+          <td><%= f.text_field :category, value: "service",disabled: "true" %></td>
+        <% end %>
+      </tr>
+    
+  </table>
+  <%= f.submit "Sign up" %>
+<% end %>
