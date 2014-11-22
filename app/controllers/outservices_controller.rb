@@ -1,6 +1,7 @@
 class OutservicesController < ApplicationController
   # GET /outservices
   # GET /outservices.json
+
   def index
     #@restaurants = Outservice_place.all
     @restaurants = Outservice_place.find(:all, :conditions =>["service_kind = ?",:restaurant])
@@ -26,6 +27,7 @@ class OutservicesController < ApplicationController
   # GET /outservices/new
   # GET /outservices/new.json
   def new
+    before_filter  :authenticate_admin!
     @restaurant = Restaurant.new
 
     respond_to do |format|
