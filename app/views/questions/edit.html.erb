@@ -1,6 +1,50 @@
-<h1>Editing question</h1>
+<html>
+<body>
+<h1>Answer Question</h1>
 
-<%= render 'form' %>
+<p id="notice"><%= notice %></p>
+
+<div id="ansedittop">
+          <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
+           <tr>
+                <td height="27"><cc class="title">Nickname:</cc><%= @question.Nickname %> </td>
+                <td height="27"><cc class="title">Lable:</cc><%= @question.Lable %></td>
+           </tr>
+           <tr>
+                <td width="98" rowspan="2" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>
+                <td height="27" colspan="3"><cc class="title">Topic:</cc><%= @question.Topic %></td>
+           </tr>
+            <tr>
+                <td colspan="3" align="left" valign="top"><cc class="title">Description:</cc>
+                <br><%= @question.Description %></td>
+            </tr>
+          </table>
+   </div>
+   <div id="anseditbelow">
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+    <%= f.label :Answer %><br />
+    <%= f.text_area :Answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+</div>
 
 <%= link_to 'Show', @question %> |
 <%= link_to 'Back', questions_path %>
+</body>
+	</html>
