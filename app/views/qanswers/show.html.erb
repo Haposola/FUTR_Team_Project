@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @qanswer.Nickname %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @qanswer.Answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_qanswer_path(@qanswer) %> |
+<%= link_to 'Back', qanswers_path %>

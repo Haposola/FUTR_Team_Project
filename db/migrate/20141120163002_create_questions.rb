@@ -5,7 +5,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :Lable
       t.string :Topic
       t.text :Description
-
       t.timestamps
     end
   end

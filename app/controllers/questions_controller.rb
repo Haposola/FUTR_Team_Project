@@ -36,6 +36,30 @@ class QuestionsController < ApplicationController
     respond_with(@question)
   end
 
+  def new_a
+    @question= Question.new(params[:question])
+    respond_with(@question)
+  end
+
+  def edit_a
+  end
+
+  def create_a
+    @question = Question.find(params[:question])
+    @question.save
+    respond_with(@question)
+  end
+
+  def update_a
+    @question.update_attributes(params[:question])
+    respond_with(@question)
+  end
+
+  def destroy_a
+    @question.destroy
+    respond_with(@question)
+  end
+
   private
     def set_question
       @question = Question.find(params[:id])

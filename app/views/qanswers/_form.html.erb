@@ -1,0 +1,25 @@
+<%= form_for(@qanswer) do |f| %>
+  <% if @qanswer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qanswer.errors.count, "error") %> prohibited this qanswer from being saved:</h2>
+
+      <ul>
+      <% @qanswer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nickname %><br />
+    <%= f.text_field :Nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :Answer %><br />
+    <%= f.text_area :Answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

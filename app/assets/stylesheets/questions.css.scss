@@ -8,6 +8,7 @@ h1, h2, h3, h4, h5, h6, p {
 	padding-right: 15px;
 	padding-left: 15px; 
 	text-align: center;
+	color:#000;
 }
 
 .qnav a img {  
@@ -44,8 +45,18 @@ h1, h2, h3, h4, h5, h6, p {
 	text-align: center;
 }
 
+.quescontainer #maintitle{
+	float: left;
+	font-size: xx-large;
+	color: #900;
+	font-family: "MS Serif", "New York", serif;
+	text-align:center;
+}
+.quescontainer .header {
 
+	background-color: #ADB96E;
 
+}
 
 
 
@@ -77,13 +88,15 @@ h1, h2, h3, h4, h5, h6, p {
 	text-align: right;
 }
 
-
+#comeques{
+    text-align:center;
+	margin-left:auto;
+	margin_right:auto;
+}
 
 #content ul, #content ol { 
 	padding: 0 15px 15px 40px; 
 }
-
-
 
 ul.qnav {
 	list-style: none;  
@@ -113,10 +126,12 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 
 
 
-.footer {
+.quesfooter {
+    text-align:center;
+	background-color: #CCC49F;
 	position: relative;
 	clear: both;
-	height: 100px;
+	height: 50px;
 	padding-top: 10px;
 	padding-right: 0;
 	padding-bottom: 10px;
@@ -168,10 +183,10 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 	font-family: "MS Serif", "New York", serif;
 	text-align:center;
 }
-.container .rightside #main .qmtable .title {
+ .qmtable .title {
 	color: #30C;
 }
-.container .rightside #main .qmtable tr td {
+.qmtable tr td {
 	text-align:left;
 }
 .qmtable {
@@ -181,4 +196,15 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 	border-bottom-style: dotted;
 	border-bottom-color: #000;
 	border-bottom-width: thin;
+}
+#ansedittop,#quesshowtop{
+    width:auto;
+    position:relative;
+    clear:both;
+    margin:0 auto;
+}
+#anseditbelow, #quesshowbelow{
+    width:auto;
+    position:relative;
+	margin:30px auto;
 }
