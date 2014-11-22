@@ -176,7 +176,7 @@ class OutservicesController < ApplicationController
     #@usercomment.restaurant_name =restaurantname
     nickname=current_user.nickname;
     @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
-      :name => params[:name], :comment => params[:comment])
+      :name => params[:name], :comment => params[:comment],:star=>params[:star])
     respond_to do |format|
       if @usercomment.save
         format.html { redirect_to show_outservice_path, notice: 'Comment was successfully created.' }
