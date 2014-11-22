@@ -1,0 +1,34 @@
+<h2><%= link_to 'User Management','/admins/usrmgmt/all' %></h2>
+<%= "According to the log, we have #{@olnum} people on our site" %><br />
+<br />
+<%= link_to 'Applications','/admins/usrmgmt/applications' %>
+<%= link_to 'Our Big Users','/admins/usrmgmt/uncommon'%>
+<table>
+	<tr>
+		<th>Email</th>
+		<th>Nickname</th>
+		<th>Name</th>
+		<th>Nation</th>
+		<th>Category</th>
+		<th>Real Name Confirmation</th>
+		<th>Last Login Time</th>
+		<th>Online</th>
+	</tr>
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email%></td>
+		<td><%= user.nickname%></td>
+		<td><%= user.name%></td>
+		<td><%= user.nation%></td>
+		<td><%= user.category%></td>
+		<% if user.realconfirm =="yes"%>
+			<td><%= "yes"%></td>
+		<% else %>
+			<td><%= link_to 'no', ad_cnfm_path(user)%></td>
+		<% end %>
+		<td><%= user.last_sign_in_at%></td>
+		<td><%= !(SignedInLog.find(:first,:conditions =>["email = ?",user.email])==nil)%></td>
+	</tr>
+<%end%>
+</table>
+<br />

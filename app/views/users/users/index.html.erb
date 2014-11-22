@@ -1,0 +1,24 @@
+<div class= "userSideBar">
+  <div>
+    <ul> 
+      <li><h4><%= link_to 'User Information', '/users/info'%></h4></li>
+      <li><h4><a href="#">Ask a question</a></h4></li>
+      <li><h4><a href="/activities/new">Put a activity</a></h4></li>
+      <li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
+    </ul>
+  </div>
+</div>
+<div class="userContent">
+  <p>My Activities</p>
+    <% @myAct.each do |a|%>
+      <div>
+        <%= link_to a.name, a %>
+      </div>
+    <% end %>
+  <p>My footprint</p>
+    <% @myFootprint.each do |f|%>
+      <div>
+        <%= f.service_kind %> <%= link_to f.name, show_outservice_path(f.service_kind,f.name) %>
+      </div>
+    <% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141118104555) do
+ActiveRecord::Schema.define(:version => 20141121152823) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
@@ -91,6 +91,23 @@ ActiveRecord::Schema.define(:version => 20141118104555) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "qanswers", :force => true do |t|
+    t.string   "Nickname"
+    t.text     "Answer"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "Nickname"
+    t.string   "Lable"
+    t.string   "Topic"
+    t.text     "Description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "Answer"
+  end
+
   create_table "re_for_ques_for_acts", :force => true do |t|
     t.integer  "q_about_act_id"
     t.string   "replier"
@@ -130,6 +147,8 @@ ActiveRecord::Schema.define(:version => 20141118104555) do
     t.string   "nickname"
     t.string   "name"
     t.string   "nation"
+    t.string   "category"
+    t.string   "realconfirm"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

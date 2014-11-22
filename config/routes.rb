@@ -1,15 +1,43 @@
 Team::Application.routes.draw do
+
+  resources :questions do |question|
+    resources :qanswers
+  end
+  match 'question' => 'questions#index'
+  match 'users/questions' => 'questions#index'
+  match 'answer/new' => 'questions#new_a'
+  
+
+  match '/question' => 'questions#index'
+  match '/users/question' => 'questions#index'
+
   devise_for :admins, controllers: {
-        sessions: 'admin/sessions'
+        sessions: 'admins/sessions',
+        registrations: 'admins/registrations',
+        confirmations: 'admins/confirmations',
+        passwords: 'admins/passwords',
+        unlocks: 'admins/unlocks'
       }
 
 
   root :to => 'index#index'
   devise_for :users, controllers: {
-        sessions: 'user/sessions'
+        sessions: 'users/sessions',
+        registrations: 'users/registrations',
+        confirmations: 'users/confirmations',
+        passwords: 'users/passwords',
+        unlocks: 'users/unlocks'
       }
-  match '/admins/index' => 'admin/admins#index'
-  match 'users/index' =>'user/users#index'
+  match '/admins/index' => 'admins/admins#index'
+  match 'admins/usrmgmt/:id' => 'admins/admins#usrmgmt'
+  match 'admins/actmgmt' =>'admins/admins#actmgmt'
+  match 'admins/svcmgmt' =>'admins/admins#svcmgmt'
+  match 'admins/sndemail' =>'admins/admins#sndemail'
+
+  match 'admins/ad_cnfm/:id' =>'admins/admins#cnfm', :as => "ad_cnfm"
+  match 'users/index' =>'users/users#index'
+  match 'users/registration' => 'users/users#regist'
+  match 'users/info' => 'users/users#info'
   #
 
 

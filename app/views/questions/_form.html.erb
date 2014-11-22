@@ -1,0 +1,37 @@
+
+
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div id="comeques">
+<table width="446" border="1" cellpadding="3">
+  <tr>
+    <td width="79" bgcolor="#CCCCCC"><%= f.label :Nickname %><br /></td>
+    <td width="343">&nbsp;<%= f.text_field :Nickname %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Lable:</td>
+    <td>&nbsp;<%= f.text_field :Lable %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Topic</td>
+    <td>&nbsp;<%= f.text_field :Topic %></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">Description:</td>
+    <td><%= f.text_area :Description %></td>
+  </tr>
+  <tr><td colspan="2" bgcolor="#CCCCCC"><%= f.submit %></td> </tr>
+</table>
+</div>
+<% end %>
+

@@ -1,6 +1,7 @@
 class OutservicesController < ApplicationController
   # GET /outservices
   # GET /outservices.json
+
   def index
     #@restaurants = Outservice_place.all
     @restaurants = Outservice_place.find(:all, :conditions =>["service_kind = ?",:restaurant])
@@ -26,6 +27,7 @@ class OutservicesController < ApplicationController
   # GET /outservices/new
   # GET /outservices/new.json
   def new
+    before_filter  :authenticate_admin!
     @restaurant = Restaurant.new
 
     respond_to do |format|
@@ -167,13 +169,14 @@ class OutservicesController < ApplicationController
 
   def add_outservice_comments
     #@usercomment = Restaurant_comment.new(params[:user_comment])
-    userlog = SignedInLog.checkout(cookies[:riskfit_token])
-    @user = User.find(:first, :conditions =>["email = ?",userlog.email])
-    nickname = @user.nickname
+    #userlog = SignedInLog.checkout(cookies[:riskfit_token])
+    #@user = User.find(:first, :conditions =>["email = ?",userlog.email])
+    #nickname = @user.nickname
     #@usercomment.nickname =nickname
     #@usercomment.restaurant_name =restaurantname
+    nickname=current_user.nickname;
     @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
-      :name => params[:name], :comment => params[:comment])
+      :name => params[:name], :comment => params[:comment],:star=>params[:star])
     respond_to do |format|
       if @usercomment.save
         format.html { redirect_to show_outservice_path, notice: 'Comment was successfully created.' }
