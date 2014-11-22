@@ -1,3 +1,14 @@
+<script type="text/javascript">
+function OnClickC(p1,p2,p3,p4,p5){
+    document.getElementById(p1).style.display="block";
+    document.getElementById(p2).style.display="none";
+    document.getElementById(p3).style.display="none";
+    document.getElementById(p4).style.display="none";
+    document.getElementById(p5).style.display="none";
+}
+
+</script>     
+
         <div class="service">
             <div class="well main_container">
                 <h1>
@@ -22,10 +33,15 @@
                             <% @usercomments.each do |usercomment| %>
                             <div class="well service_com">
                                 <i class="icon-user"></i>  <b> <%= usercomment.nickname %>:</b></br>
-                            
+
+                                <p> <% for i in 1..usercomment.star %><i class="icon-star"></i>
+                                    <% end %>
+                                    <% for i in usercomment.star+1..5 %><i class="icon-star-empty"></i>
+                                    <% end %>
+                                </p>
+
+
                                 <span><%= usercomment.comment %></span></br></br>
-                            
-                            
                                 <div class="comment_destroy">
                                     <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
                                 </div>
@@ -38,7 +54,34 @@
                     <br>
                     <div class="service_comment" >
                         <%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
-                        <%= label_tag(:comment, "comment:") %></br>
+                        <i class="icon-edit inline"></i><span>COMMENTS</span>
+
+                        
+                        <div class="check_star">
+                            <label class="radio inline">
+                                <input onclick="OnClickC('star_1','star_2','star_3','star_4','star_5')" type="radio" name="star" id="star1" value=1 checked>
+                            </label>
+                            <label class="radio inline">
+                                <input onclick="OnClickC('star_2','star_1','star_3','star_4','star_5')" type="radio" name="star" id="star2" value=2 >
+                            </label>
+                            <label class="radio inline">
+                                <input onclick="OnClickC('star_3','star_1','star_2','star_4','star_5')" type="radio" name="star" id="star3" value=3 >
+                            </label>
+                            <label class="radio inline">
+                                <input onclick="OnClickC('star_4','star_1','star_3','star_2','star_5')" type="radio" name="star" id="star4" value=4 >
+                            </label>
+                            <label class="radio inline">
+                                <input onclick="OnClickC('star_5','star_1','star_3','star_4','star_2')" type="radio" name="star" id="star5" value=5 >
+                            </label>
+                            <div class="star_dis">
+                                <p id="star_1">It's Bad, I won't go there anymore!</p>
+                                <p id="star_2">It's OK, but I may not go there anymore.</p>
+                                <p id="star_3">It's at the general level, I may go there again.</p>
+                                <p id="star_4">It's good, I will go there again.</p>
+                                <p id="star_5">It's awesome, I will definately go there again!</p>
+                            </div>
+                        </div>
+
                         <%= text_area_tag(:comment, "", size: "50x5") %></br>
                         <%= submit_tag 'submit'%> <% end %>
                     </div>
