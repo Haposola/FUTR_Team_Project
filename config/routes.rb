@@ -43,13 +43,12 @@ Team::Application.routes.draw do
 
   #match 'index' =>'index#index'
   resources :activities
-
+  match 'activities/:string/page/:id' => 'activities#list'
   match 'activities/:id/newQuestion' => 'activities#newQuestion'
   match 'activities/:id/newReply' => 'activities#newReply'
   match 'activities/:id/newComment' => 'activities#newComment'
 
-  match 'activities/:string' => 'activities#list'
-  match 'activities/page/:id' => 'activities#list'
+
 
   #match 'signin' => 'users#signin'
   #match 'signinChk' => 'users#signinChk' , :via => 'post'

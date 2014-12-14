@@ -1,25 +1,38 @@
-    <div class ="actSideBar">
-        <% if user_signed_in? %>
-    <%= link_to 'New Activity', new_activity_path %>
-    <% end %>
-    </div>
-
-    <div class = "actContent">
-        <% @activities.each do |activity| %>
-        <% if activity && activity!= nil%>
-        <div class ="activities">
-            <span class = "name"><%= link_to activity.name, activity %></span>
-            <span class = "time"><%=  activity.tim %></span>
-            <hr>
-            <span class = "description"><%= activity.description %></span>
-        </div>
-        <% end %>
-        <% end %>
-        <br />
-        <div class = "pagenum">
-        <%  for i in 1..@pagetotal %>
-            <span><%= link_to "#{i}", :controller => "activities", :action =>"list", :id =>i %>
-            </span>
-        <% end %>
-        </div>
-    </div>
+<div class="container-fluid">  
+	<div class="row">  
+			<div class="well act_sidebar">  
+				<ul class="nav nav-list">  
+					<li class="nav-header">Activities</li>  
+					<li id="r_b"><a href="/activities/commen/page/1">Students
+					<i class="icon-chevron-right"></i></a></li>  
+					<li id="k_b"><a href="/activities/official/page/1">Officials
+					<i class="icon-chevron-right"></i></a></li>
+					<li id="b_b"><a href="/activities/club/page/1">Clubs
+					<i class="icon-chevron-right"></i></a></li>  
+					<li id="b_b"><a href="/activities/service/page/1">Outside School<i class="icon-chevron-right"></i></a></li> 
+					<li><br /></li>
+					<li><% if user_signed_in? %>
+					<%= link_to 'Set up my Activity', new_activity_path %>
+					<%end %></li>
+				</ul>
+			</div><!--/.well -->  
+	<div class="well activity_list main_container">
+		<% @activities.each do |activity| %>
+			<% if activity && activity!= nil%>
+				<div class ="well activities">
+					<span><%= link_to activity.name, activity %></span>
+					<span><%=  activity.tim %></span>
+					<hr>
+					<span><%= activity.description %></span>
+				</div>
+			<% end %>
+		<% end %>
+		<br />
+		<div class = "pagenum">
+		 Go to page
+			<%  for i in 1..@pagetotal %>
+				<span> <%= link_to "#{i}", :controller => "activities", :action =>"list", :id =>i %></span>
+			<% end %>
+		</div>
+	</div><!--/row-->  
+</div><!--/.fluid-container--> 

@@ -10,6 +10,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :nation
       t.string :category
       t.string :realconfirm
+      ##User Privilege
+      t.integer :group
+      t.integer :score
+      t.integer :level
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
