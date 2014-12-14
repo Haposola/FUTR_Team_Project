@@ -4,12 +4,10 @@ Team::Application.routes.draw do
     resources :qanswers
   end
   match 'question' => 'questions#index'
-  match 'users/questions' => 'questions#index'
   match 'answer/new' => 'questions#new_a'
   
 
   match '/question' => 'questions#index'
-  match '/users/question' => 'questions#index'
 
   devise_for :admins, controllers: {
         sessions: 'admins/sessions',
@@ -37,7 +35,7 @@ Team::Application.routes.draw do
   match 'admins/ad_cnfm/:id' =>'admins/admins#cnfm', :as => "ad_cnfm"
   match 'users/index' =>'users/users#index'
   match 'users/registration' => 'users/users#regist'
-  match 'users/info' => 'users/users#info'
+  match 'users/show/:alt' => 'users/users#show'
   #
 
 

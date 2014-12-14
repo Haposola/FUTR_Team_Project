@@ -1,42 +1,77 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sidebar{margin:10px; float:left; width:140px;}
-.mainbar{margin:10px; float:right; width:400px;}
 .userSideBar{
-	position : fixed;
-	top: 100px;
 	left: 10px;
 	overflow: hidden;
 	float: left;
-	width: 150px;
+	width: 200px;
 	height:100%;
 	margin: 10px 10px 10px 10px;
-	border-right: solid 2px;
 
 }
+.userSideBar h4{
+	text-align:left;
+}
 .userSideBar ul li{
-	float:left;
 	margin: 10px 10px 10px 10px;
-	background:#fff;
-	
-	box-shadow:0 1px 0 #dedede;
-	-webkit-box-shadow:0 1px 0 #dedede;
-	-moz-box-shadow:0 1px 0 #dedede;
-	-o-box-shadow:0 1px 0 #dedede;
-	/*transition*/
-	transition:all .2s linear;
-	-webkit-transition:all .2s linear;
-	-moz-transition:all .2s linear;
-	-o-transition:all .2s linear;
 	opacity: 0.7;
 	-moz-opacity: 0.7;
 	filter:alpha(opacity=70);
-	}
+}
 
 .userContent{
-	position:absolute;
-	left: 200px;
+	margin-left: 220px;
+}
+.userindex_act, .userindex_fp{
+	display:block;
+	background-color:rgba(255,255,255,0.5);
+	
+}
+.userindex_actcontent, .userindex_fpcontent{
+	background-color:rgba(0,0,0,0.1);
+	padding: 3px;
+	display:inline-table;
+	float:none;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.userindex_actcom, .userindex_fpcom{
+	width:80%;
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.userinfo{
+	display:block;
+	background-color:rgba(255,255,255,0.5);
+
+}
+.useredit_form{
+	background-color:rgba(255,255,255,0.5);
+	padding:30px 0 30px 0;
+}
+.useredit_pwds, .useredit_info{
+	display:inline-table;
+	float:none;
+}
+.useredit_cancel{
+	width:100%;
+	background-color:rgba(255,255,255,0.5);
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.useredit_info .field, .useredit_pwds .field, .useredit_submit{
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.useredit_cancel{
+	text-align:center;
+}
+.useredit_form input, .useredit_cancel input{
+	font-size:17px;
 }
 #cmncontainer{
 	float:none;

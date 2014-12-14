@@ -13,7 +13,6 @@
 		</ul>
 	</div>
 </div>
-
 <div class="userContent">
 	<div class="well userindex_act">
 		<h3>My recent activities</h3><br/>
@@ -31,21 +30,5 @@
 			</div>
 		<% end %>
 
-	</div>
-
-	<div  class="well userindex_fp">
-		<h3>My recent footprints</h3>
-		<% @myFootprint.each do |f|%>
-			<div class="userindex_fpcontent span4">
-				<%= link_to f.name, show_outservice_path(f.service_kind,f.name) %>
-				<span style="float:right"><%= f.service_kind %> </span>
-				<hr>
-				<div class="userindex_fpcom">
-					Commented: <%= f.comment%><br/>
-					<span style="float:right"><%=f.created_at%></span>
-				</div>
-			</div>
-		<% end %>
-		<br /><br/>
 	</div>
 </div>
