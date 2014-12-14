@@ -1,46 +1,68 @@
+<div id="newact_container">
 <%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
-      <% @activity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :tim %><br />
-    <%= f.datetime_select :tim %>
-  </div>
-  <div class="field">
-    <%= f.label "Select a tag" %><br />
-    <%= f.select :tag, @tags %>
-  </div>
-  <div class="field">
-    <%= f.label "Or put your own tag " %><br />
-    <%= f.text_field :tag %>
-  </div>
-  <div class="field">
-    <%= f.label :peoNum %><br />
-    <%= f.number_field :peoNum %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "30x7" %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'set up this act', :owner => "hhh" %>
-  </div>
+	<% if @activity.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+			<ul>
+			<% @activity.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="newact_left">
+		<div>
+			<%= f.label :name,"Put a name for your activity" ,:class=>"nobr"%>
+			<%= f.text_field :name %>
+		</div>
+		<br />
+		<div>
+			<%= f.label :tim,"The time this activity would begin at "%>
+			<%= f.datetime_select :tim, :class=>"timselect" %>
+		</div>
+		<br />
+		<div style="float:left"  onclick="javascript:tagAutoFill()">
+		<span id="tagselect">
+			<%= f.label :tag,"Select a tag" %>
+			<%= f.select :tag,@tags %></span>
+		</div>
+		<div style="margin-left:185px">
+			<%= f.label 'tagfield',"Or put your own tag " %>
+			<%= f.text_field :tag,:id=>"activity_tagfield"%>
+		</div>
+		<br />
+		<div>
+			<%= f.label :peoNum,"How many people needed?",:class=>"nobr" %>
+			<%= f.number_field :peoNum %>
+		</div>
+		<br />
+		<div>
+			<%= f.label :contact,"Leave contact here, if must",:class=>"nobr" %>
+			<%= f.text_field :contact %>
+		</div>
+	</div><!--newact_left-->
+	<div class="newact_right">
+		This is default picture.<br />
+		Upload a picture if you want.<br />
+		<%= image_tag("actTag/default.jpg",:id=>"actpic") %>
+	</div>
+	<hr />
+	<div class="newact_bottom">
+		<%= f.label :description %>
+		<%= f.text_area :description, :size => "30x7" %>
+		<br />
+		<%= f.submit 'set up this act', :owner => "hhh" %>
+		<br /><br />
+		<a href="javascript:history.go(-1);">Back</a>
+	</div>
 <% end %>
+
+<script language="javascript">
+	function tagAutoFill(){
+		var p = document.getElementById("activity_tag").value;
+		document.getElementById("activity_tagfield").value=p;
+
+	}
+
+
+</script>

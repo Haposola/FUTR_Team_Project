@@ -10,7 +10,7 @@
 }
 #navbar-container{
   float:left;
-  width:80%;
+  width:70%;
 }
 #navbar-container ul li{
   font-size: 20px;
@@ -24,9 +24,9 @@
      table-layout:fixed;
     display: table;
   }
-.navbar.nav .nav-right{
-  float:right !important;
-  margin-right: 30px;
+.navbar .nav-right{
+  width:150px;
+  margin-right:30px;
   }
 
   .pagecontainer{

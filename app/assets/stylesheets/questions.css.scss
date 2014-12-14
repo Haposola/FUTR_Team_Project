@@ -49,12 +49,14 @@ h1, h2, h3, h4, h5, h6, p {
 	float: left;
 	font-size: xx-large;
 	color: #900;
+	margin-bottom:10px;
 	font-family: "MS Serif", "New York", serif;
 	text-align:center;
 }
 .quescontainer .header {
 
 	background-color: #ADB96E;
+	text-align:center;
 
 }
 
@@ -62,10 +64,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 .qsidebar {
 	float: left;
-	width: 220px;
-	background-color: #D6D6D6;
+	width: 100px;
 	height: 641px;
-	background-image: url("Contents-bg.gif");
 	background-repeat: no-repeat;
 	text-align: center;
 }
@@ -110,7 +110,7 @@ ul.qnav li {
 
 ul.qnav a, ul.qnav a:visited {
 	display: block;
-	width: 200px;
+	width: 80px;
 	text-decoration: none;
 	background-color: #C6D580;
 	padding-top: 5px;
@@ -171,7 +171,7 @@ ul.qnav a:hover, ul.qnav a:active, ul.qnav a:focus {
 .rightside {
 	float: right;
 	height: 641px;
-	width: 800px;
+	width: 700px;
 }
 .qlogo {
 	float:left;

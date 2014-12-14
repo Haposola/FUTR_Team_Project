@@ -1,19 +1,139 @@
 // Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
-
-.activities {
-	position:relative;
-	width : 650px;
-	height:150px;
-	border : 1px solid;
-	margin-top : 10px ;
-	left: 200px;
+.activities{
+	background-color: rgba(255,255,255,0.5) !important;
 }
-.time{
-	position:absolute;
-	right:0px;
+.act_sidebar{
+	width:150px;
+	background-color:rgba(0,0,0,0.05) !important;
+	float:left;
+	margin-left:30px;
+}
+
+.activity_list{
+	margin-left:220px;
+}
+#newact_container{
+	display:table;
+	float:none;
+	margin:0 auto;
+	width:80%;
+	padding:30px 0 0 0;
+}
+
+label.nobr{
+	display:inline;
+	margin:0 10px 10px 0;
+}
+#actpic{
+	margin-top:10px;
+}
+#newact_container input, #newact_container select{
+	width:165px;
+}
+.newact_left{
+	width:50%;
+	float:left;
+}
+.newact_right{
+	width:50%;
+	float:right;
+	height:330px;
+}
+.newact_bottom{
+	position:relative;
+	margin-top:400px;
+	display:table;
+	float:none;
+	margin-left:20%;
+	width:60%;
+	text-align:center;
+}
+.newact_bottom textarea{
+	width:100%;
+}
+#activity_tim_1i,#activity_tim_2i,#activity_tim_3i,#activity_tim_4i,#activity_tim_5i{
+	width:auto !important;
+}
+.actinfo, .actQA, .actcom{
+	background-color:rgba(255,255,255,0.5);
+	padding:10px 10px 10px 10px;
+	width:80%;
+	display:table;
+	float:none;
+	margin:0 auto;
+
+}
+.actinfo{
+	font-size:17px;
+}
+.actQA, .actcom{
+	margin-top:30px;
+}
+#actinfo_left{
+	float:left;
+	width:50%;
+}
+#actinfo_left b{
+	
+}
+#actinfo_right{
+	float:right;
+	width:50%;
+	height:142px;
+}
+#actinfo_right img{
+	max-height:100% !important;
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+#actinfo_bottom{
+	margin-top:162px;
+	width:70%;
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.actcom_content, .actques{
+	max-width:70%;
+	margin-left:15%;
+	padding: 10px 0 30px 0;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #AAA;
+}
+.actques_reply{
+	width:80%;
+	float:none;
+	display:table;
+	margin:0 auto;
+	border-bottom: 1px dotted;
+	border-top: 1px dotted;
+}
+.replyBox{
+	margin-left:60px;
+}
+.replyBox textarea{
+	width:80%;
+}
+.actcom_time, .actques_time{
+	float:right;
+}
+.actcom_write,.actques_write{
+	width:60%;
+	display:table;
+	float:none;
+	margin:0 auto;
+	margin-top:30px;
+}
+.actcom_write textarea, .actques_write textarea{
+	width:100%;
+}
+#backlink{
+	display:table;
+	float:none;
+	margin:0 auto;
+	font-size:25px;
 }
