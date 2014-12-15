@@ -27,14 +27,20 @@
               <li class="nav-header">Services</li>  
               <li id="r_b"><a  href="#" onclick="show_click('restaurant','Bar','KTV','r_b','k_b','b_b')">Restaurant<i class="icon-chevron-right"></i></a></li>  
               <li id="k_b"><a href="#" onclick="show_click('KTV','Bar','restaurant','k_b','r_b','b_b')">KTV<i class="icon-chevron-right"></i></a></li>  
-              <li id="b_b"><a href="#" onclick="show_click('Bar','restaurant','KTV','b_b','k_b','r_b')">Bar<i class="icon-chevron-right"></i></a></li>  
+              <li id="b_b"><a href="#" onclick="show_click('Bar','restaurant','KTV','b_b','k_b','r_b')">Bar<i class="icon-chevron-right"></i></a></li><br>
+              <li id="b_b"><a href="outservices/new" >Add Service<i class="icon-chevron-right"></i></a></li>
             </ul>  
           </div><!--/.well -->  
         </div><!--/span-->  
 
  <div class="well service_index main_container">
         <h1>
-            Services out of HIT
+            Services out of HIT 
+            <% if current_user.score==nil && current_user.level==nil %>
+            1
+            <% end %>
+            <%= current_user.score %>
+            <%= current_user.level %>
         </h1>
         
                 <div id="restaurant" >

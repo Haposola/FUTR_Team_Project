@@ -1,0 +1,31 @@
+<div class="service main_container">
+
+<h1>Add Information</h1>
+
+<h2>
+  <%= @outservice_place.service_kind %>
+</h2>
+<div class="well service_detail">
+    <div >
+       <div style="float:right;margin-left:30pxd">
+          <%= image_tag(@outservice_place.picture_addr,:class=>"img-polaroid") %>
+       </div>
+       <h2> <%= @outservice_place.name %></h2>
+       <div style="text-align:left">
+        <%= @outservice_place.description %>
+       </div>
+    </div>
+</div>
+
+<div class="service_comment add_service_information">
+<%= form_tag(url: update_outservice_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
+
+<%= text_area_tag(:description, "", size: "50x5") %></br>
+<%= submit_tag 'submit'%>
+  
+<% end %>
+</div>
+<%= link_to 'Show', @outservice %>
+<%= link_to 'Back', outservices_path %>
+
+</div>

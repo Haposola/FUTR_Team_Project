@@ -1,7 +1,9 @@
 // Place all the styles related to the outservices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.service{
+  text-align: center;
+}
 .star_dis{
   margin-top: 20px;
 }
@@ -20,8 +22,22 @@
   text-decoration: none;
 }
 
+.new_service{
+  text-align: center;
+}
 
-.service_index h1,.service_index h2, .service_index h3, .service h1, .service h2{
+.new_service textarea{
+  width: 600px;
+  height: 400px
+}
+.add_service_information textarea{
+  width: 600px;
+  height: 250px;
+  margin-top: 80px;
+}
+.service_index h1,.service_index h2, .service_index h3, .service h1, .service h2,
+.new_service h1
+{
   font-family: 'Raleway';
 }
 .icon-chevron-right{
@@ -42,6 +58,7 @@
   margin:0px auto;
   max-width:800px; 
   border:solid 1px white;
+  min-height: 200px;
 }
 
 .service_detail h2{

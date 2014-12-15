@@ -140,6 +140,11 @@ class OutservicesController < ApplicationController
       params[:service_kind],params[:name]])
   end
 
+  def add_outservice_information
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+  end
+
   def update_outservice
     @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
       params[:service_kind],params[:name]])
@@ -155,7 +160,7 @@ class OutservicesController < ApplicationController
   end
 #---------------------outservices-------------------------------------------------
 
-#----------------------------outservice comments-----------------------------------------------
+#----------------------------outservice comments----------------------------------
   def delete_outservice_comments
     @delete_comment = Outservice_comment.find(:first, :conditions =>["name = ? AND nickname = ? AND comment=? 
       AND service_kind=?",params[:name],params[:nickname],params[:comment],params[:service_kind]])
@@ -187,7 +192,7 @@ class OutservicesController < ApplicationController
     end
   end
 
-#----------------------------outservice comments-----------------------------------------------
+#----------------------------outservice comments-----------------------------------
 
 
 

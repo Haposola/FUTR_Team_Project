@@ -51,8 +51,12 @@ function OnClickC(p1,p2,p3,p4,p5){
                     </div>
 
                     <% if user_signed_in? %>
+
                     <br>
                     <div class="service_comment" >
+
+                        <%= link_to 'Add More Information', add_outservice_information_path %>
+                        <br><br>
                         <%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
                         <i class="icon-edit inline"></i><span>COMMENTS</span>
 
