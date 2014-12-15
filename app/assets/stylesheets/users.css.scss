@@ -1,6 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#user_remember_me, label[for=user_remember_me]{
+	display:inline-table;
+	margin:0 auto;
+}
+form#new_user{
+	margin-bottom:0px;
+}
 .userSideBar{
 	left: 10px;
 	overflow: hidden;
