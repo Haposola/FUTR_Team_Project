@@ -13,7 +13,6 @@ form#new_user{
 	margin-top: 20px;
 	max-width:90%; 
 	border-right:0;
-
 }
 
 .info_table th,.info_table td{
@@ -25,9 +24,12 @@ form#new_user{
 	padding: 15px;
 	max-width: 45%;
 }
-
 .userinfo{
 	font-size: 16px;
+}
+
+.exp_bar{
+	max-width: 85%;
 }
 
 .userSideBar{
