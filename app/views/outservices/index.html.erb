@@ -29,6 +29,11 @@
               <li id="k_b"><a href="#" onclick="show_click('KTV','Bar','restaurant','k_b','r_b','b_b')">KTV<i class="icon-chevron-right"></i></a></li>  
               <li id="b_b"><a href="#" onclick="show_click('Bar','restaurant','KTV','b_b','k_b','r_b')">Bar<i class="icon-chevron-right"></i></a></li><br>
               <li id="b_b"><a href="outservices/new" >Add Service<i class="icon-chevron-right"></i></a></li>
+
+              <% if user_signed_in? && current_user.group>=2%> 
+                <br> <br>
+                <li id="b_b"><a href="/outservices/new" >New Service</i></a></li>
+                <% end%> 
             </ul>  
           </div><!--/.well -->  
         </div><!--/span-->  

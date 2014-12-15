@@ -5,6 +5,15 @@
   To use Glyphicons sprites instead of Font Awecontainersome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+  
+h1, h2, h3, h4, h5, h6{
+  margin-top: 0;   
+  padding-right: 15px;
+  padding-left: 15px; 
+  text-align: center;
+  color:#000;
+}
+
 .navbar .brand{
   margin-left: 20px;
 }

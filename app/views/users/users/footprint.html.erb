@@ -15,24 +15,6 @@
 </div>
 
 <div class="userContent">
-	<div class="well userindex_act">
-		<h3>My recent activities</h3><br/>
-		<% @myAct.each do |a|%>
-			<div class="userindex_actcontent span4">
-				<%= link_to a.name, a %>
-				<span style="float:right;"><%= a.tim%></span>
-				<hr>
-				<% ComForAct.where("activity_id=?",a.id).order(created_at: :desc).take(3).each do |c|%>
-					<div class="userindex_actcom">
-						<p><%= c.content %></p>
-						<p style="text-align:right"><i class="icon-user"></i><%= c.speaker%> <%=c.created_at%></p>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-
-	</div>
-
 	<div  class="well userindex_fp">
 		<h3>My recent footprints</h3>
 		<% @myFootprint.each do |f|%>

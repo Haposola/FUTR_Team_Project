@@ -19,6 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         resource.update_attributes({:realconfirm =>"no"})
       end
+      resource.group=0;
+      resource.score=0;
+      resource.level=1;
       SignedInLog.create(:email => resource.email)
         #only this line up there is added  in order to save new attrs.
         #all the other is the original code

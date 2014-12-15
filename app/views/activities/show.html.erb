@@ -17,7 +17,7 @@
 		<div id="actinfo_bottom">
 			<br /><br />
 			<b>Description: </b><%= @activity.description %><br /><br />
-			<% if current_user.email==@activity.owner %>
+			<% if user_signed_in? && current_user.email==@activity.owner %>
 				<%=link_to 'Edit', edit_activity_path(@activity)%>
 			<%end %>
 		</div>
