@@ -4,9 +4,9 @@ class OutservicesController < ApplicationController
 
   def index
     #@restaurants = Outservice_place.all
-    @restaurants = Outservice_place.find(:all, :conditions =>["service_kind = ?",:restaurant])
-    @ktvs = Outservice_place.find(:all, :conditions =>["service_kind = ?",:ktv])
-    @bars = Outservice_place.find(:all, :conditions =>["service_kind = ?",:bar])
+    @restaurants = Outservice_place.order('star desc').find(:all, :conditions =>["service_kind = ?",:restaurant])
+    @ktvs = Outservice_place.order('star desc').find(:all, :conditions =>["service_kind = ?",:ktv])
+    @bars = Outservice_place.order('star desc').find(:all, :conditions =>["service_kind = ?",:bar])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @outservices }
@@ -99,6 +99,9 @@ class OutservicesController < ApplicationController
 
   def create_outservice
     @outservice_place = Outservice_place.new(params[:outservice_place])
+    @outservice_place.cnt = 0
+    @outservice_place.star = 3
+    
 
     respond_to do |format|
       if @outservice_place.save
@@ -128,7 +131,7 @@ class OutservicesController < ApplicationController
     @usercomments = Outservice_comment.find(:all, :conditions =>["service_kind = ? AND name = ?",
       params[:service_kind],params[:name]])
     @user_comment = Outservice_comment.new()
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @outservice }
@@ -158,6 +161,10 @@ class OutservicesController < ApplicationController
       end
     end
   end
+
+  def helpful_outservice
+    @user = Users.find(:first,:conditions =>["nickname = ?",params[:nickname]])
+  end
 #---------------------outservices-------------------------------------------------
 
 #----------------------------outservice comments----------------------------------
@@ -179,9 +186,18 @@ class OutservicesController < ApplicationController
     #nickname = @user.nickname
     #@usercomment.nickname =nickname
     #@usercomment.restaurant_name =restaurantname
-    nickname=current_user.nickname;
+    current_user.score=current_user.score+1
+    current_user.level=(Math.log(current_user.score)/Math.log(2)+1).to_i
+    current_user.save
+    nickname=current_user.nickname
     @usercomment = Outservice_comment.new(:service_kind=> params[:service_kind],:nickname => nickname, 
       :name => params[:name], :comment => params[:comment],:star=>params[:star])
+    @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
+      params[:service_kind],params[:name]])
+    @outservice_place.star=((@outservice_place.star*@outservice_place.cnt+params[:star].to_i)/(@outservice_place.cnt+1))
+    @outservice_place.cnt=@outservice_place.cnt+1
+    @outservice_place.save
+
     respond_to do |format|
       if @usercomment.save
         format.html { redirect_to show_outservice_path, notice: 'Comment was successfully created.' }
@@ -256,7 +272,7 @@ class OutservicesController < ApplicationController
 
   # GET /outservices/restaurant/:name/edit
   def edit_restaurant
-    @restaurant = Restaurant.find(:first, :conditions =>["name = ?",params[:name]])
+    @restaurant = Outservice_place.find(:first, :conditions =>["name = ?",params[:name]])
   end
 
   # PUT /outservices/restaurant/:name

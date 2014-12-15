@@ -11,8 +11,8 @@ class Restaurant_comment < ActiveRecord::Base
 end
 
 class Outservice_place < ActiveRecord::Base
-   attr_accessible :service_kind, :name, :picture_addr, :description, :star
-   validates :service_kind, :name, :picture_addr, :description, presence: true
+   attr_accessible :service_kind, :name, :picture_addr, :description, :cnt, :star
+   validates :service_kind, :name, :picture_addr, :description,  presence: true
 end
 
 class Outservice_comment < ActiveRecord::Base

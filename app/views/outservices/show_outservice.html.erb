@@ -8,7 +8,6 @@ function OnClickC(p1,p2,p3,p4,p5){
 }
 
 </script>     
-
         <div class="service">
             <div class="well main_container">
                 <h1>
@@ -16,14 +15,26 @@ function OnClickC(p1,p2,p3,p4,p5){
                 </h1>
                 <div class="well service_detail">
                        		<div >
-                       			<div style="float:right;margin-left:30pxd">
+                       			<div style="float:right;margin-left:30px">
                        					<%= image_tag(@outservice_place.picture_addr,:class=>"img-polaroid") %>
                                 
                             </div>
                             <h2> <%= @outservice_place.name %></h2>
                             
                             
-                        		<div style="text-align:left">
+                        	<div style="text-align:left">
+                                <div style="margin-bottom:20px;margin-left:35px">
+                                <div class="row-fluid service_star well">
+                                    <div class="span5">
+                                    star(s):
+                                    <% for i  in 1..@outservice_place.star.to_i %><i class="icon-star"></i>
+                                    <% end %>
+                                    <% for i in @outservice_place.star.to_i+1..5 %><i class="icon-star-empty"></i>
+                                    <% end %>
+                                    </div>
+                                    <div class="span5" >(<%= @outservice_place.cnt %> people have commented)</div>
+                                </div> 
+                                </div>
                                 <%= @outservice_place.description %>
                             </div>
                          	</div>
@@ -32,9 +43,9 @@ function OnClickC(p1,p2,p3,p4,p5){
                                 <b>Comments:</b><br>
                             <% @usercomments.each do |usercomment| %>
                             <div class="well service_com">
-                                <i class="icon-user"></i>  <b> <%= usercomment.nickname %>:</b></br>
-
-                                <p> <% for i in 1..usercomment.star %><i class="icon-star"></i>
+                                <i class="icon-user"></i>  <b> <%= usercomment.nickname %>:</b>
+                               </br>
+                                <p> <% for i  in 1..usercomment.star %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in usercomment.star+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
@@ -54,9 +65,10 @@ function OnClickC(p1,p2,p3,p4,p5){
 
                     <br>
                     <div class="service_comment" >
-
+                        <% if current_user.level>=3 %>
                         <%= link_to 'Add More Information', add_outservice_information_path %>
                         <br><br>
+                        <% end %>
                         <%= form_tag(url: add_outservice_comments_path(:name=>@outservice_place.name,:service_kind=>@outservice_place.service_kind)) do %>
                         <i class="icon-edit inline"></i><span>COMMENTS</span>
 
@@ -86,8 +98,8 @@ function OnClickC(p1,p2,p3,p4,p5){
                             </div>
                         </div>
 
-                        <%= text_area_tag(:comment, "", size: "50x5") %></br>
-                        <%= submit_tag 'submit'%> <% end %>
+                        <%= text_area_tag(:comment, "You can get Exp by commenting the service.", size: "50x5",id: "comment") %></br>
+                        <%= submit_tag 'Comment', :class=>"btn btn-primary"%> <% end %>
                     </div>
                     <% end %>
 
@@ -98,3 +110,9 @@ function OnClickC(p1,p2,p3,p4,p5){
             </div> <!-- main container -->
     </div>
 
+<script language="javascript">
+ var s=document.getElementById("comment");
+ s.onfocus=function(){if(this.value==this.defaultValue)this.value=''};
+ s.onblur=function (){if(/^\s*$/.test(this.value)){this.value=this.defaultValue;this.style.color='#aaa'}}
+ s.onkeydown=function(){this.style.color='#333'}
+</script>
