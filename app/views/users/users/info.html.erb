@@ -1,28 +1,49 @@
-<div class = "userSideBar">
-	<div>
-		<ul>
-			<li><h4><%= link_to 'User Information', '/users/show/info'%></h4></li>
-			<li><h4><a href="/users/show/activities">My Activities</a></h4></li>
-			<li><h4><a href="/users/show/footprint">My Footprint</a></h4></li>
+<div class= "span3">
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
 
 			<br>
-			<li><h4><a href="#">Ask a question</a></h4></li>
-			<li><h4><a href="/activities/new">Put a activity</a></h4></li>
-			<br><br>
-			<li><h4><a href="/users/index">To Home Page</a></h4></li>
-			<li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
+			<br><br><br>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
 		</ul>
 	</div>
 </div>
 <div class ="userContent">
-	<div class="well userinfo">
-	<p>Welcome! <%= current_user.nickname %></p>
-	<p><b>Email:</b><%= current_user.email %></p>
-	<p><b>Nickname:</b><%= current_user.nickname %></p>
-	<p><b>Name:</b><%= current_user.name %></p>
-	<p><b>Nation:</b><%= current_user.nation %></p>
-	<p><b>Category:</b><%= current_user.category%></p>
-	<p><b>RealNameConfirmation:</b><%= current_user.realconfirm%></p>
+	<div class="well userinfo main_container">
+	Welcome! <%= current_user.nickname %>
+	<table class="info_table table table-bordered table-hover" style="margin-top">
+		<tr>
+			<td>Email</td>
+			<td><%= current_user.email %></td>
+		</tr>
+		<tr>
+			<td>NickName</td>
+			<td><%= current_user.nickname %></td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><%= current_user.name %></td>
+		</tr>
+		<tr>
+			<td>Nation</td>
+			<td><%= current_user.nation %></td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td><%= current_user.category %></td>
+		</tr>
+		<tr>
+			<td>RealNameConfirmation</td>
+			<td><%= current_user.realconfirm %></td>
+		</tr>
+	</table>
+
 	<p><b>Group</b><%=current_user.group%></p>
 	<p><b>Score</b><%=current_user.score%></p>
 	<p><b>Level</b><%=current_user.level%></p>

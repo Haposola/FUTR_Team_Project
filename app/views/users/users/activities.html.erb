@@ -1,15 +1,16 @@
-<div class= "userSideBar">
-	<div>
-		<ul> 
-			<li><h4><%= link_to 'User Information', '/users/show/info'%></h4></li>
-			<li><h4><a href="/users/show/activities">My Activities</a></h4></li>
-			<li><h4><a href="/users/show/footprint">My Footprint</a></h4></li>
+<div class= "span3">
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
 
 			<br>
-			<li><h4><a href="">Ask a question</a></h4></li>
-			<li><h4><a href="/activities/new">Put a activity</a></h4></li>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
 			<br><br><br>
-			<li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
 		</ul>
 	</div>
 </div>

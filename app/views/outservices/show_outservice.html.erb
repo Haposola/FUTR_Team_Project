@@ -26,13 +26,13 @@ function OnClickC(p1,p2,p3,p4,p5){
                                 <div style="margin-bottom:20px;margin-left:35px">
                                 <div class="row-fluid service_star well">
                                     <div class="span5">
-                                    star(s):
+                                    <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..@outservice_place.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in @outservice_place.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
                                     </div>
-                                    <div class="span5" >(<%= @outservice_place.cnt %> people have commented)</div>
+                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= @outservice_place.cnt %> people have commented)</div>
                                 </div> 
                                 </div>
                                 <%= @outservice_place.description %>

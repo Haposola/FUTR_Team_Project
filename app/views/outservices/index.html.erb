@@ -55,13 +55,13 @@
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
                                     <div class="span5">
-                                    star(s):
+                                    <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..restaurant.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in restaurant.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
                                     </div>
-                                    <div class="span5" >(<%= restaurant.cnt %> people have commented)</div>
+                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= restaurant.cnt %> people have commented)</div>
                                 </div> 
                             </div>
                             <%= restaurant.description %>
@@ -88,13 +88,13 @@
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
                                     <div class="span5">
-                                    star(s):
+                                    <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..ktv.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in ktv.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
                                     </div>
-                                    <div class="span5" >(<%= ktv.cnt %> people have commented)</div>
+                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= ktv.cnt %> people have commented)</div>
                                 </div> 
                             </div>
                             <%= ktv.description %>
@@ -120,13 +120,13 @@
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
                                     <div class="span5">
-                                    star(s):
+                                    <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..bar.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in bar.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
                                     </div>
-                                    <div class="span5" >(<%= bar.cnt %> people have commented)</div>
+                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= bar.cnt %> people have commented)</div>
                                 </div> 
                             </div>
                             <%= bar.description %>
