@@ -15,19 +15,19 @@ if(!Array.prototype.indexOf){Array.prototype.indexOf=function(searchElement,from
         k++;}
     return-1;};}
 var poi={
-    "gromp":{campus:1,position:[-20,-115],type:"default",anchor:"bottom",popup:{title:"Main Building of Campus 2",description:"Main Building of Campus 2"}},
-    "the-bases":{campus:1,position:[-80.5,-133],type:"default",anchor:"bottom",popup:{title:"基地",description:"基地"}},
-    "baron-nasho":{campus:2,position:[-10,-105],type:"default",anchor:"bottom",popup:{title:"Activity Center of Campas 2",description:"Activity Center of Campas 2"}},
-    "dragon":{campus:1,position:[-72.5,9],type:"default",popup:{title:"巨龙",description:"巨龙的脊背"}},
-    "red-brambleback":{campus:1,position:[-74,-30],type:"default",anchor:"bottom",popup:{title:"绯红印记树怪",description:"红",}},
-    "blue-sentinel":{campus:1,position:[-60,37],type:"default",anchor:"bottom",popup:{title:"苍蓝雕纹魔像",description:"蓝"}},
-    "the-krugs":{campus:1,position:[-78,-21],type:"default",anchor:"bottom",popup:{title:"石甲虫",description:"石甲虫"}},
-    "the-murkwolves":{campus:1,position:[-61,-90],type:"default",anchor:"bottom",popup:{title:"暗影狼",description:"暗影狼"}},
-    "the-raptors":{campus:1,position:[-45,-30],type:"default",anchor:"bottom",popup:{title:"锋喙鸟",description:"锋喙鸟"}},
-    "fail-flashes-be-gone":{campus:1,position:[-49,-90],type:"default",anchor:"bottom",popup:{title:"闪现撞墙已成过去！"}},
-    "inhibitor-timers":{campus:1,position:[-77,-105],type:"default",anchor:"bottom",popup:{title:"召唤水晶计时器",description:"水晶重生计时器"}},
-    "destructible-structures":{campus:1,position:[-46,-13],type:"default",anchor:"bottom",popup:{title:"可摧毁的建筑物",description:"逐渐崩塌"}},
-    "four-quadrants":{campus:1,position:[-20,-30],anchor:"bottom",type:"default",popup:{title:"四个象限",description:"野区各自独特的观感"}},
+    "the-bases":{position:[-80.5,-133],type:"default",anchor:"bottom",popup:{title:"基地",description:"基地"}},
+    "main2":{position:[-28,-114],type:"default",anchor:"bottom",popup:{title:"Main Building of Campus 2",description:"Main Building of Campus 2"}},
+    "the-raptors":{position:[-23,-125],type:"default",anchor:"bottom",popup:{title:"Library of Campus 2",description:"Usually books have copies in library of both campus. But exceptions exists! Don't complaint when you have to go to another campus to get to one book!"}},
+    "baron-nashor":{position:[-17,-108],type:"default",anchor:"bottom",popup:{title:"Activity Center of Campas 2",description:"Activity Center of Campas 2"}},
+    "dragon":{position:[-13,-131],type:"default",popup:{title:"Outter Gym of Campus 2",description:"Outter Gym of Campus 2"}},
+    "red-brambleback":{position:[-64,30],type:"default",anchor:"bottom",popup:{title:"Zheng Xin Building",description:"The main teaching & learning place of Campus 1",}},
+    "blue-sentinel":{position:[-62,37],type:"default",anchor:"bottom",popup:{title:"Inner Gym of Campus 1",description:"Inner Gym of Campus 1"}},
+    "the-krugs":{position:[-71,19],type:"default",anchor:"bottom",popup:{title:"Main Building of Campus 1",description:"It's called the Main Building but is not as frequently used as Zheng Xin Building. It show on the picture of HIT offen, though."}},
+    "the-murkwolves":{position:[-67,22],type:"default",anchor:"bottom",popup:{title:"Library of Campus 1",description:"Library of Campus 1"}},
+    "fail-flashes-be-gone":{position:[-72,32],type:"default",anchor:"bottom",popup:{title:"Jiao Hua Electronic Equipments Mall",description:"Go there once you'll know what is China's way of promotion."}},
+    "inhibitor-timers":{position:[-46,34],type:"default",anchor:"bottom",popup:{title:"Science Community",description:"There are many laboratories of HIT, with many professors and doctors and masters... The environment here is very good, better than the main campus which owned by undergraduates."}},
+    "destructible-structures":{position:[-58,36],type:"default",anchor:"bottom",popup:{title:"ShenTong Express",description:"The service point of different express companies scatters around in the campus. But when you things reaches, they will text you the right place to go. "}},
+    "four-quadrants":{position:[-61,-7],anchor:"bottom",type:"default",popup:{title:"School Hospital",description:"We developers all haven't been there. Afraid that we can't give you enough suggestions... "}},
     };
 (function(window,document,undefined){var oldL=window.L,L={};L.version='0.7.3';if(typeof module==='object'&&typeof module.exports==='object'){module.exports=L;}else if(typeof define==='function'&&define.amd){define(L);}
     L.noConflict=function(){window.L=oldL;return this;};window.L=L;L.Util={extend:function(dest){var sources=Array.prototype.slice.call(arguments,1),i,j,len,src;for(j=0,len=sources.length;j<len;j++){src=sources[j]||{};for(i in src){if(src.hasOwnProperty(i)){dest[i]=src[i];}}}return dest;},bind:function(fn,obj){var args=arguments.length>2?Array.prototype.slice.call(arguments,2):null;return function(){return fn.apply(obj,args||arguments);};},stamp:(function(){var lastId=0,key='_leaflet_id';return function(obj){obj[key]=obj[key]||++lastId;return obj[key];};}()),invokeEach:function(obj,method,context){var i,args;if(typeof obj==='object'){args=Array.prototype.slice.call(arguments,3);for(i in obj){method.apply(context,[i,obj[i]].concat(args));}

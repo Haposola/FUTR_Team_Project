@@ -21,13 +21,9 @@ $(document).ready(function(){
                 }
                 else{current_point.flipped=false;}
                 var pixelPosition=map.project(point.position);
-                var new_position=0;
-                if(point.campus==1){
-                    new_position=map.unproject([pixelPosition.x+point.offset.x,pixelPosition.y+point.offset.y]);
-                }
-                else{
-                    new_position=new Point(0,0);
-                }
+                var new_position=map.unproject([pixelPosition.x+point.offset.x,pixelPosition.y+point.offset.y]);
+              
+
                 var distance=map.getCenter().distanceTo(new_position)/5000000;
                 map.panTo(new_position,{duration:distance,animate:true});
                 if(!$('#map').hasClass('popup-active'))point.openPopup();
