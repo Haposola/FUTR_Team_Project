@@ -1,19 +1,21 @@
 class QuestionsController < ApplicationController
   before_filter :set_question, only: [:show, :edit, :update, :destroy]
-
   respond_to :html
 
   def index
     lable=params[:lable]
     #@lable=params[:string]
-    if (lable=="all")
-       @questions = Question.all
-    else 
-       @questions = Question.where("lable = ? ", lable)
+
+    if (lable=="all"||lable==nil)
+      @questions = Question.paginate(:page=>params[:page]||1,:per_page=>3)
+      #  questiontmp=Question.all
+    else    
+       questiontmp = Question.where("lable = ? ", lable)
+       @questions = questiontmp.paginate(:page=>params[:page]||1,:per_page=>3)
     end
     respond_with(@questions)
   end
-
+ 
   def show
     @question = Question.find(params[:id])
     respond_to do |format|

@@ -11,13 +11,15 @@
     <div class="well act_sidebar">
         <ul class="nav nav-list">  
           <li class="nav-header">Lable Choose</li>  
-          <li id="r_b"><a href="/questill">All
-          <i class="icon-chevron-right"></i></a></li>  
-          <li id="r_b"><a href="/questions/study">Study
-          <i class="icon-chevron-right"></i></a></li>  
-          <li id="r_b"><a href="/questions/entertainment">Enterainment
+          <li id="r_b"><%= link_to("All",{:controller =>'questions',:action => 'index',:lable =>"all" })%>
+
+          <i class="icon-chevron-right"></i></li>  
+          <li id="r_b"><%= link_to("Study",{:controller =>'questions',:action => 'index',:lable =>"study" })%>
+
+          <i class="icon-chevron-right"></i></li>  
+          <li id="r_b"><%= link_to("Entertainment",{:controller =>'questions',:action => 'index',:lable =>"entertainment" })%>
           <i class="icon-chevron-right"></i></a></li>
-          <li id="r_b"><a href="questions/others">Others
+          <li id="r_b"><%= link_to("Others",{:controller =>'questions',:action => 'index',:lable =>"others" })%>
           <i class="icon-chevron-right"></i></a></li>  
         </ul>
       <!-- end .qsidebar --> </div>
