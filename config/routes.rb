@@ -4,10 +4,7 @@ Team::Application.routes.draw do
     resources :qanswers
   end
   match 'question' => 'questions#index'
-  match 'answer/new' => 'questions#new_a'
-  
 
-  match '/question' => 'questions#index'
 
   devise_for :admins, controllers: {
         sessions: 'admins/sessions',

@@ -21,9 +21,11 @@ class QanswersController < ApplicationController
   end
 
   def create
-    @qanswer = Qanswer.new(params[:qanswer])
+    @question = Question.find(params[:question_id])   
+    @qanswer = @question.qanswers.new(params[:qanswer])   
     @qanswer.save
-    respond_with(@qanswer)
+    redirect_to question_path(@question)   
+
   end
 
   def update
