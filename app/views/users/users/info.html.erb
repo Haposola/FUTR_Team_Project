@@ -18,6 +18,7 @@
 </div>
 <div class ="userContent span9">
 	<div class="well userinfo main_container">
+		<div style="float:right;margin-right:40px;margin-bottom:30px"> <img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div>
 	Welcome! <%= current_user.nickname %><br><br>
 
             <div> Level:<%= current_user.level %><br>
@@ -27,7 +28,11 @@
 				<div class="bar" style='width:50%;'></div>
 				</div>
 				</div>
-				<div class="exp_des" style="color:white">You can get Exp by commenting service,creating service and many other activities.Higher level enables you to do more things! </div>
+				<div class="exp_des" style="color:white"><i class="icon-exclamation-sign"></i>&nbsp You can get Exp by commenting service,creating service and many other activities.Higher level enables you to do more things!<br>
+				<i class="icon-arrow-up"></i>&nbsp Commenting service:1 Exp
+				<i class="icon-arrow-up"></i>&nbsp Adding Service Information:2 Exp
+				<i class="icon-arrow-up"></i>&nbsp Adding New Service:5 Exp
+				</div>
             </div>
 
 	<table class="info_table table table-bordered table-hover" style="margin-top">

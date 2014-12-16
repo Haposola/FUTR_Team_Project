@@ -18,5 +18,17 @@ class Users::UsersController < ApplicationController
 		end
 	end
 	def regist
+	end 
+
+	def uppic
+		current_user.picture = params[:picture]
+		current_user.level = 3
+		current_user.save
+		#current_user.update_attributes(:picture=>params[:picture])
+		@addr=current_user.picture.url
+	end 
+
+	def upload
+		
 	end
 end

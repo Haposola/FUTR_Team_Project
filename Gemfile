@@ -6,6 +6,7 @@ gem 'rails', '3.2.16'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', :group => [:development, :test]
+gem 'carrierwave'
   # gems specifically for Heroku go here
 group :production do
 gem 'thin'
