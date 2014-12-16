@@ -1,65 +1,98 @@
-<html>
 <body>
 <p id="notice"><%= notice %></p>
+
+<div id="bodyqa">
+
 <div id="quesshowtop">
+
          <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
+
            <tr>
+
                 <td height="27"><cc class="title">Nickname:</cc><%= @question.Nickname %> </td>
+
                 <td height="27"><cc class="title">Lable:</cc><%= @question.Lable %></td>
+
            </tr>
+
            <tr>
+
                 <td width="98" rowspan="2" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>
+
                 <td height="27" colspan="3"><cc class="title">Topic:</cc><%= @question.Topic %></td>
+
            </tr>
+
             <tr>
+
                 <td colspan="3" align="left" valign="top"><cc class="title">Description:</cc>
+
                 <br><%= @question.Description %></td>
+
             </tr>
-          </table>
-   </div>
-   <div id="quesshowbelow">
-<p>
-  <b>Answer:</b>
-  <%= @question.Answer %>
-</p>
-</div>
-<div class="QAlistans">
+
+    </table>
+
+  </div>
+
+<div id="quesshowbelow">
+
+<div id="QAlistans">
  <h1>Listing Answers</h1>
-  <table>
+ <% @question.qanswers.each do |qanswer| %>
+ <table class="qmtable" width="741" height="138" align="left"cellpadding="1">
   <tr>
-    <th>Nickname</th>
-    <th>Answer</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td width="98" height="27">name</td>
+    <td height="27"><%= qanswer.Nickname %></td>
   </tr>
-
-<% @question.qanswers.each do |qanswer| %>
   <tr>
-    <td><%= qanswer.Nickname %></td>
+    <td width="98">Answer</td>
     <td><%= qanswer.Answer %></td>
-
   </tr>
-<% end %>
 </table>
+<% end %>
+
 </div>
+
+
 
 <div class="QAansforques">
+
   <%= form_for([@question, @question.qanswers.build])  do |f| %>
+
   <div class="field">
+
     <%= f.label :Nickname %><br />
+
     <%= f.text_field :Nickname %>
+
   </div>
+
   <div class="field">
+
     <%= f.label :Answer %><br />
-    <%= f.text_area :Answer %>
+
+    <%= f.text_area :Answer, :size => "30x2" %>
+
   </div>
+
   <div class="actions">
+
     <%= f.submit %>
+
   </div>
+
 <% end %>
 
+
+
 </div>
+
 <%= link_to 'Back', questions_path %>
+
+</div>
+
+</div>
+
 </body>
-</html>
+
