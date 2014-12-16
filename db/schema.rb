@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(:version => 20141121152823) do
     t.string   "name"
     t.string   "picture_addr"
     t.text     "description"
-    t.integer  "star"
+    t.float    "star"
+    t.integer  "cnt"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
