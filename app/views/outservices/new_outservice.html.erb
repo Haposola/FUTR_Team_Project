@@ -15,6 +15,8 @@
     </div>
   <% end %>
 
+  
+
   <div class="field">
     <%= f.label :service_kind %><br />
     <%= f.select(:service_kind,[['restaurant', :restaurant],['ktv', :ktv],['bar', :bar]]) %>
@@ -24,10 +26,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
-    <%= f.label :picture_addr %><br />
-    <%= f.text_field :picture_addr %>
+      Service Picture<br><br>
+  <%= f.file_field :picture_addr %>
   </div>
+  <br>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>

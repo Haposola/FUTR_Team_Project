@@ -83,7 +83,10 @@ Team::Application.routes.draw do
   #match 'outservices/restaurant/:name',:to =>'outservices#add_restaurant_comments' , :via =>'post', :as=>'add_restaurant_comments' 
   #match 'outservices/restaurant/:name/:nickname/:comment',:to =>'outservices#delete_restaurant_comments' , :via =>'delete', :as=>'delete_restaurant_comments'
 
-
+  #match 'users/pic',:to =>'users#picture' , :via =>'post', :as=>'picture'
+  #match 'users/pic',:to =>'users#uppicture' , :via =>'get', :as=>'picture'
+  match 'users/pic' => 'users/users#uppic', :as=>"pic"
+  #match 'users/pic' => 'users/users#uppic' ,:via =>'post', :as=>"upload"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
