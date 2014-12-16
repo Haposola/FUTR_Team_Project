@@ -1,5 +1,6 @@
+<div class="row-fluid">
 <div class= "span3">
-	<div class="well sidebar-nav">
+	<div class="well sidebar-nav" style="float:right">
 		<ul class="nav nav-list"> 
 			<li class="nav-header">Services</li>
 			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
@@ -14,13 +15,13 @@
 		</ul>
 	</div>
 </div>
-<div class="userContent">
-	<div class="well userindex_act">
-		<h3>My recent activities</h3><br/>
+<div class="userContent span9">
+	<div class="well main_container userindex_act">
+	<div style="text-align:center">
+		<h2>My recent activities</h2><br/>
 		<% @myAct.each do |a|%>
-			<div class="userindex_actcontent span4">
-				<%= link_to a.name, a %>
-				<span style="float:right;"><%= a.tim%></span>
+			<div class="userindex_actcontent well">
+				<h3><%= link_to a.name, a %></h3>
 				<hr>
 				<% ComForAct.where("activity_id=?",a.id).order(created_at: :desc).take(3).each do |c|%>
 					<div class="userindex_actcom">
@@ -28,8 +29,11 @@
 						<p style="text-align:right"><i class="icon-user"></i><%= c.speaker%> <%=c.created_at%></p>
 					</div>
 				<% end %>
+				<span style="float:right;"><%= a.tim%></span>
 			</div>
 		<% end %>
-<br />
 	</div>
+	</div>
+</div>
+
 </div>

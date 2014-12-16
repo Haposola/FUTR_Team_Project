@@ -1,5 +1,6 @@
+<div class="row-fluid">
 <div class= "span3">
-	<div class="well sidebar-nav">
+	<div class="well sidebar-nav" style="float:right">
 		<ul class="nav nav-list"> 
 			<li class="nav-header">Services</li>
 			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
@@ -15,20 +16,31 @@
 	</div>
 </div>
 
-<div class="userContent">
-	<div  class="well userindex_fp">
-		<h3>My recent footprints</h3>
+<div class="userContent span9">
+	<div  class="well main_container userindex_fp">
+	<div style="text-align:center">
+		<h2>My recent footprints</h2>
 		<% @myFootprint.each do |f|%>
-			<div class="userindex_fpcontent span4">
-				<%= link_to f.name, show_outservice_path(f.service_kind,f.name) %>
-				<span style="float:right"><%= f.service_kind %> </span>
+			<div class="userindex_fpcontent well">
+				<h3><%= link_to f.name, show_outservice_path(f.service_kind,f.name) %></h3>
+				<span style="float:right;color:white"><%= f.service_kind %> </span>
 				<hr>
-				<div class="userindex_fpcom">
-					Commented: <%= f.comment%><br/>
-					<span style="float:right"><%=f.created_at%></span>
+				<div align="left" style="text-transform: uppercase;"><i class="icon-edit"></i>Comment:</div>
+				<div>
+                    <i class=" icon-heart"></i>star(s):
+                    <% for i  in 1..f.star.to_i %><i class="icon-star"></i>
+                    <% end %>
+                    <% for i in f.star.to_i+1..5 %><i class="icon-star-empty"></i>
+                    <% end %>
+               	</div>
+				<div align="left" class="userindex_fpcom">
+					 <%= f.comment%><br>
 				</div>
+				<span style="float:right"><%=f.created_at%></span>
 			</div>
 		<% end %>
-		<br /><br/>
 	</div>
+	</div>
+</div>
+
 </div>

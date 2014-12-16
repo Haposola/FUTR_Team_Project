@@ -11,7 +11,7 @@ form#new_user{
 
 .info_table{
 	margin-top: 20px;
-	max-width:90%; 
+	max-width:95%; 
 	border-right:0;
 }
 
@@ -26,10 +26,25 @@ form#new_user{
 }
 .userinfo{
 	font-size: 16px;
+	padding: 40px;
 }
 
 .exp_bar{
-	max-width: 85%;
+	max-width: 95%;
+}
+
+.userindex_act{
+	min-height: 300px;
+}
+
+.userindex_fpcontent,.userindex_actcontent{
+	width: 45%;
+}
+
+.userindex_fpcontent h3,.userindex_actcontent h3,.userindex_fp h2,.userindex_act h2{
+	text-transform: uppercase;
+	font-family: 'Raleway';
+	color: white;
 }
 
 .userSideBar{
