@@ -18,10 +18,16 @@
 </div>
 <div class ="userContent span9">
 	<div class="well userinfo main_container">
-		<div style="float:right;margin-right:40px;margin-bottom:30px"> <img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div>
-	Welcome! <%= current_user.nickname %><br><br>
+		<div style="float:right;margin-right:40px;margin-bottom:30px;"> 
+			<% if current_user.picture.url!=nil %>
+			<img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div><%= current_user.picture.url %>
+			<% else %>
+			<%= image_tag("userpic.gif",:class=>"img-rounded img-polaroid",:style=>"width:80px;height:80px") %>
+			</div>
+			<% end %>
+			Welcome! <%= current_user.nickname %><br><br>
 
-            <div> Level:<%= current_user.level %><br>
+            <div> <div style="margin-bottom:15px;">Level:<%= current_user.level %></div>
             	Exp:<%= current_user.score %>/<%= 2**current_user.level %>
             	<div id="bar">
 				<div class="progress progress-striped active exp_bar">

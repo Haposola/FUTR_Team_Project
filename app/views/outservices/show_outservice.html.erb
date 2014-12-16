@@ -16,9 +16,12 @@ function OnClickC(p1,p2,p3,p4,p5){
                 <div class="well service_detail">
                        		<div >
                        			<div style="float:right;margin-left:30px">
-                       					<%= image_tag(@outservice_place.picture_addr,:class=>"img-polaroid") %>
-                                
-                            </div>
+                                    <% if @outservice_place.picture_addr.url!= nil %>
+                       					<%= image_tag(@outservice_place.picture_addr.url,:class=>"img-polaroid") %>
+                                    <% else %>
+                                        <%= image_tag("lack_service_pic.jpg",:class=>"img-polaroid") %>
+                                    <% end %>
+                                </div>
                             <h2> <%= @outservice_place.name %></h2>
                             
                             
