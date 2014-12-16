@@ -5,7 +5,8 @@ class AddOutservicePlaces < ActiveRecord::Migration
     	t.string :name
     	t.string :picture_addr
     	t.text :description
-    	t.integer :star
+    	t.float :star
+      t.integer :cnt
       t.timestamps
     end
 

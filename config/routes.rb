@@ -68,13 +68,16 @@ Team::Application.routes.draw do
   match 'outservices/:service_kind/:name',:to =>'outservices#add_outservice_comments' , :via =>'post', :as=>'add_outservice_comments'
   match 'outservices/:service_kind/:name/:nickname/:comment',:to =>'outservices#delete_outservice_comments' , :via =>'delete', :as=>'delete_outservice_comments'
 
+  match 'outservices/:service_kind/:name/add_info',:to =>'outservices#add_outservice_information' , :via =>'get', :as=>'add_outservice_information'
+  match 'outservices/:service_kind/:name',:to =>'outservices#update_outservice' , :via =>'put', :as=>'update_outservice'
 
+  #match 'outservices/:service_kind/:name/:nickname',:to =>'outservices#helpful_outservice' , :via =>'get', :as=>'helpful_outservice'
   #match 'outservices/restaurant/new',:to =>'outservices#new_restaurant' , :via =>'get', :as=>'new_restaurant'
   #match 'outservices',:to =>'outservices#create_restaurant' , :via =>'post'
   #match 'outservices/restaurant/:name',:to =>'outservices#show_restaurant' , :via =>'get', :as=>'restaurant'
-  match 'outservices/restaurant/:name',:to =>'outservices#update_restaurant' , :via =>'put', :as=>'put_restaurant'
+  #match 'outservices/restaurant/:name',:to =>'outservices#update_restaurant' , :via =>'put', :as=>'put_restaurant'
   #match 'outservices/restaurant/:name',:to =>'outservices#delete_restaurant' , :via =>'delete', :as=>'delete_restaurant'
-  match 'outservices/restaurant/:name/edit',:to =>'outservices#edit_restaurant' , :via =>'get', :as=>'edit_restaurant'
+  #match 'outservices/restaurant/:name/edit',:to =>'outservices#edit_restaurant' , :via =>'get', :as=>'edit_restaurant'
 
   #match 'outservices/restaurant/:name',:to =>'outservices#show_restaurant_comments' , :via =>'get', :as=>'restaurant_comments'
   #match 'outservices/restaurant/:name',:to =>'outservices#add_restaurant_comments' , :via =>'post', :as=>'add_restaurant_comments' 

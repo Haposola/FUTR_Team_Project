@@ -1,25 +1,27 @@
-<div class= "userSideBar">
-	<div>
-		<ul> 
-			<li><h4><%= link_to 'User Information', '/users/show/info'%></h4></li>
-			<li><h4><a href="/users/show/activities">My Activities</a></h4></li>
-			<li><h4><a href="/users/show/footprint">My Footprint</a></h4></li>
+<div class="row-fluid">
+<div class= "span3">
+	<div id="user_sidebar" class="well sidebar-nav" style="float:right">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
 
 			<br>
-			<li><h4><a href="">Ask a question</a></h4></li>
-			<li><h4><a href="/activities/new">Put a activity</a></h4></li>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
 			<br><br><br>
-			<li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
 		</ul>
 	</div>
 </div>
-<div class="userContent">
-	<div class="well userindex_act">
-		<h3>My recent activities</h3><br/>
+<div class="userContent span9">
+	<div class="well main_container userindex_act">
+	<div style="text-align:center">
+		<h2>My recent activities</h2><br/>
 		<% @myAct.each do |a|%>
-			<div class="userindex_actcontent span4">
-				<%= link_to a.name, a %>
-				<span style="float:right;"><%= a.tim%></span>
+			<div class="userindex_actcontent well">
+				<h3><%= link_to a.name, a %></h3>
 				<hr>
 				<% ComForAct.where("activity_id=?",a.id).order(created_at: :desc).take(3).each do |c|%>
 					<div class="userindex_actcom">
@@ -27,8 +29,11 @@
 						<p style="text-align:right"><i class="icon-user"></i><%= c.speaker%> <%=c.created_at%></p>
 					</div>
 				<% end %>
+				<span style="float:right;"><%= a.tim%></span>
 			</div>
 		<% end %>
-<br />
 	</div>
+	</div>
+</div>
+
 </div>

@@ -8,23 +8,47 @@
 form#new_user{
 	margin-bottom:0px;
 }
-.userSideBar{
-	left: 10px;
-	overflow: hidden;
-	float: left;
-	width: 200px;
-	height:100%;
-	margin: 10px 10px 10px 10px;
 
+.info_table{
+	margin-top: 20px;
+	max-width:95%; 
+	border-right:0;
 }
-.userSideBar h4{
-	text-align:left;
+
+.info_table th,.info_table td{
+	border-top: 1px solid white;
+	border-left: 0;
+	border-right: 0;
+	font-family: Helvetica,Arial,sans-serif !important;
+	font-size: 18px !important;
+	padding: 15px;
+	max-width: 45%;
 }
-.userSideBar ul li{
-	margin: 10px 10px 10px 10px;
-	opacity: 0.7;
-	-moz-opacity: 0.7;
-	filter:alpha(opacity=70);
+.userinfo{
+	font-size: 16px;
+	padding: 40px;
+}
+
+.exp_bar{
+	max-width: 95%;
+}
+
+.userindex_act{
+	min-height: 300px;
+}
+
+.userindex_fpcontent,.userindex_actcontent{
+	width: 45%;
+}
+
+.userindex_fpcontent h3,.userindex_actcontent h3,.userindex_fp h2,.userindex_act h2{
+	text-transform: uppercase;
+	font-family: 'Raleway';
+	color: white;
+}
+
+#user_sidebar{
+	max-width:250px;
 }
 
 .userContent{
@@ -43,7 +67,7 @@ form#new_user{
 	margin-top:10px;
 	margin-bottom:10px;
 }
-.userindex_actcom, .userindex_fpcom{
+.userindex_actcom, .userindex_fpcom, .useredit_form{
 	width:80%;
 	display:table;
 	float:none;
@@ -57,13 +81,14 @@ form#new_user{
 .useredit_form{
 	background-color:rgba(255,255,255,0.5);
 	padding:30px 0 30px 0;
+	width:90%;
 }
 .useredit_pwds, .useredit_info{
 	display:inline-table;
 	float:none;
 }
 .useredit_cancel{
-	width:100%;
+	width:90%;
 	background-color:rgba(255,255,255,0.5);
 	display:table;
 	float:none;
