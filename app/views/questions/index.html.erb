@@ -10,16 +10,16 @@
   <!-- end .header --></div>
     <div class="well act_sidebar">
         <ul class="nav nav-list">  
-          <li class="nav-header">Lable Choose</li>  
+          <li class="nav-header">Label Choose</li>  
           <li id="r_b"><%= link_to("All",{:controller =>'questions',:action => 'index',:lable =>"all" })%>
 
           <i class="icon-chevron-right"></i></li>  
-          <li id="r_b"><%= link_to("Study",{:controller =>'questions',:action => 'index',:lable =>"study" })%>
+          <li id="r_b"><%= link_to("Study",{:controller =>'questions',:action => 'index',:lable =>"Study" })%>
 
           <i class="icon-chevron-right"></i></li>  
-          <li id="r_b"><%= link_to("Entertainment",{:controller =>'questions',:action => 'index',:lable =>"entertainment" })%>
+          <li id="r_b"><%= link_to("Entertainment",{:controller =>'questions',:action => 'index',:lable =>"Entertainment" })%>
           <i class="icon-chevron-right"></i></a></li>
-          <li id="r_b"><%= link_to("Others",{:controller =>'questions',:action => 'index',:lable =>"others" })%>
+          <li id="r_b"><%= link_to("Others",{:controller =>'questions',:action => 'index',:lable =>"Others" })%>
           <i class="icon-chevron-right"></i></a></li>  
         </ul>
       <!-- end .qsidebar --> </div>
@@ -37,10 +37,10 @@
          <table class="qmtable" width="741" height="138"  align="left" cellpadding="1">
            <tr>
                 <td height="27"><cc class="title">Nickname:</cc><%= question.Nickname %> </td>
-                <td width="243" height="27"><cc class="title">Lable:</cc><%= question.Lable %></td>
+                <td width="243" height="27"><cc class="title">Label:</cc><%= question.Lable %></td>
 
-                <td width="248" height="29"> <cc class="title"><%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc><cc class="title"><%= link_to 'Show', question %>||<%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                 <td width="41" height="29"><%= link_to 'Reply', edit_question_path(question) %></td></cc>
+                <td width="289" height="29"> <cc class="title"><%= Time.now.strftime("%Y-%m-%d %H:%M:%S")  %></cc><cc class="title"><%= link_to 'Show', question %>||<%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                
            </tr>
            <tr>
                 <td width="98" rowspan="3" bgcolor="#339966"><img src="assets/userpic.gif" width="98"></td>

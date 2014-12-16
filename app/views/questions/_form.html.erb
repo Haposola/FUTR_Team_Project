@@ -19,8 +19,8 @@
     <td width="343">&nbsp;<%= f.text_field :Nickname %></td>
   </tr>
   <tr>
-    <td bgcolor="#CCCCCC">Lable:</td>
-    <td>&nbsp;<%= f.text_field :Lable %></td>
+    <td bgcolor="#CCCCCC">Label:</td>
+    <td>&nbsp;<%= f.select :Lable ,(['Study','Entertainment','Others']), :required => true%></td> 
   </tr>
   <tr>
     <td bgcolor="#CCCCCC">Topic</td>
