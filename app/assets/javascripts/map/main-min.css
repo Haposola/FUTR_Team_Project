@@ -202,15 +202,15 @@ body.header-body{background-color:#ffffff;font-family:"Raleway",'\5FAE\8F6F\96C5
 html#hitmap, body.header-body{width:100%;height:100%;}
 h1,h2,h3,h4,h5{font-weight:normal;margin:0}
 ul,ol{padding:0;margin:0}
-.dropdown{position:fixed;top:0;right:-230px;bottom:0;display:block;width:230px;height:100%;background:#02171c url(//ossweb-img.qq.com/images/lol/act/a201410028rift/dropdown_bg_xs.jpg) no-repeat center top;background-size:contain;z-index:98;-webkit-transition:margin-right .5s ease-in-out;-moz-transition:margin-right .5s ease-in-out;-ms-transition:margin-right .5s ease-in-out;-o-transition:margin-right .5s ease-in-out;transition:margin-right .5s ease-in-out}
+.dropdown{position:fixed;top:0;right:-230px;bottom:0;display:block;width:230px;height:100%;background:#02171c url(/assets/map/dropdown_bg_xs.jpg) no-repeat center top;background-size:contain;z-index:98;-webkit-transition:margin-right .5s ease-in-out;-moz-transition:margin-right .5s ease-in-out;-ms-transition:margin-right .5s ease-in-out;-o-transition:margin-right .5s ease-in-out;transition:margin-right .5s ease-in-out}
 .dropdown .dropdown-title{background:url(assets/map/dropdown_title_bar_xs.png) no-repeat center;background-size:100% 1px;width:98%;margin:22px 1%}
-.dropdown h2{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/title_points_of_interest_new.png) no-repeat center;background-size:contain;width:300px;height:40px;margin:auto;display:block;text-indent:-9999px}
+.dropdown h2{background:url(/assets/map/title_points_of_interest_new.png) no-repeat center;background-size:contain;width:300px;height:40px;margin:auto;display:block;text-indent:-9999px}
 body.header-body{overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-o-transition:-webkit-transform .5s ease-in-out;-moz-transition:-moz-transform .5s ease-in-out;-webkit-transition:-webkit-transform .5s ease-in-out;transition:transform .5s ease-in-out}
 .dropdown-active{-ms-transform:translateX(-230px);-moz-transform:translateX(-230px);-webkit-transform:translateX(-230px);transform:translateX(-230px)}
-.dropdown{background:#051d21 url(//ossweb-img.qq.com/images/lol/act/a201410028rift/dropdown_bg.jpg) top center no-repeat;top:-250px;left:0;right:0;bottom:auto;width:100%;height:auto;padding:0;z-index:98;overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-o-transition:-webkit-transform .5s ease-in-out;-moz-transition:-moz-transform .5s ease-in-out;-webkit-transition:-webkit-transform .5s ease-in-out;transition:transform .5s ease-in-out}
-.dropdown::after{content:'';position:absolute;bottom:0;left:0;display:block;width:100%;height:3px;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/dropdown_border.png) repeat-x}
+.dropdown{background:#051d21 url(/assets/map/dropdown_bg.jpg) top center no-repeat;top:-250px;left:0;right:0;bottom:auto;width:100%;height:auto;padding:0;z-index:98;overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-o-transition:-webkit-transform .5s ease-in-out;-moz-transition:-moz-transform .5s ease-in-out;-webkit-transition:-webkit-transform .5s ease-in-out;transition:transform .5s ease-in-out}
+.dropdown::after{content:'';position:absolute;bottom:0;left:0;display:block;width:100%;height:3px;background:url(/assets/map/dropdown_border.png) repeat-x}
 .dropdown .dropdown-title{background:none;display:table;width:100%;margin:22px 1% 14px}
-.dropdown-title:before,.dropdown-title:after{content:'';display:table-cell;height:1px;width:auto;line-height:1px;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/popup_title_dash.png) center no-repeat;background-size:90% 1px}
+.dropdown-title:before,.dropdown-title:after{content:'';display:table-cell;height:1px;width:auto;line-height:1px;background:url(/assets/map/popup_title_dash.png) center no-repeat;background-size:90% 1px}
 .dropdown-title h2{margin:0 0 18px;position:relative;display:table-cell;white-space:nowrap;height:40px;width:300px}
 .dropdown-active{-ms-transform:none;-moz-transform:none;-webkit-transform:none;transform:none}
 .dropdown-active .dropdown{-ms-transform:translateY(302px);-moz-transform:translateY(302px);-webkit-transform:translateY(302px);transform:translateY(302px)}
@@ -269,18 +269,18 @@ body.header-body{overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-
 .leaflet-thumb img{width:100%;height:auto}
 .leaflet-popup-tip-container{overflow:visible}
 .leaflet-popup-tip{background:url(/asstes/map/popup_tip.png) top center no-repeat;position:relative;z-index:10;width:36px;height:9px;margin:-1px 0 0;-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}
-.flip .leaflet-popup-tip{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/popup_tip_flip.png) top center no-repeat;margin-top:-9px;height:10px}
-.leaflet-container-mobile{overflow:auto;background:#ffffff url(//ossweb-img.qq.com/images/lol/act/a201410028rift/leaflet_container_mobile_bg.jpg) no-repeat center top;background-size:100% auto;position:fixed;top:52px;bottom:0;left:100%;width:100%;-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out}
+.flip .leaflet-popup-tip{background:url(/assets/map/popup_tip_flip.png) top center no-repeat;margin-top:-9px;height:10px}
+.leaflet-container-mobile{overflow:auto;background:#ffffff url(/assets/map/leaflet_container_mobile_bg.jpg) no-repeat center top;background-size:100% auto;position:fixed;top:52px;bottom:0;left:100%;width:100%;-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out}
 .leaflet-container-mobile .video-container{margin:15px 0 10px}
 .show{left:0;box-shadow:0 3px 14px rgba(0,0,0,.4)}
 .leaflet-tour{float:right;margin:1em 10px}
-.leaflet-tour .leaflet-tour-prev,.leaflet-tour .leaflet-tour-next{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/share_btn_bg.png) no-repeat;display:block;height:33px;width:33px;float:left;text-align:center;line-height:33px;font-size:13px;margin-left:5px;color:#d3c7a9;border-radius:50%;box-shadow:0 0 1px rgba(0,0,0,.5);text-decoration:none}
+.leaflet-tour .leaflet-tour-prev,.leaflet-tour .leaflet-tour-next{background:url(/assets/map/share_btn_bg.png) no-repeat;display:block;height:33px;width:33px;float:left;text-align:center;line-height:33px;font-size:13px;margin-left:5px;color:#d3c7a9;border-radius:50%;box-shadow:0 0 1px rgba(0,0,0,.5);text-decoration:none}
 .leaflet-tour .leaflet-tour-prev:hover,.leaflet-tour .leaflet-tour-next:hover{color:#cbac62}
 .leaflet-tour a[href="#"]{display:none}
 .leaflet-control-minimap{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:3px;-webkit-transition:all .2s;-moz-transition:all .2s;-ms-transition:all .2s;-o-transition:all .2s;transition:all .2s}
 .leaflet-control-minimap a{background-color:#cbac62;background-repeat:no-repeat;z-index:99999;-webkit-transition:all .2s;-moz-transition:all .2s;-ms-transition:all .2s;-o-transition:all .2s;transition:all .2s;border-radius:3px 0 0 0}
 .leaflet-control-minimap a.minimized{border-radius:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}
-.leaflet-control-minimap-toggle-display{background-image:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/toggle.png);height:19px;width:19px;position:absolute;bottom:0;right:0}
+.leaflet-control-minimap-toggle-display{background-image:url(/assets/map/toggle.png);height:19px;width:19px;position:absolute;bottom:0;right:0}
 .leaflet-oldie .leaflet-control-minimap a{background-color:#cbac62}
 .leaflet-oldie .leaflet-control-zoom{border:none}
 .leaflet-oldie .leaflet-control-minimap a.minimized{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2)}
@@ -288,27 +288,19 @@ body.header-body{overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-
 .leaflet-popup.flip .leaflet-popup-tip-container{display:block!important;position:absolute;top:0;left:50%;margin-left:-20px}
 .leaflet-popup.flip .leaflet-tour{bottom:-40px}
 .leaflet-control-container{display:block}
-.leaflet-popup-content-wrapper{border-radius:0;background:#ffffff url(//ossweb-img.qq.com/images/lol/act/a201410028rift/popup_bg.jpg) no-repeat center top;border:1px solid #93743d;padding:0}
+.leaflet-popup-content-wrapper{border-radius:0;background:#ffffff url(/assets/map/popup_bg.jpg) no-repeat center top;border:1px solid #93743d;padding:0}
 .leaflet-popup-content{padding:20px 10px 12px}
 .leaflet-content{background:none}
 .leaflet-title-wrapper{display:table;width:100%;margin:0 0 8px}
-.leaflet-title-wrapper:before,.leaflet-title-wrapper:after{content:'';display:table-cell;height:1px;width:auto;line-height:1px;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/popup_title_dash.png) center no-repeat;background-size:80% 1px}
+.leaflet-title-wrapper:before,.leaflet-title-wrapper:after{content:'';display:table-cell;height:1px;width:auto;line-height:1px;background:url(/assets/map/popup_title_dash.png) center no-repeat;background-size:80% 1px}
 .leaflet-title{font-size:22px;line-height:1.18181818181818em;font-style:normal;text-transform:uppercase;margin:0 0 18px;color:#cab5a2;background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial;position:relative;display:table-cell;width:1%;white-space:nowrap}
-.leaflet-thumb{width:330px;padding:23px 24px;margin:-85px auto 0;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/thumbnail_frame.png) top center no-repeat}
+.leaflet-thumb{width:330px;padding:23px 24px;margin:-85px auto 0;background:url(/assets/map/thumbnail_frame.png) top center no-repeat}
 .leaflet-thumb:empty{display:none}
 .leaflet-container-mobile .video-container{margin:42px 0}
 .leaflet-tour{position:absolute;bottom:-20px;right:0;margin:0}
 .parallax-viewport{background:#2F3134;overflow:hidden;position:fixed;height:100%;width:100%}
 .parallax-layer{width:110%;height:auto;min-height:100%;margin-left:-5%;position:absolute}
 .landing{width:100%;height:100%;position:absolute;top:0;left:0;overflow:hidden;overflow-y:auto;z-index:100}
-.intro-bg{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/intro_bg.jpg) no-repeat top center;background-size:cover;height:120%;width:120%;margin:-10%}
-.intro-frame{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/intro_frame.png) no-repeat bottom center;background-size:cover;height:100%;width:100%}
-.intro-wrapper{z-index:10001;position:relative;min-height:100%;font-size:18px;line-height:24px;text-align:center;color:#93743d;overflow:hidden;overflow-y:auto;text-shadow:0 0 11px #000,0 0 11px #000,0 0 20px #000}
-.intro{padding:30px 15px 100px;max-width:660px;margin:0 auto;z-index:10002;position:relative}
-.intro-small{font-size:12px;line-height:15px}
-.intro-small a{color:#6dc0cd;font-size:12px;text-decoration:none}
-.intro-title{display:block;text-indent:-999999px;text-align:left;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/title_welcome_new.png) no-repeat center;background-size:contain;width:493px;height:150px;margin:0 auto 30px}
-.intro-title,.intro-content,.btn-intro,.intro-small{opacity:0;opacity:1\9}
 .loaded .intro-title{-webkit-animation:fadeInUp 1s both;animation:fadeInUp 1s both}
 .loaded .intro-content{-webkit-animation:fadeInUp 1s .5s both;animation:fadeInUp 1s .5s both}
 .loaded .btn-intro{-webkit-animation:fadeInUp 1s 1s both;animation:fadeInUp 1s 1s both}
@@ -316,7 +308,6 @@ body.header-body{overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-
 .intro{padding:75px 15px 0;font-size:16px}
 #scene{background:#ffffff;display:block;position:fixed;z-index:10000;height:100%;width:100%;top:0}
 .layer{height:100%;width:100%}
-.ltie .intro-wrapper{background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/intro_bg_ie.jpg) no-repeat center top}
 .ltie #scene{display:none}
 .ir{background-color:transparent;border:0;overflow:hidden;*text-indent:-9999px}
 .ir:before{content:"";display:block;width:0;height:150%}
@@ -327,7 +318,7 @@ body.header-body{overflow:visible;-ms-transition:-ms-transform .5s ease-in-out;-
 .clearfix:before,.clearfix:after{content:" ";display:table}
 .clearfix:after{clear:both}
 .clearfix{*zoom:1}
-.video-container{position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/loader.gif) no-repeat center}
+.video-container{position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;background:url(/assets/map/loader.gif) no-repeat center}
 .video-container iframe,.video-container object,.video-container embed{position:absolute;top:0;left:0;width:100%;height:100%}
 .flies{}
 .visible-xs,.visible-sm,.visible-md,.visible-lg{display:none!important}
@@ -356,15 +347,12 @@ tr.visible-md{display:table-row!important}th.visible-md,td.visible-md{display:ta
 @media print{*{background:transparent!important;color:#ffffff!important;box-shadow:none!important;text-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:"(" attr(href) ")"}abbr[title]:after{content:"(" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100%!important}@page{margin:.5cm}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}}
 .chromeframe{position:relative;z-index:8888888;background:#ffffff;color:#fff;padding:10px 0;text-align:center;width:100%;font-size:14px}
 .chromeframe a{color:#F13C35}
-.tg-sns-link{display:inline-block;width:24px;height:24px;margin-right:5px;text-indent:-9999em;overflow:hidden;background-image:url(//ossweb-img.qq.com/images/icon/share/icon-sns-24.png);background-position:-9999em -9999em;background-repeat:no-repeat}
+.tg-sns-link{display:inline-block;width:24px;height:24px;margin-right:5px;text-indent:-9999em;overflow:hidden;background-image:url(/assets/map/icon-sns-24.png);background-position:-9999em -9999em;background-repeat:no-repeat}
 .tg-sns-link:hover{opacity:.7;filter:alpha(opacity=70)}
 .tg-sns-qzone{background-position:-60px 0}
 .tg-sns-weibo{background-position:-90px 0}
 .tg-sns-sina{background-position:-150px 0}
 .hid{display:none}
-.pop{position:absolute;z-index:888;left:50%;top:50%;width:772px;height:557px;margin-left:-386px;margin-top:-278.5px;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/bg-pop.jpg) no-repeat 0 0}
-.pop-close{position:absolute;top:15px;right:20px;padding:0;text-align:center;width:42px;height:42px;font:16px/40px Tahoma,Verdana;color:#c3c3c3;text-decoration:none;font-weight:bold;background:url(//ossweb-img.qq.com/images/lol/act/a201410028rift/share_btn_sm.png) no-repeat center}
-.pop-close:hover{color:#999}
 .btn-blue,.btn-red{position:absolute;top:433px;display:block;width:155px;height:45px;text-indent:-9999em;overflow:hidden}
 .btn-blue{left:135px}
 .btn-red{left:496px}

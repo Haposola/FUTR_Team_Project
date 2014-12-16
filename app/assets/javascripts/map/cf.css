@@ -1,4 +1,4 @@
-.ract,.ract em,.ract-box .collapse, .ract-box .expand{background-image:url(http://ossweb-img.qq.com/images/cf/common/ract/ract_bg.png); background-repeat: no-repeat;}
+.ract,.ract em,.ract-box .collapse, .ract-box .expand{ background-repeat: no-repeat;}
 .ract span{display: none }
 .ract-box img{border: 0 }
 .ract-box{display: block; position: fixed; _position: absolute;bottom:2px; right: 2px; z-index: 99999; }
