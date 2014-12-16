@@ -1,92 +1,103 @@
-<div class ="actSideBar">
-  This is activity side bar;<br />
-  <% if user_signed_in? %>
-    <%= link_to 'New Activity', new_activity_path %>
-  <% end %>
-</div>
-
+<div class="main_container">
 
 <div class ="actContent">
+<h1><%= @activity.name %></h1>
+	<br /> <br /> 
+	<div class = "actinfo">
+		<div id="actinfo_left">
+			<b>Activity owner: </b> <%= @activity.owner %><br /><br />
+			<b>Tag: </b><%= @activity.tag%><br /><br />
+			<b>Time: </b><%= @activity.tim %><br /><br />
+			<b>Number of people wanted: </b><%= @activity.peoNum %><br/><br />
+			<b>Contact: </b><%= @activity.contact %>
+		</div>
+		<div id="actinfo_right">
+			<%= image_tag @picpath %>
+		</div>
+		<div id="actinfo_bottom">
+			<br /><br />
+			<b>Description: </b><%= @activity.description %><br /><br />
+			<% if user_signed_in? && current_user.email==@activity.owner %>
+				<%=link_to 'Edit', edit_activity_path(@activity)%>
+			<%end %>
+		</div>
+	</div>
+	<div class = "actQA">
+		<% @questions.each_with_index do |q,i|%>
+			<div class = "actques">
 
-  <span style  ="font-size: 40px"><%= @activity.name %></span>
+				<i class="icon-user"></i> <%= q.qustioner %>
+				<span class="actques_time"><%= q.updated_at%></span>
+				<br /><br />
+				<span><%=  q.qustion %></span>
+				<br /><br /><br />
 
-  <div class = "actInfo">
-    <br /> <br /> <br /> <br />
-    <span><b>Owner:</b> <%= @activity.owner %></span><br />
-    <b>Time:</b><%= @activity.tim %><br />
-    <b>Peonum:</b><%= @activity.peoNum %><br/>
-    <b>Contact:</b><%= @activity.contact %><br />
-    <b>Description:</b><%= @activity.description %><br />
-    <%= image_tag @picpath, :size => "80x80" %>
-  </div>
+				<%ReForQuesForAct.where("q_about_act_id=?",q.id).each do|r|%>
+					<div class="actques_reply">
+						<%= r.answer %>  <br /><br />
+						<span>
+							<i class="icon-user"></i> <%= r.replier %>
+							<%=r.updated_at%>
+						</span>
+					</div>  <br /> 
+				<% end %>
 
-
-  <div class = "actQA">
-    <% @questions.each_with_index do |q,i|%>
-
-      <div class = "question">
-        <%=  q.qustion %>
-        <%= q.qustioner %>
-
-        <% ReForQuesForAct.where("q_about_act_id = ?", q.id).each do |r|%>
-          <div>
-            <%= r.answer %>   <%= r.replier %>
-          </div>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <%= link_to 'reply', 'javascript:void(0)', :onClick => "replyShow(#{i})" %>
-          <div  class = "replyBox", style = "display:none" %>
-            <%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
-              <%= f.text_area :answer, :size => "30x2" %>
-              <%= f.submit 'reply' %>
-            <% end %>
-          </div>
-        <% end %>
-
-      </div>
-    <% end %>
-
-    <% if user_signed_in? && current_user.email != @activity.owner  %>
-      <b>I have some questions about this activity ... </b>
-      <%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
-        <%= f.text_area :qustion, :size => "30x3" %>
-        <%= f.submit 'ask the owner'%>
-      <% end %>
-    <% end %>
-
-  </div>
-
-  <div class = "comment">
-    <% ComForAct.where("activity_id = ?",@activity.id).each do |c| %>
-      <div class = "comContent">
-        <%=  c.content %>
-      </div>
-    <% end %>
-
-    <% if user_signed_in? %>
-      <b>Write some comment for this activity</b>
-      <%= form_for @comment, url: @activity.id.to_s+'/newComment' do |f| %>
-        <%= f.text_area :content, :size => "30x6" %>
-        <%= f.submit 'comment' %>
-      <% end %>
-    <% end %>
-  </div>
-
-        <br />
-    <a href="javascript:history.go(-1);">Back</a>
-  </div>
-
+				<% if user_signed_in? %>
+					<span style="float:left"><%= link_to 'Reply', 'javascript:void(0)', :onClick => "replyShow(#{i})" %></span>
+					<div  class = "replyBox", style = "display:none" %>
+						<%= form_for @reply, url: q.id.to_s+'/newReply' do |f| %>
+							<%= f.text_area :answer, :size => "30x2" %><br />
+							<%= f.submit 'Submit' %>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+		<% if user_signed_in? && current_user.email != @activity.owner  %>
+			<div class="actques_write">
+				<b>I have some questions about this activity ... </b>
+				<%= form_for @q_about_act, url: @activity.id.to_s+'/newQuestion'  do |f| %>
+					<%= f.text_area :qustion, :size => "150x6" %><br />
+					<%= f.submit 'ask the owner'%>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<div class = "actcom">
+		<% ComForAct.where("activity_id = ?",@activity.id).each do |c| %>
+			<div class = "actcom_content">
+				<i class="icon-user"></i>  <%=c.speaker%>
+				<span class="actcom_time"><%= c.updated_at%></span>
+				<br /><br /><br />
+				<%=  c.content %>
+			</div>
+		<% end %>
+		<% if user_signed_in? %>
+			<div class="actcom_write">
+				<b>Write some comment for this activity</b>
+				<%= form_for @comment, url: @activity.id.to_s+'/newComment' do |f| %>
+					<%= f.text_area :content, :size => "150x6" %>
+					<%= f.submit 'comment' %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<br />
+	</div>
+	<span id="backlink">
+		<%= link_to 'Back','/activities/all/page/1'%><br><br>
+	</span>
+</div>
 
 <script type="text/javascript">
-  function replyShow(id){
-    var aEle=document.getElementsByTagName('*');
-        var aResult=[];
-        var re=new RegExp('\\b'+'replyBox'+'\\b', 'i');
-        var i=0;
-        for(i=0;i<aEle.length;i++)
-                if(re.test(aEle[i].className))
-                        aResult.push(aEle[i]);
-        aResult[id].style.display='block';
-  }
+		function replyShow(id){
+				var aEle=document.getElementsByTagName('*');
+								var aResult=[];
+								var re=new RegExp('\\b'+'replyBox'+'\\b', 'i');
+								var i=0;
+								for(i=0;i<aEle.length;i++)
+																if(re.test(aEle[i].className))
+																								aResult.push(aEle[i]);
+								aResult[id].style.display='block';
+		}
 </script>

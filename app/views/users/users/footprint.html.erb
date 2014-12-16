@@ -1,0 +1,46 @@
+<div class="row-fluid">
+<div class= "span3">
+	<div id="user_sidebar" class="well sidebar-nav" style="float:right">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
+
+			<br>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
+			<br><br><br>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="userContent span9">
+	<div  class="well main_container userindex_fp">
+	<div style="text-align:center">
+		<h2>My recent footprints</h2>
+		<% @myFootprint.each do |f|%>
+			<div class="userindex_fpcontent well">
+				<h3><%= link_to f.name, show_outservice_path(f.service_kind,f.name) %></h3>
+				<span style="float:right;color:white"><%= f.service_kind %> </span>
+				<hr>
+				<div align="left" style="text-transform: uppercase;"><i class="icon-edit"></i>Comment:</div>
+				<div>
+                    <i class=" icon-heart"></i>star(s):
+                    <% for i  in 1..f.star.to_i %><i class="icon-star"></i>
+                    <% end %>
+                    <% for i in f.star.to_i+1..5 %><i class="icon-star-empty"></i>
+                    <% end %>
+               	</div>
+				<div align="left" class="userindex_fpcom">
+					 <%= f.comment%><br>
+				</div>
+				<span style="float:right"><%=f.created_at%></span>
+			</div>
+		<% end %>
+	</div>
+	</div>
+</div>
+
+</div>

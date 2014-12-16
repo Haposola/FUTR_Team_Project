@@ -5,12 +5,25 @@
   To use Glyphicons sprites instead of Font Awecontainersome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+  
+input{
+  min-height:30px; 
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin-top: 0;   
+  padding-right: 15px;
+  padding-left: 15px; 
+  text-align: center;
+  color:#000;
+}
+
 .navbar .brand{
   margin-left: 20px;
 }
 #navbar-container{
   float:left;
-  width:80%;
+  width:70%;
 }
 #navbar-container ul li{
   font-size: 20px;
@@ -24,27 +37,33 @@
      table-layout:fixed;
     display: table;
   }
-.navbar.nav .nav-right{
-  float:right !important;
-  margin-right: 30px;
+.navbar .nav-right{
+  width:150px;
+  margin-right:30px;
   }
 
-  .pagecontainer{
+  .pagecontainer,{
     margin: 0px auto;
     float:none;
     display: table;
     width:90%;
   }
-
+  .bt_flash{
+    margin: 0px auto;
+    float:none;
+    display: table;
+    text-align:center;
+  }
   .main_container{
+    padding: 5px;
     position:relative;
     background: rgba(0, 0, 0, 0.25) !important; /* IE无效，FF有效 */  
     background: #fff;  
     filter: alpha(opacity=1); 
   }
-
   .bs-docs-sidebar{
     margin-left: 5px;
     width: 200px;
 
   }
+

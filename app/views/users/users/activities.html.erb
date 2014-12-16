@@ -1,0 +1,39 @@
+<div class="row-fluid">
+<div class= "span3">
+	<div id="user_sidebar" class="well sidebar-nav" style="float:right">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
+
+			<br>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
+			<br><br><br>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
+		</ul>
+	</div>
+</div>
+<div class="userContent span9">
+	<div class="well main_container userindex_act">
+	<div style="text-align:center">
+		<h2>My recent activities</h2><br/>
+		<% @myAct.each do |a|%>
+			<div class="userindex_actcontent well">
+				<h3><%= link_to a.name, a %></h3>
+				<hr>
+				<% ComForAct.where("activity_id=?",a.id).order(created_at: :desc).take(3).each do |c|%>
+					<div class="userindex_actcom">
+						<p><%= c.content %></p>
+						<p style="text-align:right"><i class="icon-user"></i><%= c.speaker%> <%=c.created_at%></p>
+					</div>
+				<% end %>
+				<span style="float:right;"><%= a.tim%></span>
+			</div>
+		<% end %>
+	</div>
+	</div>
+</div>
+
+</div>

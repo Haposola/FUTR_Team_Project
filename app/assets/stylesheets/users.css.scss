@@ -1,42 +1,113 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sidebar{margin:10px; float:left; width:140px;}
-.mainbar{margin:10px; float:right; width:400px;}
-.userSideBar{
-	position : fixed;
-	top: 100px;
-	left: 10px;
-	overflow: hidden;
-	float: left;
-	width: 150px;
-	height:100%;
-	margin: 10px 10px 10px 10px;
-	border-right: solid 2px;
-
+#user_remember_me, label[for=user_remember_me]{
+	display:inline-table;
+	margin:0 auto;
 }
-.userSideBar ul li{
-	float:left;
-	margin: 10px 10px 10px 10px;
-	background:#fff;
-	
-	box-shadow:0 1px 0 #dedede;
-	-webkit-box-shadow:0 1px 0 #dedede;
-	-moz-box-shadow:0 1px 0 #dedede;
-	-o-box-shadow:0 1px 0 #dedede;
-	/*transition*/
-	transition:all .2s linear;
-	-webkit-transition:all .2s linear;
-	-moz-transition:all .2s linear;
-	-o-transition:all .2s linear;
-	opacity: 0.7;
-	-moz-opacity: 0.7;
-	filter:alpha(opacity=70);
-	}
+form#new_user{
+	margin-bottom:0px;
+}
+
+.info_table{
+	margin-top: 20px;
+	max-width:95%; 
+	border-right:0;
+}
+
+.info_table th,.info_table td{
+	border-top: 1px solid white;
+	border-left: 0;
+	border-right: 0;
+	font-family: Helvetica,Arial,sans-serif !important;
+	font-size: 18px !important;
+	padding: 15px;
+	max-width: 45%;
+}
+.userinfo{
+	font-size: 16px;
+	padding: 40px;
+}
+
+.exp_des{
+	max-width: 95%;
+}
+
+.exp_bar{
+	max-width: 85%;
+}
+
+.userindex_act{
+	min-height: 300px;
+}
+
+.userindex_fpcontent,.userindex_actcontent{
+	width: 45%;
+}
+
+.userindex_fpcontent h3,.userindex_actcontent h3,.userindex_fp h2,.userindex_act h2{
+	text-transform: uppercase;
+	font-family: 'Raleway';
+	color: white;
+}
+
+#user_sidebar{
+	max-width:250px;
+}
 
 .userContent{
-	position:absolute;
-	left: 200px;
+	margin-left: 220px;
+}
+.userindex_act, .userindex_fp{
+	display:block;
+	background-color:rgba(255,255,255,0.5);
+	
+}
+.userindex_actcontent, .userindex_fpcontent{
+	background-color:rgba(0,0,0,0.1);
+	padding: 3px;
+	display:inline-table;
+	float:none;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.userindex_actcom, .userindex_fpcom, .useredit_form{
+	width:80%;
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.userinfo{
+	display:block;
+	background-color:rgba(255,255,255,0.5);
+
+}
+.useredit_form{
+	background-color:rgba(255,255,255,0.5);
+	padding:30px 0 30px 0;
+	width:90%;
+}
+.useredit_pwds, .useredit_info{
+	display:inline-table;
+	float:none;
+}
+.useredit_cancel{
+	width:90%;
+	background-color:rgba(255,255,255,0.5);
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.useredit_info .field, .useredit_pwds .field, .useredit_submit{
+	display:table;
+	float:none;
+	margin:0 auto;
+}
+.useredit_cancel{
+	text-align:center;
+}
+.useredit_form input, .useredit_cancel input{
+	font-size:17px;
 }
 #cmncontainer{
 	float:none;
@@ -99,9 +170,6 @@ h2{
 #imgori{
 	margin-top: 0px;
 	margin-bottom:0px;
-}
-input{
-	float:left;
 }
 .reg .overlay{
 	opacity:0;
@@ -179,6 +247,7 @@ input{
 	font-size:17px;
 	text-align:center;
 	vertical-align:middle;
+	z-index:5;
 }
 .tip span{
 	position:absolute;

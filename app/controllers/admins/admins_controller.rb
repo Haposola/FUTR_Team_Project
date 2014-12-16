@@ -2,7 +2,7 @@ class Admins::AdminsController < ApplicationController
 	before_filter :authenticate_admin!
 	layout "admins"
 	def index
-		render :layout => false
+		render layout: false
 	end
 	def usrmgmt
 		@log = SignedInLog.all
@@ -24,6 +24,7 @@ class Admins::AdminsController < ApplicationController
 		redirect_to '/admins/usrmgmt/all'
 	end
 	def actmgmt
+		@activities=Activity.order(:created_at).all
 	end
 	def svcmgmt
 	end

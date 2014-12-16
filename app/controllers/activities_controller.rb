@@ -2,8 +2,23 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def list
+    category=params[:string]
+    if(category=="all")
+      activities = Activity.all
+    else
+      emails=[]
+      User.find_each(:conditions=>["category=?",category]) do |u|
+        emails << u.email
+      end
+      activities=[]
+      emails.each do |e|
+         Activity.find_each(:conditions=>["owner=?",e]) do |a|
+          activities <<a
+        end
+      end
+  end
     @pagenum = params[:id].to_i-1
-    activities = Activity.all
+
     @pagetotal = activities.length/10+1
     activitiestmp= []
     activities.each do |a|
@@ -61,6 +76,11 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
+    tags = ActTag.all
+    @tags = []
+    tags.each do |t|
+      @tags << t.name
+    end
     @activity = Activity.find(params[:id])
   end
 

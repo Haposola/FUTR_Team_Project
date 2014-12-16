@@ -1,3 +1,23 @@
-th{
-	border: solid 3px;
+#admin_html, #admin_body{
+	background-image:none;
+	height:100%;
+}
+.admin_flash{
+	float:none !important;
+	dispaly:table !important;
+	margin:0 auto !important;
+	text-align:center;
+}
+.admin_middle{
+	height:100%;
+	display:table;
+	margin:0 auto;
+	float:none;
+}
+.admin_middle table{
+	font-size:17px;
+}
+.admin_middle th{
+	margin:15px 10px 5px 10px;
+	width:30px;
 }

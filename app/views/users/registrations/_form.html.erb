@@ -1,5 +1,9 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true}) do |f| %>
   <table>
+    <tr>
+      <td>My Picture</td>
+      <td><%= f.file_field :picture%></td>
+    </tr>
     <tr>
       <td><%= f.label :email %></td>
       <td><%= f.email_field :email, autofocus: true %></td>

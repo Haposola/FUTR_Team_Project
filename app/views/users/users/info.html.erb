@@ -1,22 +1,82 @@
-<div class = "userSideBar">
-  <div>
-    <ul>
-      <li><h4><%= link_to 'User Information', '/users/info'%></h4></li>
-      <li><h4><a href="#">Ask a question</a></h4></li>
-      <li><h4><a href="/activities/new">Put a activity</a></h4></li>
-      <li><h4><%= link_to 'logout', destroy_user_session_path, :method =>'delete'%></h4></li>
-    </ul>
-  </div>
+<div class="row-fluid">
+
+<div class= "span3">
+	<div id="user_sidebar" class="well sidebar-nav" style="float:right">
+		<ul class="nav nav-list"> 
+			<li class="nav-header">Services</li>
+			<li><a href="/users/show/info">My Information<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/activities">My Activities<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/users/show/footprint">My Footprint<i class="icon-chevron-right"></i></a></li>
+
+			<br>
+			<li><a href="">Ask a question<i class="icon-chevron-right"></i></a></li>
+			<li><a href="/activities/new">Put a activity<i class="icon-chevron-right"></i></a></li>
+			<br><br><br>
+			<li><a rel="nofollow" data-method="delete" href="/users/sign_out">logout<i class="icon-chevron-right"></i></a></li>
+		</ul>
+	</div>
 </div>
-<div class ="userContent">
-  <p>Welcome! <%= current_user.nickname %></p>
-  <p><b>Email:</b><%= current_user.email %></p>
-  <p><b>Nickname:</b><%= current_user.nickname %></p>
-  <p><b>Name:</b><%= current_user.name %></p>
-  <p><b>Nation:</b><%= current_user.nation %></p>
-  <p><b>Category:</b><%= current_user.category%></p>
-  <p><b>RealNameConfirmation:</b><%= current_user.realconfirm%></p>
-  <br/>
-  <%= link_to 'Back', '/users/index' %>
-  </div>
+<div class ="userContent span9">
+	<div class="well userinfo main_container">
+		<div style="float:right;margin-right:40px;margin-bottom:30px"> <img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div>
+	Welcome! <%= current_user.nickname %><br><br>
+
+            <div> Level:<%= current_user.level %><br>
+            	Exp:<%= current_user.score %>/<%= 2**current_user.level %>
+            	<div id="bar">
+				<div class="progress progress-striped active exp_bar">
+				<div class="bar" style='width:50%;'></div>
+				</div>
+				</div>
+				<div class="exp_des" style="color:white"><i class="icon-exclamation-sign"></i>&nbsp You can get Exp by commenting service,creating service and many other activities.Higher level enables you to do more things!<br>
+				<i class="icon-arrow-up"></i>&nbsp Commenting service:1 Exp
+				<i class="icon-arrow-up"></i>&nbsp Adding Service Information:2 Exp
+				<i class="icon-arrow-up"></i>&nbsp Adding New Service:5 Exp
+				</div>
+            </div>
+
+	<table class="info_table table table-bordered table-hover" style="margin-top">
+		<tr>
+			<td>Email</td>
+			<td><%= current_user.email %></td>
+		</tr>
+		<tr>
+			<td>NickName</td>
+			<td><%= current_user.nickname %></td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><%= current_user.name %></td>
+		</tr>
+		<tr>
+			<td>Nation</td>
+			<td><%= current_user.nation %></td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td><%= current_user.category %></td>
+		</tr>
+		<tr>
+			<td>RealNameConfirmation</td>
+			<td><%= current_user.realconfirm %></td>
+		</tr>
+	</table>
+	<br/>
+	<div align="right" style="margin-right:5%;margin-bottom:5%">
+	
+	<a href="/users/edit" class="btn btn-info">Change My Information</a>
+	</div>
+	</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+var txt = document.getElementById('bar').innerHTML;
+var percent = <%= current_user.score.to_f*100/(2**current_user.level) %>;
+var txt = "<div class='progress progress-striped active exp_bar'> <div class='bar' style='width:"+percent+"%;'></div> </div>";
+document.getElementById('bar').innerHTML=txt;
+
+
+</script>
 

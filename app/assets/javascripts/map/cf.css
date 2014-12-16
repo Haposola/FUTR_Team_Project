@@ -1,0 +1,9 @@
+.ract,.ract em,.ract-box .collapse, .ract-box .expand{ background-repeat: no-repeat;}
+.ract span{display: none }
+.ract-box img{border: 0 }
+.ract-box{display: block; position: fixed; _position: absolute;bottom:2px; right: 2px; z-index: 99999; }
+.ract-feedback{bottom:27px;}
+.ract-box .expand{display: block; width: 105px; height: 53px;background-position: 0 -136px; text-indent: -9000em; outline:none; }
+.ract-box .collapse{display: block; width: 91px; height: 17px; background-position: 0px -54px; text-indent: -9000em; outline:none; position: absolute; top:-18px; left:165px }
+.ract-box .ract-content {background-color: #FAFBF8;width: 400px;height: 240px;border: 1px solid #B1B0B0;right: 0;}
+.ract-box .ract-ifr {border: 0 none;height: 100%;overflow: hidden;width: 100%;}/*  |xGv00|36657fa861e79487142d418dd2eec3fb */

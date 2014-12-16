@@ -13,7 +13,8 @@
  */
 
 
-body {background-image:url("bc.jpg");background-size: cover;background-attachment: fixed;}
+body {background-image:url("bc.jpg");background-size: cover;background-attachment: fixed;
+}
 .head_font{
 	font-family:"Raleway";
 }

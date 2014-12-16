@@ -1,1 +1,18 @@
-<h2>To be continued</h2>
+<div class="admin_middle">
+<h2>Activity Management</h2>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Owner</th>
+		<th>Tag</th>
+		<th></th>
+	</tr>
+	<% @activities.each do|a|%>
+	<tr>
+		<td><%= a.name%></td>
+		<td><%= a.owner%></td>
+		<td><%= a.tag%></td>
+		<td><%= link_to 'Destroy', activity_path(a), method: :delete, data:{confirm: "Are you sure"} %></td>
+	</tr>
+	<% end %>
+</table>

@@ -1,4 +1,6 @@
-<h1>New restaurant</h1>
+<div class="well new_service main_container">
+
+<h1>Add Service</h1>
 
 <%= form_for(@outservice_place, url:outservices_path) do |f| %>
   <% if @outservice_place.errors.any? %>
@@ -13,6 +15,8 @@
     </div>
   <% end %>
 
+  
+
   <div class="field">
     <%= f.label :service_kind %><br />
     <%= f.select(:service_kind,[['restaurant', :restaurant],['ktv', :ktv],['bar', :bar]]) %>
@@ -22,18 +26,22 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
-    <%= f.label :picture_addr %><br />
-    <%= f.text_field :picture_addr %>
+      Service Picture<br><br>
+  <%= f.file_field :picture_addr %>
   </div>
+  <br>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= submit_tag 'Submit', :class=>"btn btn-primary"%>
 <% end %>
 
+<div align="right" style="margin-right:15%">
+  <%= link_to 'Back', outservices_path %>
+</div>
 
-<%= link_to 'Back', outservices_path %>
+</div>

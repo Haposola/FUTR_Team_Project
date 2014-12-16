@@ -1,0 +1,58 @@
+
+  {
+    "source": "/assets/map/btn-intro.jpg",
+    "type": "IMAGE",
+    "size": 6785
+  },
+  {
+    "source": "/assets/map/dropdown_bg.jpg",
+    "type": "IMAGE",
+    "size": 9891
+  },
+
+  {
+    "source": "/assets/map/map_zoom_bg.png",
+    "type": "IMAGE",
+    "size": 3498
+  },
+  {
+    "source": "/assets/map/pin_hidden.png",
+    "type": "IMAGE",
+    "size": 83
+  },
+  {
+    "source": "/assets/map/pin_new.png",
+    "type": "IMAGE",
+    "size": 645
+  },
+  {
+    "source": "/assets/map/pin_video.png",
+    "type": "IMAGE",
+    "size": 1011
+  },
+  {
+    "source": "/assets/map/pin_shadow.png",
+    "type": "IMAGE",
+    "size": 844
+  },
+  {
+    "source": "/assets/map/pin_shadow_hidden.png",
+    "type": "IMAGE",
+    "size": 83
+  },
+  {
+    "source": "/assets/map/popup_bg.jpg",
+    "type": "IMAGE",
+    "size": 9309
+  },
+  {
+    "source": "/assets/map/popup_tip.png",
+    "type": "IMAGE",
+    "size": 334
+  },
+  {
+    "source": "/assets/map/popup_title_dash.png",
+    "type": "IMAGE",
+    "size": 159
+  }
+}
