@@ -188,7 +188,7 @@ legend{border:0;padding:0;white-space:normal;*margin-left:-7px}
 @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
 @-webkit-keyframes primaryBtnHover{0%{background-color:#0a4f5f}50%{background-color:#0b6378}100%{background-color:#0a4f5f}}
 @keyframes primaryBtnHover{0%{background-color:#0a4f5f}50%{background-color:#0b6378}100%{background-color:#0a4f5f}}
-html,button,input,select,textarea{color:#222}
+
 html{font-size:1em;line-height:1.4}::-moz-selection{background:#6dc0cd;text-shadow:none}::selection{background:#6dc0cd;text-shadow:none}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
 audio,canvas,img,video{vertical-align:middle}
@@ -196,9 +196,10 @@ fieldset{border:0;margin:0;padding:0}
 textarea{resize:vertical}
 .browsehappy{margin:.2em 0;background:#ccc;color:#ffffff;padding:.2em 0}
 *,*:before,*:after{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;outline:none;outline:0}
-html,body,#map{width:100%;height:100%;overflow:hidden}
+#map{width:100%;height:100%;overflow:hidden}
 body{background-color:#ffffff;font-family:tahoma,'\5FAE\8F6F\96C5\9ED1';-webkit-font-smoothing:antialiased}
-.header-body{padding-top:52px}
+.header-body{padding-top:41px;}
+html#hitmap, body.header-body{width:100%;height:100%;}
 h1,h2,h3,h4,h5{font-weight:normal;margin:0}
 ul,ol{padding:0;margin:0}
 .dropdown{position:fixed;top:0;right:-230px;bottom:0;display:block;width:230px;height:100%;background:#02171c url(//ossweb-img.qq.com/images/lol/act/a201410028rift/dropdown_bg_xs.jpg) no-repeat center top;background-size:contain;z-index:98;-webkit-transition:margin-right .5s ease-in-out;-moz-transition:margin-right .5s ease-in-out;-ms-transition:margin-right .5s ease-in-out;-o-transition:margin-right .5s ease-in-out;transition:margin-right .5s ease-in-out}
