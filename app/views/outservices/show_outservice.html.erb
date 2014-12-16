@@ -57,7 +57,8 @@ function OnClickC(p1,p2,p3,p4,p5){
 
                                 <span><%= usercomment.comment %></span></br></br>
                                 <div class="comment_destroy">
-                                    <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <!--          <%= link_to 'Destroy', delete_outservice_comments_path(:service_kind=>@outservice_place.service_kind,:name=>@outservice_place.name,:nickname=>usercomment.nickname,:comment=>usercomment.comment ), method: :delete, data: { confirm: 'Are you sure?' } %>
+                             -->    
                                 </div>
                             </div>
                             <% end %>
