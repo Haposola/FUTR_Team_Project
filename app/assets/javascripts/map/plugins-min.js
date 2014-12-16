@@ -15,32 +15,22 @@ if(!Array.prototype.indexOf){Array.prototype.indexOf=function(searchElement,from
         k++;}
     return-1;};}
 var poi={
-    "the-bases":{position:[-80.5,-133],type:"default",anchor:"bottom",popup:{title:"基地",description:"基地"}},
-    "baron-nasho":{position:[-10,-105],type:"default",anchor:"bottom",popup:{title:"Activity Center of Campas 2",description:"男爵的巢穴",src:"b0015mm6mor"}},
-    "dragon":{position:[-72.5,9],type:"default",popup:{title:"巨龙",description:"巨龙的脊背",src:"w0015f9zpct"}},
-    "red-brambleback":{position:[-74,-30],type:"default",anchor:"bottom",popup:{title:"绯红印记树怪",description:"红",src:"z0015toyfut"}},
-    "blue-sentinel":{position:[-60,37],type:"default",anchor:"bottom",popup:{title:"苍蓝雕纹魔像",description:"蓝",src:"a00156euafo"}},
-    "gromp":{position:[-20,-115],type:"default",anchor:"bottom",popup:{title:"魔沼蛙",description:"魔沼蛙",src:"z0015ywlc9b"}},
-    "the-krugs":{position:[-78,-21],type:"default",anchor:"bottom",popup:{title:"石甲虫",description:"石甲虫",src:"d00157u271i"}},
-    "the-murkwolves":{position:[-61,-90],type:"default",anchor:"bottom",popup:{title:"暗影狼",description:"暗影狼",src:"g0015hwc2lg"}},
-    "the-raptors":{position:[-45,-30],type:"default",anchor:"bottom",popup:{title:"锋喙鸟",description:"锋喙鸟",src:"p0015nr7voa"}},
-    "fail-flashes-be-gone":{position:[-49,-90],type:"default",anchor:"bottom",popup:{title:"闪现撞墙已成过去！",description:"闪现"}},
-    "inhibitor-timers":{position:[-77,-105],type:"default",anchor:"bottom",popup:{title:"召唤水晶计时器",description:"水晶重生计时器",src:"c0015ouga5t"}},
-    "destructible-structures":{position:[-46,-13],type:"default",anchor:"bottom",popup:{title:"可摧毁的建筑物",description:"逐渐崩塌",src:"n0015nwwk03"}},
-    "four-quadrants":{position:[-20,-30],anchor:"bottom",type:"default",popup:{title:"四个象限",description:"野区各自独特的观感"}},
-    "death-bush":{position:[-69,-5],type:"hidden",anchor:"bottom",popup:{title:"Death Bush",description:"Please don't face-check this. You'll die and your team will be all “WTF DOOD?!” Trust us."}}};
+    "gromp":{campus:1,position:[-20,-115],type:"default",anchor:"bottom",popup:{title:"Main Building of Campus 2",description:"Main Building of Campus 2"}},
+    "the-bases":{campus:1,position:[-80.5,-133],type:"default",anchor:"bottom",popup:{title:"基地",description:"基地"}},
+    "baron-nasho":{campus:2,position:[-10,-105],type:"default",anchor:"bottom",popup:{title:"Activity Center of Campas 2",description:"Activity Center of Campas 2"}},
+    "dragon":{campus:1,position:[-72.5,9],type:"default",popup:{title:"巨龙",description:"巨龙的脊背"}},
+    "red-brambleback":{campus:1,position:[-74,-30],type:"default",anchor:"bottom",popup:{title:"绯红印记树怪",description:"红",}},
+    "blue-sentinel":{campus:1,position:[-60,37],type:"default",anchor:"bottom",popup:{title:"苍蓝雕纹魔像",description:"蓝"}},
+    "the-krugs":{campus:1,position:[-78,-21],type:"default",anchor:"bottom",popup:{title:"石甲虫",description:"石甲虫"}},
+    "the-murkwolves":{campus:1,position:[-61,-90],type:"default",anchor:"bottom",popup:{title:"暗影狼",description:"暗影狼"}},
+    "the-raptors":{campus:1,position:[-45,-30],type:"default",anchor:"bottom",popup:{title:"锋喙鸟",description:"锋喙鸟"}},
+    "fail-flashes-be-gone":{campus:1,position:[-49,-90],type:"default",anchor:"bottom",popup:{title:"闪现撞墙已成过去！"}},
+    "inhibitor-timers":{campus:1,position:[-77,-105],type:"default",anchor:"bottom",popup:{title:"召唤水晶计时器",description:"水晶重生计时器"}},
+    "destructible-structures":{campus:1,position:[-46,-13],type:"default",anchor:"bottom",popup:{title:"可摧毁的建筑物",description:"逐渐崩塌"}},
+    "four-quadrants":{campus:1,position:[-20,-30],anchor:"bottom",type:"default",popup:{title:"四个象限",description:"野区各自独特的观感"}},
+    };
 (function(window,document,undefined){var oldL=window.L,L={};L.version='0.7.3';if(typeof module==='object'&&typeof module.exports==='object'){module.exports=L;}else if(typeof define==='function'&&define.amd){define(L);}
-    L.noConflict=function(){window.L=oldL;return this;};window.L=L;L.Util={
-    	//this 
-    	extend:function(dest){
-    		var sources=Array.prototype.slice.call(arguments,1),i,j,len,src;
-    		for(j=0,len=sources.length;j<len;j++){
-    			src=sources[j]||{};
-    			for(i in src){if(src.hasOwnProperty(i)){dest[i]=src[i];}}
-    		}
-		return dest;
-	},
-	bind:function(fn,obj){var args=arguments.length>2?Array.prototype.slice.call(arguments,2):null;return function(){return fn.apply(obj,args||arguments);};},stamp:(function(){var lastId=0,key='_leaflet_id';return function(obj){obj[key]=obj[key]||++lastId;return obj[key];};}()),invokeEach:function(obj,method,context){var i,args;if(typeof obj==='object'){args=Array.prototype.slice.call(arguments,3);for(i in obj){method.apply(context,[i,obj[i]].concat(args));}
+    L.noConflict=function(){window.L=oldL;return this;};window.L=L;L.Util={extend:function(dest){var sources=Array.prototype.slice.call(arguments,1),i,j,len,src;for(j=0,len=sources.length;j<len;j++){src=sources[j]||{};for(i in src){if(src.hasOwnProperty(i)){dest[i]=src[i];}}}return dest;},bind:function(fn,obj){var args=arguments.length>2?Array.prototype.slice.call(arguments,2):null;return function(){return fn.apply(obj,args||arguments);};},stamp:(function(){var lastId=0,key='_leaflet_id';return function(obj){obj[key]=obj[key]||++lastId;return obj[key];};}()),invokeEach:function(obj,method,context){var i,args;if(typeof obj==='object'){args=Array.prototype.slice.call(arguments,3);for(i in obj){method.apply(context,[i,obj[i]].concat(args));}
         return true;}
         return false;},
  limitExecByInterval:function(fn,time,context){var lock,execOnUnlock;return function wrapperFn(){var args=arguments;if(lock){execOnUnlock=true;return;}
@@ -141,7 +131,8 @@ var poi={
         this._clearHandlers();return this;},getCenter:function(){this._checkIfLoaded();if(this._initialCenter&&!this._moved()){return this._initialCenter;}
         return this.layerPointToLatLng(this._getCenterLayerPoint());},getZoom:function(){return this._zoom;},getBounds:function(){var bounds=this.getPixelBounds(),sw=this.unproject(bounds.getBottomLeft()),ne=this.unproject(bounds.getTopRight());return new L.LatLngBounds(sw,ne);},getMinZoom:function(){return this.options.minZoom===undefined?(this._layersMinZoom===undefined?0:this._layersMinZoom):this.options.minZoom;},getMaxZoom:function(){return this.options.maxZoom===undefined?(this._layersMaxZoom===undefined?Infinity:this._layersMaxZoom):this.options.maxZoom;},getBoundsZoom:function(bounds,inside,padding){bounds=L.latLngBounds(bounds);var zoom=this.getMinZoom()-(inside?1:0),maxZoom=this.getMaxZoom(),size=this.getSize(),nw=bounds.getNorthWest(),se=bounds.getSouthEast(),zoomNotFound=true,boundsSize;padding=L.point(padding||[0,0]);do{zoom++;boundsSize=this.project(se,zoom).subtract(this.project(nw,zoom)).add(padding);zoomNotFound=!inside?size.contains(boundsSize):boundsSize.x<size.x||boundsSize.y<size.y;}while(zoomNotFound&&zoom<=maxZoom);if(zoomNotFound&&inside){return null;}
         return inside?zoom:zoom-1;},getSize:function(){if(!this._size||this._sizeChanged){this._size=new L.Point(this._container.clientWidth,this._container.clientHeight);this._sizeChanged=false;}
-        return this._size.clone();},getPixelBounds:function(){var topLeftPoint=this._getTopLeftPoint();return new L.Bounds(topLeftPoint,topLeftPoint.add(this.getSize()));},getPixelOrigin:function(){this._checkIfLoaded();return this._initialTopLeftPoint;},getPanes:function(){return this._panes;},getContainer:function(){return this._container;},getZoomScale:function(toZoom){var crs=this.options.crs;return crs.scale(toZoom)/crs.scale(this._zoom);},getScaleZoom:function(scale){return this._zoom+(Math.log(scale)/Math.LN2);},project:function(latlng,zoom){zoom=zoom===undefined?this._zoom:zoom;return this.options.crs.latLngToPoint(L.latLng(latlng),zoom);},unproject:function(point,zoom){zoom=zoom===undefined?this._zoom:zoom;return this.options.crs.pointToLatLng(L.point(point),zoom);},layerPointToLatLng:function(point){var projectedPoint=L.point(point).add(this.getPixelOrigin());return this.unproject(projectedPoint);},latLngToLayerPoint:function(latlng){var projectedPoint=this.project(L.latLng(latlng))._round();return projectedPoint._subtract(this.getPixelOrigin());},containerPointToLayerPoint:function(point){return L.point(point).subtract(this._getMapPanePos());},layerPointToContainerPoint:function(point){return L.point(point).add(this._getMapPanePos());},containerPointToLatLng:function(point){var layerPoint=this.containerPointToLayerPoint(L.point(point));return this.layerPointToLatLng(layerPoint);},latLngToContainerPoint:function(latlng){return this.layerPointToContainerPoint(this.latLngToLayerPoint(L.latLng(latlng)));},mouseEventToContainerPoint:function(e){return L.DomEvent.getMousePosition(e,this._container);},mouseEventToLayerPoint:function(e){return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e));},mouseEventToLatLng:function(e){return this.layerPointToLatLng(this.mouseEventToLayerPoint(e));},_initContainer:function(id){var container=this._container=L.DomUtil.get(id);if(!container){throw new Error('Map container not found.');}else if(container._leaflet){throw new Error('Map container is already initialized.');}
+        return this._size.clone();},getPixelBounds:function(){var topLeftPoint=this._getTopLeftPoint();return new L.Bounds(topLeftPoint,topLeftPoint.add(this.getSize()));},getPixelOrigin:function(){this._checkIfLoaded();return this._initialTopLeftPoint;},getPanes:function(){return this._panes;},getContainer:function(){return this._container;},
+        getZoomScale:function(toZoom){var crs=this.options.crs;return crs.scale(toZoom)/crs.scale(this._zoom);},getScaleZoom:function(scale){return this._zoom+(Math.log(scale)/Math.LN2);},project:function(latlng,zoom){zoom=zoom===undefined?this._zoom:zoom;return this.options.crs.latLngToPoint(L.latLng(latlng),zoom);},unproject:function(point,zoom){zoom=zoom===undefined?this._zoom:zoom;return this.options.crs.pointToLatLng(L.point(point),zoom);},layerPointToLatLng:function(point){var projectedPoint=L.point(point).add(this.getPixelOrigin());return this.unproject(projectedPoint);},latLngToLayerPoint:function(latlng){var projectedPoint=this.project(L.latLng(latlng))._round();return projectedPoint._subtract(this.getPixelOrigin());},containerPointToLayerPoint:function(point){return L.point(point).subtract(this._getMapPanePos());},layerPointToContainerPoint:function(point){return L.point(point).add(this._getMapPanePos());},containerPointToLatLng:function(point){var layerPoint=this.containerPointToLayerPoint(L.point(point));return this.layerPointToLatLng(layerPoint);},latLngToContainerPoint:function(latlng){return this.layerPointToContainerPoint(this.latLngToLayerPoint(L.latLng(latlng)));},mouseEventToContainerPoint:function(e){return L.DomEvent.getMousePosition(e,this._container);},mouseEventToLayerPoint:function(e){return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e));},mouseEventToLatLng:function(e){return this.layerPointToLatLng(this.mouseEventToLayerPoint(e));},_initContainer:function(id){var container=this._container=L.DomUtil.get(id);if(!container){throw new Error('Map container not found.');}else if(container._leaflet){throw new Error('Map container is already initialized.');}
         container._leaflet=true;},_initLayout:function(){var container=this._container;L.DomUtil.addClass(container,'leaflet-container'+
         (L.Browser.touch?' leaflet-touch':'')+
         (L.Browser.retina?' leaflet-retina':'')+
@@ -225,10 +216,16 @@ var poi={
         if(!oldIcon||oldIcon.tagName!=='IMG'){img=this._createImg(src);}else{img=this._createImg(src,oldIcon);}
         this._setIconStyles(img,name);return img;},
         _setIconStyles:function(img,name){
-        	var options=this.options,size=L.point(options[name+'Size']),anchor;if(name==='shadow'){anchor=L.point(options.shadowAnchor||options.iconAnchor);}else{anchor=L.point(options.iconAnchor);}
-        if(!anchor&&size){anchor=size.divideBy(2,true);}
-        img.className='leaflet-marker-'+name+' '+options.className;if(anchor){img.style.marginLeft=(-anchor.x)+'px';img.style.marginTop=(-anchor.y)+'px';}
-        if(size){img.style.width=size.x+'px';img.style.height=size.y+'px';}},_createImg:function(src,el){el=el||document.createElement('img');el.src=src;return el;},_getIconUrl:function(name){if(L.Browser.retina&&this.options[name+'RetinaUrl']){return this.options[name+'RetinaUrl'];}
+        	var options=this.options,size=L.point(options[name+'Size']),anchor;
+        	if(name==='shadow'){anchor=L.point(options.shadowAnchor||options.iconAnchor);}
+        	else{anchor=L.point(options.iconAnchor);}
+        	if(!anchor&&size){anchor=size.divideBy(2,true);}
+        	img.className='leaflet-marker-'+name+' '+options.className;
+        	if(anchor){img.style.marginLeft=(-anchor.x)+'px';img.style.marginTop=(-anchor.y)+'px';}
+       	 if(size){img.style.width=size.x+'px';img.style.height=size.y+'px';}
+        }
+        ,_createImg:function(src,el){el=el||document.createElement('img');el.src=src;return el;},
+        _getIconUrl:function(name){if(L.Browser.retina&&this.options[name+'RetinaUrl']){return this.options[name+'RetinaUrl'];}
         return this.options[name+'Url'];}});L.icon=function(options){return new L.Icon(options);};L.Icon.Default=L.Icon.extend({options:{iconSize:[25,41],iconAnchor:[12,41],popupAnchor:[1,-34],shadowSize:[41,41]},_getIconUrl:function(name){var key=name+'Url';if(this.options[key]){return this.options[key];}
         if(L.Browser.retina&&name==='icon'){name+='-2x';}
         var path=L.Icon.Default.imagePath;if(!path){throw new Error('Couldn\'t autodetect L.Icon.Default.imagePath, set it manually.');}
@@ -330,7 +327,14 @@ var poi={
         this._fireMouseEvent(e);},_fireMouseEvent:function(e){if(!this.hasEventListeners(e.type)){return;}
         var map=this._map,containerPoint=map.mouseEventToContainerPoint(e),layerPoint=map.containerPointToLayerPoint(containerPoint),latlng=map.layerPointToLatLng(layerPoint);this.fire(e.type,{latlng:latlng,layerPoint:layerPoint,containerPoint:containerPoint,originalEvent:e});if(e.type==='contextmenu'){L.DomEvent.preventDefault(e);}
         if(e.type!=='mousemove'){L.DomEvent.stopPropagation(e);}}});L.Map.include({_initPathRoot:function(){if(!this._pathRoot){this._pathRoot=L.Path.prototype._createElement('svg');this._panes.overlayPane.appendChild(this._pathRoot);if(this.options.zoomAnimation&&L.Browser.any3d){L.DomUtil.addClass(this._pathRoot,'leaflet-zoom-animated');this.on({'zoomanim':this._animatePathZoom,'zoomend':this._endPathZoom});}else{L.DomUtil.addClass(this._pathRoot,'leaflet-zoom-hide');}
-        this.on('moveend',this._updateSvgViewport);this._updateSvgViewport();}},_animatePathZoom:function(e){var scale=this.getZoomScale(e.zoom),offset=this._getCenterOffset(e.center)._multiplyBy(-scale)._add(this._pathViewport.min);this._pathRoot.style[L.DomUtil.TRANSFORM]=L.DomUtil.getTranslateString(offset)+' scale('+scale+') ';this._pathZooming=true;},_endPathZoom:function(){this._pathZooming=false;},_updateSvgViewport:function(){if(this._pathZooming){return;}
+        this.on('moveend',this._updateSvgViewport);this._updateSvgViewport();}},
+
+        _animatePathZoom:function(e){
+        	var scale=this.getZoomScale(e.zoom),offset=this._getCenterOffset(e.center)._multiplyBy(-scale)._add(this._pathViewport.min);
+        	this._pathRoot.style[L.DomUtil.TRANSFORM]=L.DomUtil.getTranslateString(offset)+' scale('+scale+') ';
+        	this._pathZooming=true;
+        }
+        ,_endPathZoom:function(){this._pathZooming=false;},_updateSvgViewport:function(){if(this._pathZooming){return;}
         this._updatePathViewport();var vp=this._pathViewport,min=vp.min,max=vp.max,width=max.x-min.x,height=max.y-min.y,root=this._pathRoot,pane=this._panes.overlayPane;if(L.Browser.mobileWebkit){pane.removeChild(root);}
         L.DomUtil.setPosition(root,min);root.setAttribute('width',width);root.setAttribute('height',height);root.setAttribute('viewBox',[min.x,min.y,width,height].join(' '));if(L.Browser.mobileWebkit){pane.appendChild(root);}}});L.Path.include({bindPopup:function(content,options){if(content instanceof L.Popup){this._popup=content;}else{if(!this._popup||options){this._popup=new L.Popup(options,this);}
         this._popup.setContent(content);}
