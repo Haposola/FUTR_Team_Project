@@ -1,6 +1,10 @@
 // Place all the styles related to the outservices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.sidebar_service{
+  padding-right: 0;
+}
+
 .service{
   text-align: center;
 }
@@ -24,7 +28,7 @@
 
 .service_star{
   max-width: 60%;
-  background-color: rgba(0, 136, 204, 1);
+  background-color: rgba(0, 0, 0, 0.25);
   color:white;
   max-height: 5px;
 }

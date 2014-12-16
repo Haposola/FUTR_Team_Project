@@ -101,6 +101,9 @@ class OutservicesController < ApplicationController
     @outservice_place = Outservice_place.new(params[:outservice_place])
     @outservice_place.cnt = 0
     @outservice_place.star = 3
+    current_user.score=current_user.score+5
+    current_user.level=(Math.log(current_user.score)/Math.log(2)+1).to_i
+    current_user.save
     
 
     respond_to do |format|
@@ -151,6 +154,9 @@ class OutservicesController < ApplicationController
   def update_outservice
     @outservice_place = Outservice_place.find(:first, :conditions =>["service_kind = ? AND name = ?",
       params[:service_kind],params[:name]])
+    current_user.score=current_user.score+2
+    current_user.level=(Math.log(current_user.score)/Math.log(2)+1).to_i
+    current_user.save
     respond_to do |format|
       if @outservice_place.update_attributes(params[:outservice_place])
         format.html { redirect_to outservices_path, notice: 'Outservice was successfully updated.' }
