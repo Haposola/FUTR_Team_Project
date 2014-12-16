@@ -4,7 +4,13 @@ class QuestionsController < ApplicationController
   respond_to :html
 
   def index
-    @questions = Question.all
+    lable=params[:lable]
+    #@lable=params[:string]
+    if (lable=="all")
+       @questions = Question.all
+    else 
+       @questions = Question.where("lable = ? ", lable)
+    end
     respond_with(@questions)
   end
 
