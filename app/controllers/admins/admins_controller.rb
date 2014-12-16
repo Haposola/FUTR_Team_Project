@@ -27,8 +27,7 @@ class Admins::AdminsController < ApplicationController
 		@activities=Activity.order(:created_at).all
 	end
 	def svcmgmt
-	end
-	def svcmgmt
+		@services=Outservice::Outservice_place.order(:service_kind).all
 	end
 	def sndemail
 	end

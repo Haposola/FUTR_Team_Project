@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20141216071827) do
     t.integer  "peoNum"
     t.string   "contact"
     t.string   "description"
+    t.string "picture"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

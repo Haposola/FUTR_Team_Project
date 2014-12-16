@@ -23,6 +23,7 @@ Team::Application.routes.draw do
         passwords: 'users/passwords',
         unlocks: 'users/unlocks'
       }
+  match '/admins/sign_out' =>'admins/sessions#destroy'
   match '/admins/index' => 'admins/admins#index'
   match 'admins/usrmgmt/:id' => 'admins/admins#usrmgmt'
   match 'admins/actmgmt' =>'admins/admins#actmgmt'

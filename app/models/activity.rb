@@ -1,5 +1,7 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :contact, :description, :name, :owner, :peoNum, :tim, :tag
+	mount_uploader :picture, UserAvatarUploader
+  attr_accessible :contact, :description, :name, :owner, :peoNum, :tim, :tag, :picture
+  validates :name, :tim, :description ,presence: true
   has_many :act_tags
   has_many :com_for_acts
   has_many :q_about_acts

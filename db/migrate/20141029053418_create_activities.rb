@@ -8,7 +8,7 @@ class CreateActivities < ActiveRecord::Migration
       t.integer :peoNum
       t.string :contact
       t.string :description
-
+      t.string :picture
       t.timestamps
     end
   end

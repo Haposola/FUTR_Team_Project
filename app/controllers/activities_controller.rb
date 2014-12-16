@@ -52,7 +52,6 @@ class ActivitiesController < ApplicationController
     @comment =  ComForAct.new
     @q_about_act.activity_id = @activity.id
     @questions = QAboutAct.where("activity_id = ?", @activity.id)
-    @picpath = ActTag.check("")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @activity }

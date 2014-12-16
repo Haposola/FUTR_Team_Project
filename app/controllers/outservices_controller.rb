@@ -123,7 +123,7 @@ class OutservicesController < ApplicationController
     @outservice_place.destroy
 
     respond_to do |format|
-      format.html { redirect_to outservices_path }
+      format.html { redirect_to '/admins/svcmgmt' }
       format.json { head :no_content }
     end
   end
