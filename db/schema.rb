@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141121152823) do
+ActiveRecord::Schema.define(:version => 20141216102618) do
 
   create_table "act_tags", :force => true do |t|
     t.string   "name"
@@ -94,9 +94,22 @@ ActiveRecord::Schema.define(:version => 20141121152823) do
   create_table "qanswers", :force => true do |t|
     t.string   "Nickname"
     t.text     "Answer"
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "qanswers", ["question_id"], :name => "index_qanswers_on_question_id"
+
+  create_table "ques_ans_replies", :force => true do |t|
+    t.string   "anser"
+    t.text     "body"
+    t.integer  "qanswer_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "ques_ans_replies", ["qanswer_id"], :name => "index_ques_ans_replies_on_qanswer_id"
 
   create_table "questions", :force => true do |t|
     t.string   "Nickname"
