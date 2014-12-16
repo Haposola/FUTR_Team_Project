@@ -20,7 +20,7 @@
 	<div class="well userinfo main_container">
 		<div style="float:right;margin-right:40px;margin-bottom:30px;"> 
 			<% if current_user.picture.url!=nil %>
-			<img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div><%= current_user.picture.url %>
+			<img src=<%= current_user.picture.url %> class="img-rounded img-polaroid" style="width:80px;height:80px"></div>
 			<% else %>
 			<%= image_tag("userpic.gif",:class=>"img-rounded img-polaroid",:style=>"width:80px;height:80px") %>
 			</div>
