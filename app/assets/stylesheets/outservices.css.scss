@@ -4,7 +4,7 @@
 .sidebar_service{
   padding-right: 0;
 }
-text-align
+
 .service{
   text-align: center;
 }
@@ -31,6 +31,8 @@ text-align
   background-color: rgba(0, 0, 0, 0.25);
   color:white;
   max-height: 5px;
+  padding: 0;
+  padding-left:30px; 
 }
 
 .new_service{
@@ -115,9 +117,9 @@ width:expression(this.width >200  ? 200 : "auto");
 
 .service_sec{
   background-color: rgba(255, 255, 255, 0.5);
-  max-width:800px;
+  max-width:100%;
   border:1px white solid;
-  margin:0.5em;
+  margin:20px;
   min-height: 150px;
 }
 

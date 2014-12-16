@@ -45,7 +45,11 @@
                     </h2><% @restaurants.each do |restaurant| %>
                     <div class="well service_sec">
                         <div style="float:right;">
-                            <%= image_tag(restaurant.picture_addr,:class=>"img-polaroid") %>
+                            <% if restaurant.picture_addr.url!= nil %>
+                            <%= image_tag(restaurant.picture_addr.url,:class=>"img-polaroid") %>
+                            <% else %>
+                            <%= image_tag("lack_service_pic.jpg",:class=>"img-polaroid") %>
+                            <% end %>
                         </div>
                         <h3>
                             <%= link_to restaurant.name, show_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name) %>
@@ -54,22 +58,22 @@
                         <div class="service_dis">
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
-                                    <div class="span5">
                                     <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..restaurant.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in restaurant.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
-                                    </div>
-                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= restaurant.cnt %> people have commented)</div>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <i class="icon-thumbs-up"></i>(<%= restaurant.cnt %> people have commented)
                                 </div> 
                             </div>
                             <%= restaurant.description %>
                         </div>
-                        
+               <!--         
                         <div>
                             <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'restaurant', :name=>restaurant.name), method: :delete, data: { confirm: 'Are you sure?' } %>
                         </div>
+                -->
                     </div><% end %>
                 </div>
                 <div id="KTV" style="display:none;">
@@ -78,7 +82,11 @@
                     </h2><% @ktvs.each do |ktv| %>
                     <div class="well service_sec">
                         <div style="float:right;">
-                            <%= image_tag(ktv.picture_addr,:class=>"img-polaroid") %>
+                        <% if ktv.picture_addr.url %>
+                            <%= image_tag(ktv.picture_addr.url,:class=>"img-polaroid") %>
+                        <% else %>
+                            <%= image_tag("lack_service_pic.jpg",:class=>"img-polaroid") %>
+                        <% end %>
                         </div>
                         <h3>
                             <%= link_to ktv.name, show_outservice_path(:service_kind=>'ktv', :name=>ktv.name) %>
@@ -87,22 +95,23 @@
                         <div class="service_dis">
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
-                                    <div class="span5">
+                                    
                                     <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..ktv.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in ktv.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
-                                    </div>
-                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= ktv.cnt %> people have commented)</div>
+                                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <i class="icon-thumbs-up"></i>(<%= ktv.cnt %> people have commented)
                                 </div> 
                             </div>
                             <%= ktv.description %>
                         </div>
                         
-                        <div>
+              <!--          <div>
                             <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'ktv', :name=>ktv.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-                        </div>
+                        </div> 
+                -->
                     </div><% end %>
                 </div>
                 <div id="Bar" style="display:none;">
@@ -111,7 +120,11 @@
                     </h2><% @bars.each do |bar| %>
                     <div class="well service_sec">
                         <div style="float:right;">
-                            <%= image_tag(bar.picture_addr,:class=>"img-polaroid") %>
+                        <% if bar.picture_addr.url!=nil %>
+                            <%= image_tag(bar.picture_addr.url,:class=>"img-polaroid") %>
+                        <% else %>
+                            <%= image_tag("lack_service_pic.jpg",:class=>"img-polaroid") %>
+                        <% end %>
                         </div>
                         <h3>
                             <%= link_to bar.name, show_outservice_path(:service_kind=>'bar', :name=>bar.name) %>
@@ -119,22 +132,23 @@
                         <div class="service_dis">
                             <div style="margin-bottom:20px">
                                 <div class="row-fluid service_star well">
-                                    <div class="span5">
+                                    
                                     <i class=" icon-heart"></i>star(s):
                                     <% for i  in 1..bar.star.to_i %><i class="icon-star"></i>
                                     <% end %>
                                     <% for i in bar.star.to_i+1..5 %><i class="icon-star-empty"></i>
                                     <% end %>
-                                    </div>
-                                    <div class="span6" ><i class="icon-thumbs-up"></i>(<%= bar.cnt %> people have commented)</div>
+                                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <i class="icon-thumbs-up"></i>(<%= bar.cnt %> people have commented)
                                 </div> 
                             </div>
                             <%= bar.description %>
                         </div>
-
+            <!--
                         <div>
                             <%= link_to 'Destroy', delete_outservice_path(:service_kind=>'bar', :name=>bar.name), method: :delete, data: { confirm: 'Are you sure?' } %>
                         </div>
+            -->
                     </div><% end %>
                 </div>
 
