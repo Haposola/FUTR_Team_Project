@@ -16,16 +16,16 @@
 </div>
 <div class ="userContent">
 	<div class="well userinfo main_container">
-	Welcome! <%= current_user.nickname %>
+	Welcome! <%= current_user.nickname %><br><br>
 
-            <div>Exp:<%= current_user.score %>/<%= 2**current_user.level %>
+            <div> Level:<%= current_user.level %><br>
+            	Exp:<%= current_user.score %>/<%= 2**current_user.level %>
             	<div id="bar">
 				<div class="progress progress-striped active exp_bar">
-				<div class="bar" style='width:87.5%;'></div>
+				<div class="bar" style='width:50%;'></div>
 				</div>
 				</div>
             </div>
-        Level:<%= current_user.level %>
 
 	<table class="info_table table table-bordered table-hover" style="margin-top">
 		<tr>
@@ -53,23 +53,23 @@
 			<td><%= current_user.realconfirm %></td>
 		</tr>
 	</table>
-
-	<p><b>Group</b><%=current_user.group%></p>
-	<p><b>Score</b><%=current_user.score%></p>
-
 	<br/>
-	<%= link_to 'Edit', '/users/edit'%> |
-	<%= link_to 'Back', '/users/index' %>
+	<div align="right" style="margin-right:5%;margin-bottom:5%">
+	
+	<a href="/users/edit" class="btn btn-info">
+
+    Change My Information
+
+</a>
+</div>
 	</div>
 </div>
 
 <script type="text/javascript">
 var txt = document.getElementById('bar').innerHTML;
-alert(txt);
 var percent = <%= current_user.score.to_f*100/(2**current_user.level) %>;
-var txt = "<div class='progress progress-striped active exp_bar'>
-				<div class='bar' style="width:87.5%;"></div>
-				</div>"
+var txt = "<div class='progress progress-striped active exp_bar'> <div class='bar' style='width:"+percent+"%;'></div> </div>";
+document.getElementById('bar').innerHTML=txt;
 
 
 </script>
