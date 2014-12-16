@@ -54,7 +54,6 @@ Team::Application.routes.draw do
 
 
   match 'hitmap' => 'hitmap#index'
-  match 'hitmap2' => 'hitmap#another'
 
 
   #resources :outservices

@@ -1,6 +1,5 @@
 class HitmapController < ApplicationController
   def index
-  end
-  def another
+  	render :layout =>false
   end
 end

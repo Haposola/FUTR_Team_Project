@@ -1,0 +1,77 @@
+{
+  "files": [{
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/intro-bg.jpg",
+    "type": "IMAGE",
+    "size": 480891
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/intro-frame.png",
+    "type": "IMAGE",
+    "size": 564640
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/title-welcome.png",
+    "type": "IMAGE",
+    "size": 8517
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/btn-intro.jpg",
+    "type": "IMAGE",
+    "size": 6785
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/dropdown_bg.jpg",
+    "type": "IMAGE",
+    "size": 9891
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/logo_lol.png",
+    "type": "IMAGE",
+    "size": 7356
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/map_zoom_bg.png",
+    "type": "IMAGE",
+    "size": 3498
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/pin_hidden.png",
+    "type": "IMAGE",
+    "size": 83
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/pin_new.png",
+    "type": "IMAGE",
+    "size": 645
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/pin_video.png",
+    "type": "IMAGE",
+    "size": 1011
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/pin_shadow.png",
+    "type": "IMAGE",
+    "size": 844
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/pin_shadow_hidden.png",
+    "type": "IMAGE",
+    "size": 83
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/popup_bg.jpg",
+    "type": "IMAGE",
+    "size": 9309
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/popup_tip.png",
+    "type": "IMAGE",
+    "size": 334
+  },
+  {
+    "source": "http://ossweb-img.qq.com/images/lol/act/a201410028rift/popup_title_dash.png",
+    "type": "IMAGE",
+    "size": 159
+  }]
+}

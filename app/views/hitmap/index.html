@@ -1,81 +1,132 @@
-<html> 
-<head>
-<title>HIT map</title>
-<style type="text/css"> 
-#window {
-	width:1200px;
-	height:500px;
-	border: 100px solid #ccc;
-	background-image: url('assets/map/0.jpg');
-	background-repeat: no-repeat;
-	cursor: move;
-}
+<!DOCTYPE html>
 
-</style>
-
-<script type="text/javascript"> 
-<!--
-var p = new Array();
-var speed = 0.03; 
-var picWidth=2567;
-var picHeight=1613;
-var x,y; 
-var x_new,y_new;
-var haveclick = false;
- 
-function getmouseposition(event)
-{
-	if(document.all)
-	{
-		x = document.body.scrollLeft+event.clientX;
-		y = document.body.scrollTop+event.clientY;
-	}else
-	{
-		x = event.layerX;
-		y = event.layerY;
-	}	
-	haveclick = true;
-}
-function movestop()
-{
-	haveclick = false;
-}
- 
-function movestart(event)
-{
-if(haveclick)
-{
-	if(document.getElementById("window").style.backgroundPosition.length==0)
-		{document.getElementById("window").style.backgroundPosition="0px 0px";}
-	p = document.getElementById("window").style.backgroundPosition.split(" ")
- 
-	if(document.all)
-	{	
-		x_new = document.body.scrollLeft+event.clientX;
-		y_new = document.body.scrollTop+event.clientY;
-	}else
-	{	 
-		x_new = event.layerX;
-		y_new = event.layerY;	
-	}
-	
-	x2 = (speed*(x_new-x)+parseInt(p[0])).toString(10); 
-	y2 = (speed*(y_new-y)+parseInt(p[1])).toString(10);
-	
-	if (x2<800-picWidth) x2=800-picWidth;
-	if (y2>0) y2=0;
-	if (x2>0) x2=0;
-	if (y2<800-picHeight) y2=800-picHeight;
- 	document.getElementById("window").style.backgroundPosition=x2+"px "+y2+"px";
-}
-}
--->
-</script>
-</head>
- 
-<body>
-
-<div id="window" onmousedown="getmouseposition(event)" onmousemove="movestart(event)" 
-                 onmouseup="movestop()" onmouseout="movestop()" > </div>
-</body>
-</html>
+<html>
+	<head>
+	<link rel="stylesheet" href="assets/map/main-min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="assets/map/cf.css">
+	<link href="/assets/twitter-bootstrap-static/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" media="all" href="assets/twitter-boostrap-static/fontawesome.css?body=1">
+	<link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css">
+	<link href="/assets/animate.css?body=1" media="all" rel="stylesheet" type="text/css">
+	<link href="/assets/bootstrap_and_overrides .css?body=1" media="all" rel="stylesheet" type="text/css">
+	<link href="/assets/scaffolds.css?body=1" media="all" rel="stylesheet" type="text/css">
+	<script>var base = document.createElement('a');base.href=location.href.replace(/\#.*$/, '');</script>
+    
+    
+    </head>
+    <body class="header-body loaded dropdown-active intro-hidden">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand head_font" href="#">HITTER</a>
+        <div class="nav-collapse">
+          <div id="navbar-container">
+            <ul class="nav head_font">
+              <li><%=  link_to 'HOME', '/'%></li>
+              <li><%= link_to 'HIT MAP', '/hitmap'%></li>
+              <li><%= link_to 'HIT JOINS','/activities/all/page/1' %></li>
+              <li><%= link_to 'HIT SERVES', outservices_path %></li>
+              <li><a href="/questions">HIT KNOWS</a></li>
+              <li></li>
+            </ul>
+          </div>
+          <ul class ="nav nav-right head_font">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, '/users/index' %></li>
+          <% else %>
+            <li><%= link_to 'Sign In',new_user_session_path%></li>
+          <% end %>
+        </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+		<div id="map" class="leaflet-container leaflet-fade-anim popup-active" tabindex="0">
+			<div class="leaflet-map-pane" style="transform: translate3d(0px, 180px, 0px);">
+				<div class="leaflet-tile-pane">
+					<div class="leaflet-layer">
+						<div class="leaflet-tile-container"></div>
+						<div class="leaflet-tile-container leaflet-zoom-animated"></div>
+				</div>
+				<div class="leaflet-control-container">
+				<div class="leaflet-top leaflet-left"></div>
+				<div class="leaflet-top leaflet-right"></div>
+				<div class="leaflet-bottom leaflet-left"></div>
+				<div class="leaflet-bottom leaflet-right">
+				<div class="leaflet-control-minimap leaflet-control">
+					<img class="leaflet-control-minimap-image" src="assets/map/minimap_small.jpg">
+					<div class="leaflet-control-minimap-reticule" style="left: 6.26619170984456%; top: 76.1759259259259%; width: 22.1178756476684%; height: 11.863425925926%;">
+						<div class="leaflet-control-minimap-reticule-fill"></div>
+					</div>
+					<a class="leaflet-control-minimap-toggle-display" href="javascript:void('Hide MiniMap')" title="隐藏小地图"></a>
+					<div class="overlay overlay-the-bases"></div>
+				</div>
+				<div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="http://lol.qq.com/act/a20141028rift/#" title="">+</a><a class="leaflet-control-zoom-out" href="http://lol.qq.com/act/a20141028rift/#" title="">-</a></div><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | © TGideas -- Powered by smallniding</div></div></div></div>
+				<div id="fullscreen-container" class="leaflet-container leaflet-container-mobile">
+					<div class="leaflet-popup-content-wrapper">
+						<a href="javascript:void('close');" class="leaflet-popup-close-button close-button">×</a>
+						<div class="content"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<script src="assets/map/jquery-1.11.1.min.js"></script>
+        	<script src="assets/map/loader.js"></script>
+        	<script src="assets/map/plugins-min.js"></script>
+			<script src="assets/map/milo-min.js"></script>
+			<script type="text/javascript" src="assets/map/reporting.js"></script>
+			<script>
+				var	showDialogs=function(o){
+					need("biz.dialog",function(Dialog){
+						Dialog.show({
+							id:o,
+							bgcolor:"#000",
+							opacity:60
+						});
+					});
+					return;
+				},
+				hidDialogs=function(){
+					console.log(000000)
+					return;
+					need("biz.dialog",function(Dialog){Dialog.hide();});return;
+				},
+				hideP = function(o){
+					$(o).hide();
+					$("#cover").hide();
+				},
+				showP=function(o){
+					var a=$(o),
+						b=$("#cover"),
+						c=document.documentElement.clientHeight;
+					a.show();
+					b.show();
+					b.css('height',c+"px");
+				};
+			</script>
+        	<script src="assets/map/main-min.js"></script>
+		<script src="assets/map/ping_tcss_ied.js"></script>
+		<script>
+			if(document.documentMode && document.documentMode < 9){
+				$('html').addClass('ltie')
+				if(document.documentMode < 8){$('.chromeframe').show()}
+			}
+			var _url=(window.location.search+"?").split("?")[1];
+			if(_url.length>0){
+				var paramArray = _url.split("&");
+				for(var i=0;i<paramArray.length;++i) {
+					var paramPair=paramArray[i].split("=");
+					if(paramArray[0] == "pop"){
+						$('.landing').hide()
+						$('#poi-carousel').removeClass('hidden').owlCarousel({
+							loop:false,dots: false,margin:0,items: 4,slideBy: 3,nav:true,responsive : {
+								768 : {items: 4},930 : {items: 5},1116 : {items: 6},1302 : {items: 7},
+								1488 : {items: 8},1674 : {items: 9},1860 : {items: 10},2046 : {items: 11},
+								navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
+							});}}
+				}
+				if(typeof(pgvMain) == 'function'){pgvMain();}
+		</script>

@@ -24,6 +24,7 @@ class Admins::AdminsController < ApplicationController
 		redirect_to '/admins/usrmgmt/all'
 	end
 	def actmgmt
+		@activities=Activity.all.order(:created_at)
 	end
 	def svcmgmt
 	end
