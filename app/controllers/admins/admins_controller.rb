@@ -2,7 +2,7 @@ class Admins::AdminsController < ApplicationController
 	before_filter :authenticate_admin!
 	layout "admins"
 	def index
-		render :layout => false
+		render layout: false
 	end
 	def usrmgmt
 		@log = SignedInLog.all

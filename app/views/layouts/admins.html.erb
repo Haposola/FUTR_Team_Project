@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="admin_html">
 <head>
-<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "application", media: "all" %>
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= csrf_meta_tags %>
 </head>
-<body>
+<body id="admin_body">
+<div class="admin_flash span6">
+          <%= bootstrap_flash %>
+        </div>
 <%= yield %>
 <%= link_to 'Back', '/admins/index' %>
 </body>
